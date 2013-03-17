@@ -25,7 +25,7 @@ var Kiosk = (function($, window, document, undefined) {
       },
 
       pageContent: function() {
-        var source = $("#page-content").html();
+        var source = $("#set-content").html();
         var template = Handlebars.compile(source);
         var context = {
           content: 'Page content is being displayed dynamically from javascript templates.'
@@ -40,10 +40,10 @@ var Kiosk = (function($, window, document, undefined) {
         var context = {
           title: 'Weather Buoys',
           buoys: [
-            { href : "/front", id : "buoy-1", name : "Buoy #1" },
-            { href : "/front", id : "buoy-2", name : "Buoy #2" },
-            { href : "/front", id : "buoy-3", name : "Buoy #3" },
-            { href : "/front", id : "buoy-4", name : "Buoy #4" }
+            { href : "#", id : "BUOY1", name : "Buoy #1", display_id: 'services_1' },
+            { href : "#", id : "BUOY2", name : "Buoy #2", display_id: 'services_2' },
+            { href : "#", id : "BUOY3", name : "Buoy #3", display_id: 'services_1' },
+            { href : "#", id : "BUOY4", name : "Buoy #4", display_id: 'services_2' }
           ]
         };
 
@@ -68,7 +68,31 @@ var Kiosk = (function($, window, document, undefined) {
 
     util: {
       // nothing yet
+    },
+
+    articles: function(id, display_id) {
+      // wipe the container
+      $("#drupal-news").html('');
+
+      var source = $("#set-articles").html();
+      var template = Handlebars.compile(source);
+      var context = {
+        items: [{}],
+        id: id
+      };
+
+      Zepto.ajax({
+        type: "GET",
+        dataType: "jsonp",
+        url: 'http://d7sandbox.com:8082/test/views/services_test?display_id=' + display_id,
+        success: function (data) {
+          $.each(data, function(key, val) {
+            context.items.push({'content' : val.body.und[0].value, 'title' : val.title});
+          });
+
+          $("#drupal-news").fadeIn('slow').html(template(context));
+        }
+      });
     }
   }
-
 })(typeof Zepto === 'function' ? Zepto : jQuery, this, this.document);
