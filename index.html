@@ -16,11 +16,10 @@
 
 <div class="row">
   <div class="large-12 columns">
-    <div class="large-8 columns" id="page-title">
-      <script id="set-title" type="text/x-handlebars-template">
-        <h2>{{ title }}</h2>
-      </script>
-    </div>
+    <div class="large-8 columns" id="page-title"></div>
+    <script id="set-title" type="text/x-handlebars-template">
+      <h2>{{ title }}</h2>
+    </script>
 
     <div class="large-4 columns">
       <p>Search form</p>
@@ -31,44 +30,54 @@
 
 <div class="row">
   <div class="large-8 columns">
-    <h3>Display Area (Dynamic)</h3>
-
     <div class="row">
       <div class="large-12 columns">
-        <div class="panel" id="main-content">
-          <script id="page-content" type="text/x-handlebars-template">
+        <div class="panel">
+          <div id="main-content"></div>
+          <script id="set-content" type="text/x-handlebars-template">
             <p>{{ content }}</p>
+          </script>
+
+          <div id="drupal-news"></div>
+          <script id="set-articles" type="text/x-handlebars-template">
+            {{#if items.length}}
+            <h4>{{ id }} Information</h4>
+            {{#each items}}
+            <article class="drupal">
+              <h4>{{ title }}</h4>
+              {{ content }}
+            </article>
+            {{/each}}
+            {{/if}}
           </script>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="large-4 columns" id="weather">
-    <script id="weather-link" type="text/x-handlebars-template">
-      <h4>{{ title }}</h4>
-      <ul>
-        {{#each buoys}}
-        <li><a href="{{ href }}" id="{{ id }}" class="button">{{ name }}</a></li>
-        {{/each}}
-      </ul>
-    </script>
-  </div>
+  <div class="large-4 columns" id="weather"></div>
+  <script id="weather-link" type="text/x-handlebars-template">
+    <h4>{{ title }}</h4>
+    <ul>
+      {{#each buoys}}
+      <li><a href="#" id="{{ id }}" class="button" onclick="Kiosk.articles('{{ id }}', '{{ display_id }}'); return false;">{{ name }}</a></li>
+      {{/each}}
+    </ul>
+  </script>
 </div>
 
 <div class="row">
   <div class="large-12 columns">
-    <nav class="top-bar" id="footer-navigation">
-      <script id="navigation" type="text/x-handlebars-template">
-        <section class="top-bar-section">
-          <ul class="left">
-            {{#each navigation}}
-            <li><a href="{{ href }}" id="{{ id }}" class="">{{ name }}</a></li>
-            {{/each}}
-          </ul>
-        </section>
-      </script>
-    </nav>
+    <nav class="top-bar" id="footer-navigation"></nav>
+    <script id="navigation" type="text/x-handlebars-template">
+      <section class="top-bar-section">
+        <ul class="left">
+          {{#each navigation}}
+          <li><a href="{{ href }}" id="{{ id }}" class="">{{ name }}</a></li>
+          {{/each}}
+        </ul>
+      </section>
+    </script>
   </div>
 </div>
 
@@ -86,7 +95,6 @@
 <script src="javascripts/foundation/foundation.topbar.js"></script>
 <script src="javascripts/vendor/handlebars.min.js"></script>
 <script src="javascripts/custom/application.js"></script>
-
 <script>$(document).foundation();</script>
 </body>
 </html>
