@@ -1,0 +1,6 @@
+<h4>{{ title }}</h4>
+<ul>
+  {{#each buoys}}
+  <li><a href="#" id="{{ id }}" class="button" onclick="Kiosk.articles('{{ id }}', '{{ display_id }}'); return false;">{{ name }}</a></li>
+  {{/each}}
+</ul>

@@ -56,28 +56,11 @@
   </div>
 
   <div class="large-4 columns" id="weather"></div>
-  <script id="weather-link" type="text/x-handlebars-template">
-    <h4>{{ title }}</h4>
-    <ul>
-      {{#each buoys}}
-      <li><a href="#" id="{{ id }}" class="button" onclick="Kiosk.articles('{{ id }}', '{{ display_id }}'); return false;">{{ name }}</a></li>
-      {{/each}}
-    </ul>
-  </script>
 </div>
 
 <div class="row">
   <div class="large-12 columns">
     <nav class="top-bar" id="footer-navigation"></nav>
-    <script id="navigation" type="text/x-handlebars-template">
-      <section class="top-bar-section">
-        <ul class="left">
-          {{#each navigation}}
-          <li><a href="{{ href }}" id="{{ id }}" class="">{{ name }}</a></li>
-          {{/each}}
-        </ul>
-      </section>
-    </script>
   </div>
 </div>
 
@@ -90,7 +73,6 @@
 <script src="javascripts/foundation/foundation.js"></script>
 <script src="javascripts/foundation/foundation.clearing.js"></script>
 <script src="javascripts/foundation/foundation.cookie.js"></script>
-<script src="javascripts/foundation/foundation.dropdown.js"></script>
 <script src="javascripts/foundation/foundation.forms.js"></script>
 <script src="javascripts/foundation/foundation.topbar.js"></script>
 <script src="javascripts/vendor/handlebars.min.js"></script>
