@@ -35,34 +35,46 @@ var Kiosk = (function($, window, document, undefined) {
       },
 
       generateBuoys: function() {
-        var source = $("#weather-link").html();
-        var template = Handlebars.compile(source);
-        var context = {
-          title: 'Weather Buoys',
-          buoys: [
-            { href : "#", id : "BUOY1", name : "Buoy #1", display_id: 'services_1' },
-            { href : "#", id : "BUOY2", name : "Buoy #2", display_id: 'services_2' },
-            { href : "#", id : "BUOY3", name : "Buoy #3", display_id: 'services_1' },
-            { href : "#", id : "BUOY4", name : "Buoy #4", display_id: 'services_2' }
-          ]
-        };
+        Zepto.ajax({
+          url: '/templates/buoys/index.html',
+          type: 'GET',
+          cache: true,
+          success: function (data) {
+            template = Handlebars.compile(data);
+            var context = {
+              title: 'Weather Buoys',
+              buoys: [
+                { href : "#", id : "BUOY1", name : "Buoy #1", display_id: 'services_1' },
+                { href : "#", id : "BUOY2", name : "Buoy #2", display_id: 'services_2' },
+                { href : "#", id : "BUOY3", name : "Buoy #3", display_id: 'services_1' },
+                { href : "#", id : "BUOY4", name : "Buoy #4", display_id: 'services_2' }
+              ]
+            };
 
-        $("div#weather").append(template(context));
+            $("div#weather").append(template(context));
+          }
+        });
       },
 
       generateNavigation: function() {
-        var source = $("#navigation").html();
-        var template = Handlebars.compile(source);
-        var context = {
-          navigation: [
-            { href : "/front", id : "history", name : "History" },
-            { href : "/front", id : "collections", name : "Collections" },
-            { href : "/front", id : "videos", name : "Videos" },
-            { href : "/front", id : "news", name : "News" }
-          ]
-        };
+        Zepto.ajax({
+          url: '/templates/navigation/main.html',
+          type: 'GET',
+          cache: true,
+          success: function (data) {
+            template = Handlebars.compile(data);
+            var context = {
+              navigation: [
+                { href : "/front", id : "history", name : "History" },
+                { href : "/front", id : "collections", name : "Collections" },
+                { href : "/front", id : "videos", name : "Videos" },
+                { href : "/front", id : "news", name : "News" }
+              ]
+            };
 
-        $("#footer-navigation").append(template(context));
+            $("#footer-navigation").append(template(context));
+          }
+        });
       }
     },
 
