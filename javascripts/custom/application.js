@@ -36,7 +36,7 @@ var Kiosk = (function($, window, document, undefined) {
 
       generateBuoys: function() {
         Zepto.ajax({
-          url: '/templates/buoys/index.html',
+          url: './templates/buoys/index.html',
           type: 'GET',
           cache: true,
           success: function (data) {
@@ -58,7 +58,7 @@ var Kiosk = (function($, window, document, undefined) {
 
       generateNavigation: function() {
         Zepto.ajax({
-          url: '/templates/navigation/main.html',
+          url: './templates/navigation/main.html',
           type: 'GET',
           cache: true,
           success: function (data) {
