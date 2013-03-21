@@ -3,6 +3,13 @@ var Kiosk = (function($, window, document, undefined) {
     Kiosk.go();
   });
 
+  var jsonFeeds = {
+    proggit: 'http://www.reddit.com/r/programming/.json',
+    tech: 'http://www.reddit.com/r/technology/.json',
+    webdev: 'http://www.reddit.com/r/webdev/.json',
+    drupal: 'http://www.reddit.com/r/drupal/.json'
+  };
+
   return {
     go: function() {
       var i, j = this.init;
@@ -36,7 +43,7 @@ var Kiosk = (function($, window, document, undefined) {
 
       generateBuoys: function() {
         Zepto.ajax({
-          url: './templates/buoys/index.html',
+          url: '/templates/buoys/index.html',
           type: 'GET',
           cache: true,
           success: function (data) {
@@ -44,10 +51,10 @@ var Kiosk = (function($, window, document, undefined) {
             var context = {
               title: 'Weather Buoys',
               buoys: [
-                { href : "#", id : "BUOY1", name : "Buoy #1", display_id: 'services_1' },
-                { href : "#", id : "BUOY2", name : "Buoy #2", display_id: 'services_2' },
-                { href : "#", id : "BUOY3", name : "Buoy #3", display_id: 'services_1' },
-                { href : "#", id : "BUOY4", name : "Buoy #4", display_id: 'services_2' }
+                { href : "#", id : "BUOY1", name : "Buoy #1", feed_id: 'proggit' },
+                { href : "#", id : "BUOY2", name : "Buoy #2", feed_id: 'tech' },
+                { href : "#", id : "BUOY3", name : "Buoy #3", feed_id: 'webdev' },
+                { href : "#", id : "BUOY4", name : "Buoy #4", feed_id: 'drupal' }
               ]
             };
 
@@ -58,7 +65,7 @@ var Kiosk = (function($, window, document, undefined) {
 
       generateNavigation: function() {
         Zepto.ajax({
-          url: './templates/navigation/main.html',
+          url: '/templates/navigation/main.html',
           type: 'GET',
           cache: true,
           success: function (data) {
@@ -82,24 +89,25 @@ var Kiosk = (function($, window, document, undefined) {
       // nothing yet
     },
 
-    articles: function(id, display_id) {
+    articles: function(id, feed_id) {
       // wipe the container
       $("#drupal-news").html('');
 
       var source = $("#set-articles").html();
       var template = Handlebars.compile(source);
       var context = {
-        items: [{}],
-        id: id
+        items: [],
+        id: feed_id
       };
 
       Zepto.ajax({
         type: "GET",
         dataType: "jsonp",
-        url: 'http://d7sandbox.com:8082/test/views/services_test?display_id=' + display_id,
-        success: function (data) {
-          $.each(data, function(key, val) {
-            context.items.push({'content' : val.body.und[0].value, 'title' : val.title});
+        cache: true,
+        url: jsonFeeds[feed_id] + '?jsonp=?',
+        success: function (result) {
+          $.each(result.data.children, function(key, val) {
+            context.items.push({'title' : val.data.title, 'permalink': {url: val.data.permalink, text: val.data.title}, 'score': val.data.score, 'num_comments': val.data.num_comments});
           });
 
           $("#drupal-news").fadeIn('slow').html(template(context));
@@ -108,3 +116,9 @@ var Kiosk = (function($, window, document, undefined) {
     }
   }
 })(typeof Zepto === 'function' ? Zepto : jQuery, this, this.document);
+
+Handlebars.registerHelper('link', function(object) {
+  return new Handlebars.SafeString(
+      "<a href='" + object.url + "'>" + object.text + "</a>"
+  );
+});
