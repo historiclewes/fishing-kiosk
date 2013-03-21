@@ -41,11 +41,15 @@
           <div id="drupal-news"></div>
           <script id="set-articles" type="text/x-handlebars-template">
             {{#if items.length}}
-            <h4>{{ id }} Information</h4>
+            <h4>Top News from {{ id }} Subreddit</h4>
             {{#each items}}
             <article class="drupal">
               <h4>{{ title }}</h4>
-              {{ content }}
+              <ul>
+                <li>Score: {{ score }}</li>
+                <li>Comments: {{ num_comments }}</li>
+                <li>Link: {{{link permalink}}}</li>
+              </ul>
             </article>
             {{/each}}
             {{/if}}
