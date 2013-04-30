@@ -1,5 +1,5 @@
 // Required global settings and mixins for Foundation
-@import "foundation/foundation-global";
+//@import "foundation/foundation-global";
 
 // Settings file to override Foundation variables
 
@@ -7,6 +7,13 @@
 // doc page. We tried to name them to where they'd make sense just by reading them.
 // Go to http://foundation.zurb.com/docs/ to find what you need.
 
+//SITEWIDE STYLES
+
+$blue: #023142;
+$red: #a22621;
+$tan: #e8e1ce;
+$brown: #86725e;
+$gray: #8c8c8c;
 //
 // Foundation Global Variables
 //
@@ -15,7 +22,7 @@
 // $em-base: 16px;
 
 // We use these to control various global styles
-// $body-bg: #fff;
+$body-bg: #eae2cf;
 // $body-font-color: #222;
 // $body-font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
 // $body-font-weight: normal;
@@ -28,8 +35,8 @@
 // $text-direction: ltr;
 
 // We use these as default colors throughout
-// $primary-color: #2ba6cb;
-// $secondary-color: #e9e9e9;
+$primary-color: $blue;
+$secondary-color: $red;
 // $alert-color: #c60f13;
 // $success-color: #5da423;
 
@@ -50,9 +57,9 @@
 // Grid Variables
 //
 
-// $row-width: 62.5em;
+$row-width: 95%;
 // $column-gutter: 1.875em;
-// $total-columns: 12;
+$total-columns: 12;
 
 //
 // Block Grid Variables
