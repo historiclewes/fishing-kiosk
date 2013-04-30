@@ -1,0 +1,181 @@
+//LOAD LOCAL FONTS
+
+@font-face {
+  font-family: "Meddon";
+  src: url("../fonts/Meddon/Meddon.eot?") format("eot"), url("Meddon.woff") format("woff"), url("Meddon.ttf") format("truetype"), url("Meddon.svg#Meddon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'RokkittRegular';
+  src: url('../fonts/Rokkitt/Rokkitt-webfont.eot');
+  src: url('../fonts/Rokkitt/Rokkitt-webfont.eot?#iefix') format('embedded-opentype'), url('Rokkitt-webfont.woff') format('woff'), url('Rokkitt-webfont.ttf') format('truetype'), url('Rokkitt-webfont.svg#RokkittRegular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+body {
+  background: url('../images/diver.png') bottom right no-repeat, url('../images/site-background.png') top left repeat;
+  min-height: 768px;
+  padding-bottom:120px;
+}
+
+#header-background {
+  background: url('../images/logo-steering-wheel.png') top left no-repeat;
+  height: 220px;
+}
+
+#page-title h2 {
+  text-align: center;
+  font-family: 'Meddon';
+  margin-top: 25px;
+  color: $blue;
+
+}
+
+#site-footer {
+  @include box-shadow(0 0 10px rgba(0, 0, 0, .4));
+  background: url('../images/footer-background.png') top left repeat;
+  padding-top: 5px;
+  position: fixed;
+  bottom: 0;
+
+  nav ul li  a {
+    color: #023142;
+    font-size: 28px;
+    font-family: 'Rokkitt';
+    font-weight: bold;
+    border: dotted 2px $brown;
+    padding: 0 12px 1px;
+    margin: 5px 3px;
+    background-color: rgba(255, 255, 255, .45);
+    @include border-radius(10px);
+
+    &:hover {
+      cursor: pointer;
+      background-color: $blue;
+      border-color: $tan;
+
+    }
+  }
+  a {
+
+    &:active, &:hover {
+      color: $tan;
+    }
+
+  }
+}
+
+#site-footer {
+  max-height: 105px;
+
+  nav ul.inline-list {
+    margin-bottom: 0;
+  }
+
+  //
+  li.home {
+    background: url('../images/home-link-image.png') center -5px no-repeat;
+
+  }
+  li.the-bay {
+    background: url('../images/the-bay-link-image.png') center -5px no-repeat;
+
+  }
+  li.history {
+    background: url('../images/history-link-image.png') center -5px no-repeat;
+
+  }
+  li.collection {
+    background: url('../images/collection-link-image.png') center -5px no-repeat;
+
+  }
+  li.videos {
+
+    background: url('../images/videos-link-image.png') center -5px no-repeat;
+  }
+  li.cannonball-house {
+    background: url('../images/cannonball-house-link-image.png') center -5px no-repeat;
+
+  }
+
+  li {
+    padding-top: 30px;
+    &:hover {
+      background-position: center -150px;
+    }
+  }
+}
+
+#newsletter {
+  background: url(../images/newsletter-signup-bg.png) top right no-repeat;
+  padding: 15px 10px 20px 10px;
+
+  span {
+    font-family: 'Rokkitt';
+    font-weight: bold;
+    color: $blue;
+    text-align: center;
+    font-size: 16px;
+  }
+
+  a {
+    font-family: 'Meddon';
+    color: $blue;
+    text-align: center;
+    font-size: 18px;
+    padding-right: 30px;
+    background: url('../images/join-today.png') right 13px no-repeat;
+    &:hover {
+      color: $blue;
+      text-decoration: underline;
+    }
+
+  }
+
+}
+
+#search {
+
+  background: url('../images/search-background.png') top left no-repeat;
+
+  input {
+    background-color: transparent;
+    border: none;
+    @include box-shadow(none);
+    -webkit-appearance: none;
+    color: $gray;
+    font-family: "Rokkitt";
+    font-size: 24px;
+    width: 160px;
+    height: 30px;
+    padding: 0;
+    margin:20px 10px  20px 0;
+  }
+
+  button.telescope-button {
+    border: none;
+    background: none;
+    @include box-shadow(none);
+    display: block;
+    background: url('../images/telescope.png') center right no-repeat;
+    position: absolute;
+    display: block;
+    top: 10px;
+    left: 170px;
+
+  }
+
+  .search-wrapper {
+    border-bottom: dotted $gray 2px;
+    display:block;
+    width:auto;
+    height: 45px;
+    width: 185px;
+    margin-left: 10px;
+  }
+
+}
