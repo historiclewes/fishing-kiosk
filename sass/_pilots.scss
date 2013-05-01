@@ -19,19 +19,41 @@
 body {
   background: url('../images/diver.png') bottom right no-repeat, url('../images/site-background.png') top left repeat;
   min-height: 768px;
-  padding-bottom:120px;
+  padding-bottom: 120px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Meddon';
+
+}
+
+.button {
+  background-color: #3c4b53;
+  &:hover {
+    background-color: #9f8e78;
+  }
 }
 
 #header-background {
   background: url('../images/logo-steering-wheel.png') top left no-repeat;
-  height: 220px;
+  height: 150px;
 }
 
 #page-title h2 {
   text-align: center;
-  font-family: 'Meddon';
   margin-top: 25px;
   color: $blue;
+
+}
+
+h2.block-title {
+  color: $red;
+  font-size: 18px;
+}
+
+.block-radius {
+  border: dotted 2px $brown;
+  @include border-radius(10px);
 
 }
 
@@ -79,7 +101,7 @@ body {
   //
   li.home {
     background: url('../images/home-link-image.png') center -5px no-repeat;
-
+    margin-left: 0;
   }
   li.the-bay {
     background: url('../images/the-bay-link-image.png') center -5px no-repeat;
@@ -153,7 +175,7 @@ body {
     width: 160px;
     height: 30px;
     padding: 0;
-    margin:20px 10px  20px 0;
+    margin: 20px 10px 20px 0;
   }
 
   button.telescope-button {
@@ -171,11 +193,91 @@ body {
 
   .search-wrapper {
     border-bottom: dotted $gray 2px;
-    display:block;
-    width:auto;
+    display: block;
+    width: auto;
     height: 45px;
     width: 185px;
     margin-left: 10px;
+  }
+
+}
+
+#bay-map {
+  background: url('../images/the-bay-frame.png') top left no-repeat;
+  padding: 0 30px 0 0;
+  min-height: 510px;
+
+  h2.block-title {
+    margin: -45px 0 16px;
+    background: url(../images/title-stars.png) center 2px no-repeat;
+    padding-top: 25px;
+  }
+
+  .map {
+    border: solid thin $gray;
+    @include box-shadow(0 0 10px rgba(0, 0, 0, .15));
+    width: 425px;
+    margin-left: 40px;
+  }
+
+  span {
+    color: $blue;
+    font-size: 14px;
+    font-family: "Rokkitt";
+  }
+
+}
+
+#current-conditions-block {
+
+  background: url('../images/the-bay-images-sprite.png') 10px 0px no-repeat;
+  height: 320px;
+
+  h2.block-title {
+    margin-top: -20px;
+    font-size: 25px;
+  }
+
+}
+
+#buoy-stations {
+
+  background: url("../images/buoy-stations-graphic.png") top left no-repeat;
+  height: 100px;
+  background-position: 0 10px;
+  overflow: visible;
+  margin-top: -50px;
+  padding-top: 50px;
+
+  h2.block-title {
+    margin-top: -17px;
+    letter-spacing: -1px;
+  }
+  .navigation {
+    li {
+      list-style:none;
+      background: url('../images/navigation-buttons.png')  left 18px no-repeat;
+      padding-left:40px;
+    }
+    padding-top:25px;
+  .button{
+    margin:5px 0;
+  }}
+
+}
+
+[class*="column"]+[class*="column"]:last-child {
+  float: left;
+}
+
+#waves-tides {
+
+  .waves-tides-header {
+    background: url('../images/the-bay-images-sprite.png') 0 -320px no-repeat;
+    height: 40px;
+  }
+  .block-radius {
+    margin: 0 10px;
   }
 
 }
