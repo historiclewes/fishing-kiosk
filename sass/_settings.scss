@@ -57,8 +57,8 @@ $secondary-color: $red;
 // Grid Variables
 //
 
-$row-width: 95%;
-// $column-gutter: 1.875em;
+$row-width: 96%;
+$column-gutter: 1.875em;
 $total-columns: 12;
 
 //
@@ -237,8 +237,8 @@ $total-columns: 12;
 // $button-margin-bottom: emCalc(20px);
 
 // We use these to control button text styles.
-// $button-font-family: inherit;
-// $button-font-color: #fff;
+$button-font-family: 'Rokkitt';
+$button-font-color: #e8e1ce;
 // $button-font-color-alt: #333;
 // $button-font-med: emCalc(16px);
 // $button-font-tny: emCalc(11px);
@@ -251,12 +251,12 @@ $total-columns: 12;
 // $button-function-factor: 10%;
 
 // We use these to control button border styles.
-// $button-border-width: 1px;
-// $button-border-style: solid;
+$button-border-width: 0;
+$button-border-style: none;
 // $button-border-color: darken($primary-color, $button-function-factor);
 
 // We use this to set the default radius used throughout the core.
-// $button-radius: $global-radius;
+$button-radius: 8px;
 
 // We use this to set default opacity for disabled buttons.
 // $button-disabled-opacity: 0.6;

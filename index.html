@@ -21,17 +21,20 @@
 <!-- ***************** -->
 
 
-<div id="header-background" class="row">
-  <div class="large-12 columns">
-    <div class="large-6 large-offset-3 columns" id="page-title"></div>
-    <script id="set-title" type="text/x-handlebars-template">
-      <h2>{{ title }}</h2>
-    </script>
+<div id="header-background">
+  <div class="row">
+    <div class="large-12 columns">
+      <div class="large-6 large-offset-3 columns" id="page-title"></div>
+      <script id="set-title" type="text/x-handlebars-template">
+        <h2>{{ title }}</h2>
+      </script>
 
-    <div id="search" class="large-3 columns">
-      <div class="search-wrapper">
-      <input type="text" class="your-label-class large-1 columns" placeholder="Search">
-      <button type="submit" value="" class="telescope-button"></button></div>
+      <div id="search" class="large-3 columns">
+        <div class="search-wrapper">
+          <input type="text" class="your-label-class large-1 columns" placeholder="Search">
+          <button type="submit" value="" class="telescope-button"></button>
+        </div>
+      </div>
     </div>
   </div>
 </div>
@@ -42,40 +45,83 @@
 <!-- ***************** -->
 <!-- ***************** -->
 <!-- ***************** -->
+<!--<div class="row">-->
+<!--<div class="large-8 columns">-->
+<!--<div class="row">-->
+<!--<div class="large-12 columns">-->
+<!--<div class="panel">-->
+<!--<div id="main-content"></div>-->
+
+
+<!--<script id="set-content" type="text/x-handlebars-template">-->
+<!--<p>{{ content }}</p>-->
+<!--</script>-->
+
+<!--<div id="drupal-news"></div>-->
+<!--<script id="set-articles" type="text/x-handlebars-template">-->
+<!--{{#if items.length}}-->
+<!--<h4>Top News from {{ id }} Subreddit</h4>-->
+<!--{{#each items}}-->
+<!--<article class="drupal">-->
+<!--<h4>{{ title }}</h4>-->
+<!--<ul>-->
+<!--<li>Score: {{ score }}</li>-->
+<!--<li>Comments: {{ num_comments }}</li>-->
+<!--<li>Link: {{{link permalink}}}</li>-->
+<!--</ul>-->
+<!--</article>-->
+<!--{{/each}}-->
+<!--{{/if}}-->
+<!--</script>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+
+<!--<div class="large-4 columns" id="weather"></div>-->
+<!--</div>-->
+<!-- BEGIN THE BAY PAGE -->
+<!-- ***************** -->
+<!-- ***************** -->
+<!-- ***************** -->
+<!-- ***************** -->
 <div class="row">
-  <div class="large-8 columns">
-    <div class="row">
-      <div class="large-12 columns">
-        <div class="panel">
-          <div id="main-content"></div>
+  <div class="large-5 columns text-center" id="bay-map">
+    <h2 class="block-title">Current<br/> Shipping Traffic</h2>
 
-
-          <script id="set-content" type="text/x-handlebars-template">
-            <p>{{ content }}</p>
-          </script>
-
-          <div id="drupal-news"></div>
-          <script id="set-articles" type="text/x-handlebars-template">
-            {{#if items.length}}
-            <h4>Top News from {{ id }} Subreddit</h4>
-            {{#each items}}
-            <article class="drupal">
-              <h4>{{ title }}</h4>
-              <ul>
-                <li>Score: {{ score }}</li>
-                <li>Comments: {{ num_comments }}</li>
-                <li>Link: {{{link permalink}}}</li>
-              </ul>
-            </article>
-            {{/each}}
-            {{/if}}
-          </script>
-        </div>
-      </div>
+    <div class="map">
+      <img src="http://placehold.it/425x415"/>
+    </div>
+    <div class="large-12 columns"><span class="text-center">Touch a ship to view more information</span>
     </div>
   </div>
 
-  <div class="large-4 columns" id="weather"></div>
+
+  <div class="large-5 columns" id="current-conditions-block">
+    <h2 class="block-title text-center">Current Conditions</h2>
+  </div>
+  <div class="large-2 columns" id="buoy-stations">
+    <h2 class="block-title text-center">Buoy Stations</h2>
+
+    <div class="navigation">
+      <li><a class="button radius" href="#">Station SJSN 4</a></li>
+      <li><a class="button radius" href="#">Station SJSN 4</a></li>
+      <li><a class="button radius" href="#">Station SJSN 4</a></li>
+      <li><a class="button radius" href="#">Station SJSN 4</a></li>
+    </div>
+  </div>
+  <div class="large-6 columns" id="waves-tides">
+    <div class="row waves-tides-header">
+      <div class="waves-tides-header"></div>
+      <div class="large-7 columns  block-radius">
+        <h2 class="block-title text-center">Waves</h2>
+      </div>
+
+      <div class="large-4 columns block-radius">
+        <h2 class="block-title text-center">Tides</h2>
+      </div>
+    </div>
+  </div>
 </div>
 
 
