@@ -39,92 +39,9 @@
   </div>
 </div>
 
-
-<!-- BEGIN PAGE CONTENT -->
-<!-- ***************** -->
-<!-- ***************** -->
-<!-- ***************** -->
-<!-- ***************** -->
-<!--<div class="row">-->
-<!--<div class="large-8 columns">-->
-<!--<div class="row">-->
-<!--<div class="large-12 columns">-->
-<!--<div class="panel">-->
-<!--<div id="main-content"></div>-->
-
-
-<!--<script id="set-content" type="text/x-handlebars-template">-->
-<!--<p>{{ content }}</p>-->
-<!--</script>-->
-
-<!--<div id="drupal-news"></div>-->
-<!--<script id="set-articles" type="text/x-handlebars-template">-->
-<!--{{#if items.length}}-->
-<!--<h4>Top News from {{ id }} Subreddit</h4>-->
-<!--{{#each items}}-->
-<!--<article class="drupal">-->
-<!--<h4>{{ title }}</h4>-->
-<!--<ul>-->
-<!--<li>Score: {{ score }}</li>-->
-<!--<li>Comments: {{ num_comments }}</li>-->
-<!--<li>Link: {{{link permalink}}}</li>-->
-<!--</ul>-->
-<!--</article>-->
-<!--{{/each}}-->
-<!--{{/if}}-->
-<!--</script>-->
-<!--</div>-->
-<!--</div>-->
-<!--</div>-->
-<!--</div>-->
-
-<!--<div class="large-4 columns" id="weather"></div>-->
-<!--</div>-->
-<!-- BEGIN THE BAY PAGE -->
-<!-- ***************** -->
-<!-- ***************** -->
-<!-- ***************** -->
-<!-- ***************** -->
-<div class="row">
-  <div class="large-5 columns text-center" id="bay-map">
-    <h2 class="block-title">Current<br/> Shipping Traffic</h2>
-
-    <div class="map">
-      <img src="http://placehold.it/425x415"/>
-    </div>
-    <div class="large-12 columns"><span class="text-center">Touch a ship to view more information</span>
-    </div>
-  </div>
-
-
-  <div class="large-5 columns" id="current-conditions-block">
-    <h2 class="block-title text-center">Current Conditions</h2>
-  </div>
-  <div class="large-2 columns" id="buoy-stations">
-    <h2 class="block-title text-center">Buoy Stations</h2>
-
-    <div class="navigation">
-      <li><a class="button radius" href="#">Station SJSN 4</a></li>
-      <li><a class="button radius" href="#">Station SJSN 4</a></li>
-      <li><a class="button radius" href="#">Station SJSN 4</a></li>
-      <li><a class="button radius" href="#">Station SJSN 4</a></li>
-    </div>
-  </div>
-  <div class="large-6 columns" id="waves-tides">
-    <div class="row waves-tides-header">
-      <div class="waves-tides-header"></div>
-      <div class="large-7 columns  block-radius">
-        <h2 class="block-title text-center">Waves</h2>
-      </div>
-
-      <div class="large-4 columns block-radius">
-        <h2 class="block-title text-center">Tides</h2>
-      </div>
-    </div>
-  </div>
+<div id="main-content">
+<h1>Hello</h1>
 </div>
-
-
 <!-- BEGIN FOOTER -->
 <!-- ***************** -->
 <!-- ***************** -->
@@ -135,8 +52,8 @@
     <div class="large-10 columns">
       <nav id="footer-navigation">
         <ul class="inline-list">
-          <li class="home"><a href="index.html">Home</a></li>
-          <li class="the-bay"><a href="#">The Bay</a></li>
+          <li class="home"><a id="home" href="#"  onclick="Kiosk.page('templates/home/index.html'); return false;">Home</a></li>
+          <li class="the-bay"><a id="the-bay" href="#" onclick="Kiosk.page('templates/the-bay/index.html'); return false;">The Bay</a></li>
           <li class="history"><a href="#">History</a></li>
           <li class="collection"><a href="#">Collection</a></li>
           <li class="videos"><a href="#">Videos</a></li>

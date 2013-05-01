@@ -24,14 +24,29 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Meddon';
+}
 
+h3,h4,h5,h6 {
+  font-family:'Rokkitt';
+  color:$blue;
 }
 
 .button {
-  background-color: #3c4b53;
+  background-color: #9f8e78;
+
   &:hover {
-    background-color: #9f8e78;
+    background-color: #3c4b53;
+
   }
+}
+
+
+span.red-span {
+  font-family: Arial;
+  color: $red;
+  line-height: 37px;
+  margin-left: 10px;
+  font-size: 22px;
 }
 
 #header-background {
@@ -41,8 +56,9 @@ h1, h2, h3, h4, h5, h6 {
 
 #page-title h2 {
   text-align: center;
-  margin-top: 25px;
+  margin-top: 32px;
   color: $blue;
+  font-size: 25px;
 
 }
 
@@ -238,6 +254,25 @@ h2.block-title {
     font-size: 25px;
   }
 
+  h4 {
+    font-size:20px;
+    margin-bottom:0;
+
+  }
+
+  span {
+    color:$red;
+    font-size:18px;
+  }
+
+  #temperature { margin-top:30px;
+
+  } #pressure { margin-top:25px;
+
+  } #windspeed { margin-top:30px;
+
+  }
+
 }
 
 #buoy-stations {
@@ -255,14 +290,15 @@ h2.block-title {
   }
   .navigation {
     li {
-      list-style:none;
-      background: url('../images/navigation-buttons.png')  left 18px no-repeat;
-      padding-left:40px;
+      list-style: none;
+      background: url('../images/navigation-buttons.png') left -42px no-repeat;
+      padding-left: 40px;
     }
-    padding-top:25px;
-  .button{
-    margin:5px 0;
-  }}
+    padding-top: 25px;
+    .button {
+      margin: 5px 0;
+    }
+  }
 
 }
 
@@ -279,5 +315,13 @@ h2.block-title {
   .block-radius {
     margin: 0 10px;
   }
+
+  h4 {
+    color: $blue;
+    font-size: 22px;
+    font-family: Rokkitt;
+  }
+
+
 
 }
