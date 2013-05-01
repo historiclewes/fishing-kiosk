@@ -27,9 +27,27 @@ body {
   @include border-radius(8px);
   width: 60%;
   left: 60%;
+
   border: dotted 2px $brown;
 
 }
+
+//
+//.reveal-modal .close-reveal-modal {
+//  color: $tan;
+//  font-family: 'Meddon';
+//  background-color: $brown;
+//  border: dotted 2px $tan;
+//  @include border-radius(999px);
+//  @include box-shadow(0 0 5px rgba(0, 0, 0, .2));
+//  width: 25px;
+//  height: 25px;
+//  font-size: 34px;
+//  padding: 0;
+//  line-height: 13px;
+//  z-index:20;
+//
+//}
 
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Meddon';
@@ -63,9 +81,8 @@ h3, h4, h5, h6 {
 }
 
 p {
-  font-size: 14px;
-  font-weight: bold;
-  line-height: 16px;
+  font-size: 16px;
+  line-height: 20px;
   color: #2c2c2c;
 }
 
@@ -261,22 +278,23 @@ h2.block-title {
 }
 
 //HOMEPAGE LAYOUT
+#homepage {
+  .slideshow {
+    a.collections {
+      position: absolute;
+      font-size: 22px;
+      position: absolute;
+      top: 35px;
+      right: 130px;
+      padding-left: 34px;
+      background: url('../images/pointer-right.png') center left no-repeat;
+      color: $red;
+    }
+    margin-top: -30px;
+    background: url('../images/slideshow-background.png') top left no-repeat;
+    min-height: 550px;
 
-#slideshow {
-  a.collections {
-    position: absolute;
-    font-size: 22px;
-    position: absolute;
-    top: 35px;
-    right: 130px;
-    padding-left: 34px;
-    background: url('../images/pointer-right.png') center left no-repeat;
-    color: $red;
   }
-  margin-top: -30px;
-  background: url('../images/slideshow-background.png') top left no-repeat;
-  min-height: 550px;
-
 }
 
 #videos-cta, #history-cta {
@@ -433,4 +451,60 @@ h2.block-title {
 
 #videos {
   margin-top: -20px;
+}
+
+#collection {
+
+  .slideshow {
+    height: 400px;
+    margin-top: 20px;
+    background: url('../images/collections-slideshow.png') top left no-repeat;
+
+  }
+
+  #collection-teaser {
+    .content {
+      padding-top: 30px;
+      overflow: auto;
+      max-height: 472px;
+
+    }
+  }
+
+  .collection-teaser-top, .collection-teaser-bottom {
+    background: url('../images/teaser-fade.png') top left repeat-x;
+    z-index: 1000;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 57px;
+    display: block;
+    width: 100%;
+  }
+
+  .collection-teaser-bottom {
+
+    top: 416px;
+    background-position: 0 -57px;
+  }
+
+  .artifact-teaser {
+    border: solid 2px #8d7d69;
+    padding:20px 10px;
+    @include box-shadow(0 0 5px rgba(0, 0, 0, .4));
+    margin:20px 0;
+  }
+
+  a.collections {
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-align: right;
+    position: relative;
+  }
+
+  .collection-slideshow {
+    height:345px;
+  }
+
 }

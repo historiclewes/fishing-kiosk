@@ -43,7 +43,7 @@ var Kiosk = (function($, window, document, undefined) {
       },
 
       pageContent: function() {
-       Kiosk.page('templates/videos/index.html');
+       Kiosk.page('templates/collection/index.html');
 
 //        $("div#main-content").append(template(context));
       }
