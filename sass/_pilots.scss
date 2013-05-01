@@ -2,7 +2,7 @@
 
 @font-face {
   font-family: "Meddon";
-  src: url("../fonts/Meddon/Meddon.eot?") format("eot"), url("Meddon.woff") format("woff"), url("Meddon.ttf") format("truetype"), url("Meddon.svg#Meddon") format("svg");
+  src: url("../fonts/Meddon/Meddon.eot?") format("eot");
   font-weight: normal;
   font-style: normal;
 }
@@ -26,9 +26,22 @@ h1, h2, h3, h4, h5, h6 {
   font-family: 'Meddon';
 }
 
-h3,h4,h5,h6 {
-  font-family:'Rokkitt';
-  color:$blue;
+h3, h4, h5, h6 {
+  font-family: 'Rokkitt';
+  color: $blue;
+}
+
+.red-header {
+  color: $red;
+  font-size: 24px;
+}
+
+.rokkitt {
+  font-family: 'Rokkitt';
+}
+
+.meddon {
+  font-family: 'Meddon';
 }
 
 .button {
@@ -40,6 +53,12 @@ h3,h4,h5,h6 {
   }
 }
 
+p {
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 16px;
+  color: #2c2c2c;
+}
 
 span.red-span {
   font-family: Arial;
@@ -72,6 +91,18 @@ h2.block-title {
   @include border-radius(10px);
 
 }
+
+
+.pointer-left {
+  background: url('../images/pointer-left.png') center right no-repeat;
+  padding-right:40px;
+}
+
+.pointer-right {
+  background: url('../images/pointer-right.png') center left no-repeat;
+  padding-left:40px;
+}
+
 
 #site-footer {
   @include box-shadow(0 0 10px rgba(0, 0, 0, .4));
@@ -106,7 +137,9 @@ h2.block-title {
 
   }
 }
-
+#homepage-cta  {
+  padding-bottom:20px;
+}
 #site-footer {
   max-height: 105px;
 
@@ -218,6 +251,67 @@ h2.block-title {
 
 }
 
+//HOMEPAGE LAYOUT
+
+#slideshow {
+  a.collections {
+    position: absolute;
+    font-size: 22px;
+    position: absolute;
+    top: 35px;
+    right: 130px;
+    padding-left: 34px;
+    background: url('../images/pointer-right.png') center left no-repeat;
+    color: $red;
+  }
+  margin-top: -30px;
+  background: url('../images/slideshow-background.png') top left no-repeat;
+  min-height: 550px;
+
+}
+
+#videos-cta, #history-cta {
+  height: 200px;
+
+
+  a {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    font-size: 22px;
+  }
+
+}
+
+#videos-cta {
+  background: url('../images/videos.png') left 20px no-repeat;
+  a {
+    background: url('../images/pointer-right.png') center left no-repeat;
+    padding-left: 40px;
+
+  }
+}
+
+#history-cta {
+  background: url('../images/history.png') left 85px no-repeat;
+  a {
+    padding-right: 40px;
+
+    background: url('../images/pointer-left.png') center right no-repeat;
+
+  }
+}
+
+#whale-divider {
+  height: 40px;
+  margin-top:20px;
+  display: block;
+  background: url('../images/whale-divider.png') top left no-repeat;
+
+}
+
+//PILOTS ON THE BAY PAGE
+
 #bay-map {
   background: url('../images/the-bay-frame.png') top left no-repeat;
   padding: 0 30px 0 0;
@@ -255,21 +349,26 @@ h2.block-title {
   }
 
   h4 {
-    font-size:20px;
-    margin-bottom:0;
+    font-size: 20px;
+    margin-bottom: 0;
 
   }
 
   span {
-    color:$red;
-    font-size:18px;
+    color: $red;
+    font-size: 18px;
   }
 
-  #temperature { margin-top:30px;
+  #temperature {
+    margin-top: 30px;
 
-  } #pressure { margin-top:25px;
+  }
+  #pressure {
+    margin-top: 25px;
 
-  } #windspeed { margin-top:30px;
+  }
+  #windspeed {
+    margin-top: 30px;
 
   }
 
@@ -321,7 +420,5 @@ h2.block-title {
     font-size: 22px;
     font-family: Rokkitt;
   }
-
-
 
 }
