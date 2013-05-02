@@ -17,9 +17,20 @@
 }
 
 body {
-  background: url('../images/diver.png') bottom right no-repeat, url('../images/site-background.png') top left repeat;
+  background: url('../images/site-background.png') top left repeat;
   min-height: 768px;
   padding-bottom: 120px;
+}
+
+#diver-man {
+  background: url('../images/diver.png') bottom right no-repeat;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  display: block;
+  width: 160px;
+  height: 370px;
+  z-index: 0;
 }
 
 .reveal-modal {
@@ -134,7 +145,7 @@ h2.block-title {
   padding-top: 5px;
   position: fixed;
   bottom: 0;
-
+  z-index: 100;
   nav ul li  a {
     color: #023142;
     font-size: 28px;
@@ -160,6 +171,15 @@ h2.block-title {
     }
 
   }
+}
+
+.slideshow-frame {
+  margin: 82px 0 0 56px;
+
+  img {
+    @include border-radius(8px);
+  }
+
 }
 
 #homepage-cta {
@@ -314,7 +334,7 @@ h2.block-title {
   a {
     background: url('../images/pointer-right.png') center left no-repeat;
     padding-left: 40px;
-
+    right: 35px;
   }
 }
 
@@ -385,6 +405,10 @@ h2.block-title {
     font-size: 18px;
   }
 
+  #current-conditions {
+    padding-left: 21px;
+  }
+
   #temperature {
     margin-top: 30px;
 
@@ -450,7 +474,12 @@ h2.block-title {
 }
 
 #videos {
-  margin-top: -20px;
+  margin-bottom: -20px;
+
+  h4 {
+    margin-top: 20px;
+  }
+
 }
 
 #collection {
@@ -458,7 +487,7 @@ h2.block-title {
   .slideshow {
     height: 400px;
     margin-top: 20px;
-    background: url('../images/collections-slideshow.png') top left no-repeat;
+    background: url('../images/collections-slideshow.png') 13px 0px no-repeat;
 
   }
 
@@ -490,9 +519,16 @@ h2.block-title {
 
   .artifact-teaser {
     border: solid 2px #8d7d69;
-    padding:20px 10px;
+    padding: 15px 0 0 0;
     @include box-shadow(0 0 5px rgba(0, 0, 0, .4));
-    margin:20px 0;
+    margin: 15px 0;
+
+    h4 {
+      margin-bottom: 0;
+    }
+    p {
+      margin: 0 0 15px 0;
+    }
   }
 
   a.collections {
@@ -504,7 +540,57 @@ h2.block-title {
   }
 
   .collection-slideshow {
-    height:345px;
+    height: 345px;
+
+    img {
+      margin: 46px 0 0 48px;
+      @include border-radius(6px);
+    }
+
+  }
+  .collections-cta {
+    margin-top: 20px;
+    padding: 10px 0 0 20px;
+  }
+}
+
+.artifact {
+
+  h2 {
+    color: #432e12;
+  }
+  img {
+    border: solid 2px #8d7d69;
+
+  }
+  h6.meddon {
+    color: $red;
+    margin-top: 0;
   }
 
+  h5 {
+    display: inline;
+  }
+  span.red-span {
+    margin-bottom: 20px;
+  }
+
+  .block-radius {
+    padding: 15px;
+    margin: 0 15px;
+    min-height:210px;
+  }
+
+  .artifact-divider {
+    background: url('../images/artifact-divider.png') top left no-repeat;
+    height: 40px;
+
+  }
 }
+
+.news-teaser {
+  border: solid 2px #8d7d69;
+  padding: 15px;
+  @include box-shadow(0 0 5px rgba(0, 0, 0, .4));
+  margin: 15px;
+display:block;}

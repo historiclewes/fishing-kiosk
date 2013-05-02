@@ -43,7 +43,7 @@ var Kiosk = (function($, window, document, undefined) {
       },
 
       pageContent: function() {
-       Kiosk.page('templates/collection/index.html');
+       Kiosk.page('templates/news/index.html');
 
 //        $("div#main-content").append(template(context));
       }
@@ -110,7 +110,7 @@ var Kiosk = (function($, window, document, undefined) {
       Zepto.ajax({
         type: "GET",
         dataType: "jsonp",
-        cache: true,
+        cache: false,
         url: jsonFeeds[feed_id] + '?jsonp=?',
         success: function (result) {
           $.each(result.data.children, function(key, val) {
