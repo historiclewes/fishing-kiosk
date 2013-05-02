@@ -32,7 +32,7 @@
       <div id="search" class="large-3 columns">
         <div class="search-wrapper">
           <input type="text" class="your-label-class large-1 columns" placeholder="Search">
-          <button type="submit" value="" class="telescope-button"></button>
+          <button type="submit" value="" class="telescope-button" onclick="Kiosk.page('templates/search/index.html'); return false;"></button>
         </div>
       </div>
     </div>
@@ -84,24 +84,85 @@
   <div class="small-2 columns">
     <a href="#" class="button prefix">Action</a>
   </div>
+  <a class="close-reveal-modal">×</a>
 </div>
+
+
+<div id="videoModal1" class="reveal-modal large-8">
+  <div class="flex-video"
+       style="-webkit-transform-origin: 0px 0px; opacity: 0; -webkit-transform: scale(1, 1); -webkit-transition: opacity 0.1s linear; transition: opacity 0.1s linear; display: none;">
+    <iframe src="http://player.vimeo.com/video/30708149?title=0&amp;byline=0&amp;portrait=0&amp;color=ffffff"
+            width="100%" height="400" frameborder="0" webkitAllowFullScreen mozallowfullscreen
+            allowFullScreen></iframe>
+    <a class="close-reveal-modal">×</a>
+  </div>
+</div>
+
+<div id="videoModal2" class="reveal-modal large-8">
+  <div class="flex-video"
+       style="-webkit-transform-origin: 0px 0px; opacity: 0; -webkit-transform: scale(1, 1); -webkit-transition: opacity 0.1s linear; transition: opacity 0.1s linear; display: none;">
+    <iframe src="http://player.vimeo.com/video/30708149?title=0&amp;byline=0&amp;portrait=0&amp;color=ffffff"
+            width="100%" height="400" frameborder="0" webkitAllowFullScreen mozallowfullscreen
+            allowFullScreen></iframe>
+    <a class="close-reveal-modal">×</a>
+  </div>
+</div>
+
+<div id="videoModal3" class="reveal-modal large-8">
+  <div class="flex-video"
+       style="-webkit-transform-origin: 0px 0px; opacity: 0; -webkit-transform: scale(1, 1); -webkit-transition: opacity 0.1s linear; transition: opacity 0.1s linear; display: none;">
+    <iframe src="http://player.vimeo.com/video/64686559?title=0&amp;byline=0&amp;portrait=0" width="100%"
+            height="400" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+    <a class="close-reveal-modal">×</a>
+  </div>
+</div>
+
+<div id="videoModal4" class="reveal-modal large-8">
+  <div class="flex-video"
+       style="-webkit-transform-origin: 0px 0px; opacity: 0; -webkit-transform: scale(1, 1); -webkit-transition: opacity 0.1s linear; transition: opacity 0.1s linear; display: none;">
+    <iframe src="http://player.vimeo.com/video/65014898?title=0&amp;byline=0&amp;portrait=0" width="100%"
+            height="400" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+    <a class="close-reveal-modal">×</a>
+  </div>
+</div>
+
+<div id="videoModal5" class="reveal-modal large-8">
+  <div class="small-10 columns">
+    <div class="flex-video"
+         style="-webkit-transform-origin: 0px 0px; opacity: 0; -webkit-transform: scale(1, 1); -webkit-transition: opacity 0.1s linear; transition: opacity 0.1s linear; display: none;">
+      <iframe src="http://player.vimeo.com/video/46974187?title=0&amp;byline=0&amp;portrait=0" width="100%"
+              height="400" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+      <a class="close-reveal-modal">×</a>
+    </div>
+  </div></div>
+
+  <div id="videoModal6" class="reveal-modal large-8">
+    <div class="flex-video"
+         style="-webkit-transform-origin: 0px 0px; opacity: 0; -webkit-transform: scale(1, 1); -webkit-transition: opacity 0.1s linear; transition: opacity 0.1s linear; display: none;">
+      <iframe src="http://player.vimeo.com/video/46974187?title=0&amp;byline=0&amp;portrait=0" width="100%"
+              height="400" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+      <a class="close-reveal-modal">×</a>
+    </div>
+  </div>  <div id="diver-man"></div>
+
+
 <script>
-  document.write('<script src=' +
-      ('__proto__' in {} ? 'javascripts/vendor/zepto' : 'javascripts/vendor/jquery') +
-      '.js><\/script>')
-</script>
+    document.write('<script src=' +
+        ('__proto__' in {} ? 'javascripts/vendor/zepto' : 'javascripts/vendor/jquery') +
+        '.js><\/script>')
+  </script>
 
-<script src="javascripts/foundation/foundation.js"></script>
-<script src="javascripts/foundation/foundation.clearing.js"></script>
-<script src="javascripts/foundation/foundation.cookie.js"></script>
-<script src="javascripts/foundation/foundation.forms.js"></script>
-<script src="javascripts/foundation/foundation.reveal.js"></script>
-<script src="javascripts/foundation/foundation.topbar.js"></script>
-<script src="javascripts/vendor/handlebars.min.js"></script>
-<script src="javascripts/custom/application.js"></script>
-<script src="javascripts/foundation/foundation.orbit.js"></script>
+  <script src="javascripts/foundation/foundation.js"></script>
+  <script src="javascripts/foundation/foundation.clearing.js"></script>
+  <script src="javascripts/foundation/foundation.cookie.js"></script>
+  <script src="javascripts/foundation/foundation.forms.js"></script>
+  <script src="javascripts/foundation/foundation.reveal.js"></script>
+  <script src="javascripts/foundation/foundation.topbar.js"></script>
+  <script src="javascripts/vendor/handlebars.min.js"></script>
+  <script src="javascripts/custom/application.js"></script>
+  <script src="javascripts/foundation/foundation.orbit.js"></script>
 
-<script>$(document).foundation();</script>
+  <script>$(document).foundation();</script>
 
 </body>
 </html>
