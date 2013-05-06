@@ -15,13 +15,15 @@ var Kiosk = (function($, window, document, undefined) {
 
   // define our services endpoints back to the parent application
   var services = {
-    history: 'kiosk/views/kiosk_nodes?display_id=block_1'
+    history: 'kiosk/views/kiosk_nodes?display_id=block_1',
+    news: '',
+    collections: '',
+    nodeDetail: ''
   }
 
   var jsonFeeds = {
     tbd: 'tbd'
   };
-
   // End application variables
 
   return {
@@ -46,7 +48,8 @@ var Kiosk = (function($, window, document, undefined) {
       },
 
       pageContent: function() {
-       Kiosk.getPage('templates/news/index.html');
+        var template = Handlebars.getTemplate('home');
+        Kiosk.updateScreen(template());
       }
     },
 
