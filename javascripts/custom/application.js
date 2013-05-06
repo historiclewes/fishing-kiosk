@@ -1,25 +1,30 @@
 var Kiosk = (function($, window, document, undefined) {
   $(document).ready(function() {
     Kiosk.go();
-
-//    $('nav#footer-navigation a').bind(click, function(){
-//
-//      var id = $(this).attr('id');
-//      $(this).addClass('active');
-//      console.log("Hello");
-//    });
-
-
   });
 
+  // Application variables
+  var localContentServer = 'http://historiclewes.localhost:8082/';
+  var remoteContentServer = 'http://www.historiclewes.org/';
 
+  // this should be set to production unless working locally (and you have proper local setup).
+  var kioskMode = 'development';
+
+  // reference to the content server set above
+  var contentServer = (kioskMode === 'development') ? localContentServer : remoteContentServer;
+
+  // define our services endpoints back to the parent application
+  var services = {
+    history: 'kiosk/views/kiosk_nodes?display_id=block_1',
+    news: '',
+    collections: '',
+    nodeDetail: ''
+  }
 
   var jsonFeeds = {
-    proggit: 'http://www.reddit.com/r/programming/.json',
-    tech: 'http://www.reddit.com/r/technology/.json',
-    webdev: 'http://www.reddit.com/r/webdev/.json',
-    drupal: 'http://www.reddit.com/r/drupal/.json'
+    tbd: 'tbd'
   };
+  // End application variables
 
   return {
     go: function() {
@@ -43,57 +48,71 @@ var Kiosk = (function($, window, document, undefined) {
       },
 
       pageContent: function() {
-       Kiosk.page('templates/news/index.html');
-
-//        $("div#main-content").append(template(context));
+        var template = Handlebars.getTemplate('home');
+        Kiosk.updateScreen(template());
       }
-
-//      generateBuoys: function() {
-//        Zepto.ajax({
-//          url: './templates/buoys/index.html',
-//          type: 'GET',
-//          cache: true,
-//          success: function (data) {
-//            template = Handlebars.compile(data);
-//            var context = {
-//              title: 'Weather Buoys',
-//              buoys: [
-//                { href : "#", id : "BUOY1", name : "Buoy #1", feed_id: 'proggit' },
-//                { href : "#", id : "BUOY2", name : "Buoy #2", feed_id: 'tech' },
-//                { href : "#", id : "BUOY3", name : "Buoy #3", feed_id: 'webdev' },
-//                { href : "#", id : "BUOY4", name : "Buoy #4", feed_id: 'drupal' }
-//              ]
-//            };
-//
-//            $("div#weather").append(template(context));
-//          }
-//        });
-//      },
-
-//      generateNavigation: function() {
-//        Zepto.ajax({
-//          url: './templates/navigation/main.html',
-//          type: 'GET',
-//          cache: true,
-//          success: function (data) {
-//            template = Handlebars.compile(data);
-//            var context = {
-//              navigation: [
-//                { href : "/front", id : "history", name : "History" },
-//                { href : "/front", id : "collections", name : "Collections" },
-//                { href : "/front", id : "videos", name : "Videos" },
-//                { href : "/front", id : "news", name : "News" }
-//              ]
-//            };
-//
-//            $("#footer-navigation").append(template(context));
-//          }
-//        });
-//      }
     },
 
     util: {
       // nothing yet
+    },
+
+    // generic function to call and load local HTML files with optional Handlebars components
+    getPage: function(template, callback) {
+      var Template = Handlebars.getTemplate(template, callback);
+
+      if (callback && typeof(callback) === 'function') {
+        callback(Template);
+      }
+    },
+
+    ajaxContent: function(feed_id) {
+      return Zepto.ajax(
+          {
+            url: this.contentUrl(feed_id),
+            dataType: 'jsonp',
+            type: 'GET',
+            cache: false,
+            success: function (result) {
+              Kiosk.processResult(result);
+            }
+          }
+      );
+    },
+
+    getHistory: function() {
+       var template = Handlebars.getTemplate('history');
+
+       Zepto.ajax({
+        type: "GET",
+        dataType: "jsonp",
+        cache: false,
+        url: this.contentUrl('history'),
+        success: function (result) {
+          var context = {
+            title: result[0].node_title,
+            body: result[0].node_revisions_body
+          }
+
+          Kiosk.updateScreen(template(context));
+        }
+      });
+    },
+
+    // generic function to call and load local HTML files
+    getTemplate: function(filepath, callback) {
+      // wipe the container
+      $("#main-content").html('');
+
+      Zepto.ajax({
+        type: "GET",
+        dataType: "html",
+        cache: false,
+        url: filepath,
+        success: function (result) {
+          $("#main-content").fadeIn('slow').html(result);
+        }
+      });
     },
 
     articles: function(id, feed_id) {
@@ -122,26 +141,35 @@ var Kiosk = (function($, window, document, undefined) {
       });
     },
 
-      page: function(url) {
-        // wipe the container
-        $("#main-content").html('');
+    contentUrl: function(feed_id) {
+      return contentServer + services[feed_id] + '&jsonp=';
+    },
 
-        Zepto.ajax({
-          type: "GET",
-          dataType: "html",
-          cache: false,
-          url: url,
-          success: function (result) {
-            $("#main-content").fadeIn('slow').html(result);
-          }
-        });
-      }
+    updateScreen: function(content) {
+      $("#main-content").fadeIn('slow').html(content);
     }
-  
+  }
 })(typeof Zepto === 'function' ? Zepto : jQuery, this, this.document);
 
+// Register a 'link' function through Handlebars as a formatter helper.
 Handlebars.registerHelper('link', function(object) {
   return new Handlebars.SafeString(
       "<a href='" + object.url + "'>" + object.text + "</a>"
   );
 });
+
+Handlebars.getTemplate = function(name) {
+  if (Handlebars.templates === undefined || Handlebars.templates[name] === undefined) {
+    $.ajax({
+      url : 'templates/handlebars/' + name + '.hbs',
+      success : function(data) {
+        if (Handlebars.templates === undefined) {
+          Handlebars.templates = {};
+        }
+        Handlebars.templates[name] = Handlebars.compile(data);
+      },
+      async : false
+    });
+  }
+  return Handlebars.templates[name];
+};
