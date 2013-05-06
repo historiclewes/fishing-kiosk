@@ -32,38 +32,26 @@
       <div id="search" class="large-3 columns">
         <div class="search-wrapper">
           <input type="text" class="your-label-class large-1 columns" placeholder="Search">
-          <button type="submit" value="" class="telescope-button" onclick="Kiosk.page('templates/search/index.html'); return false;"></button>
+          <button type="submit" value="" class="telescope-button" onclick="Kiosk.getPage('templates/search/index.html'); return false;"></button>
         </div>
       </div>
     </div>
   </div>
 </div>
 
-<div id="main-content">
-</div>
-<!-- BEGIN FOOTER -->
-<!-- ***************** -->
-<!-- ***************** -->
-<!-- ***************** -->
-<!-- ***************** -->
+<div id="main-content"></div>
+
 <div class="large-12 columns" id="site-footer">
   <div class="row">
     <div class="large-10 columns">
       <nav id="footer-navigation">
         <ul class="inline-list">
-          <li class="home"><a id="home" href="#"
-                              onclick="Kiosk.page('templates/home/index.html'); return false;">Home</a></li>
-          <li class="the-bay"><a id="the-bay" href="#"
-                                 onclick="Kiosk.page('templates/the-bay/index.html'); return false;">The Bay</a></li>
-          <li class="history"><a href="#"
-                                 onclick="Kiosk.page('templates/history/index.html'); return false;">History</a></li>
-          <li class="collection"><a href="#" onclick="Kiosk.page('templates/collection/index.html'); return false;">Collection</a>
-          </li>
-          <li class="videos"><a href="#" onclick="Kiosk.page('templates/videos/index.html'); return false;">Videos</a>
-          </li>
-          <li class="cannonball-house"><a href="#"
-                                          onclick="Kiosk.page('templates/cannonballhouse/index.html'); return false;">Cannonball
-            House</a></li>
+          <li class="home"><a id="home" href="#" onclick="Kiosk.getPage('home'); return false;">Home</a></li>
+          <li class="the-bay"><a id="the-bay" href="#" onclick="Kiosk.getPage('templates/the-bay/index.html'); return false;">The Bay</a></li>
+          <li class="history"><a href="#" onclick="Kiosk.getHistory(); return false;">History</a></li>
+          <li class="collection"><a href="#" onclick="Kiosk.getPage('templates/collection/index.html'); return false;">Collection</a></li>
+          <li class="videos"><a href="#" onclick="Kiosk.getPage('templates/videos/index.html'); return false;">Videos</a></li>
+          <li class="cannonball-house"><a href="#" onclick="Kiosk.getPage('templates/cannonballhouse/index.html'); return false;">Cannonball House</a></li>
         </ul>
       </nav>
     </div>
@@ -146,7 +134,7 @@
   </div>  <div id="diver-man"></div>
 
 
-<script>
+  <script>
     document.write('<script src=' +
         ('__proto__' in {} ? 'javascripts/vendor/zepto' : 'javascripts/vendor/jquery') +
         '.js><\/script>')
@@ -161,6 +149,7 @@
   <script src="javascripts/vendor/handlebars.min.js"></script>
   <script src="javascripts/custom/application.js"></script>
   <script src="javascripts/foundation/foundation.orbit.js"></script>
+  <script src="templates/templates.js"></script>
 
   <script>$(document).foundation();</script>
 
