@@ -95,7 +95,7 @@ helpers = helpers || Handlebars.helpers; data = data || {};
   
 
 
-  return "<div class=\"row\">\n  <div class=\"large-10 columns\">\n    <nav id=\"footer-navigation\">\n      <ul class=\"inline-list\">\n        <li class=\"home\"><a id=\"home\" href=\"#\" onclick=\"Kiosk.getPage('home'); return false;\">Home</a></li>\n        <li class=\"the-bay\"><a id=\"the-bay\" href=\"#\" onclick=\"Kiosk.getPage('bay'); return false;\">The Bay</a></li>\n        <li class=\"history\"><a href=\"#\" onclick=\"Kiosk.getNode('node', 323); return false;\">History</a></li>\n        <li class=\"collection\"><a href=\"#\" onclick=\"Kiosk.getCollections(); return false;\">Collection</a></li>\n        <li class=\"videos\"><a href=\"#\" onclick=\"Kiosk.getPage('videos'); return false;\">Videos</a></li>\n        <li class=\"cannonball-house\"><a href=\"#\" onclick=\"Kiosk.getNode('node', 368); return false;\">Cannonball House</a></li>\n      </ul>\n    </nav>\n  </div>\n  <div class=\"large-2 columns text-center\" id=\"newsletter\">\n        <span>\n          Stay up to date with LHS Newsletter!\n        </span><br/><br/>\n    <a href=\"#\" data-reveal-id=\"myModal\">\n      Join today\n    </a>\n  </div>\n</div>";
+  return "<div class=\"row\">\n  <div class=\"large-10 columns\">\n    <nav id=\"footer-navigation\">\n      <ul class=\"inline-list\">\n        <li class=\"home\"><a id=\"home\" href=\"#\" onclick=\"Kiosk.getPage('home'); return false;\">Home</a></li>\n        <li class=\"the-bay\"><a id=\"the-bay\" href=\"#\" onclick=\"Kiosk.getPage('bay'); return false;\">The Bay</a></li>\n        <li class=\"history\"><a href=\"#\" onclick=\"Kiosk.getNode('node', 323); return false;\">History</a></li>\n        <li class=\"collection\"><a href=\"#\" onclick=\"Kiosk.getCollections(); return false;\">Collection</a></li>\n        <li class=\"videos\"><a href=\"#\" onclick=\"Kiosk.getVideos(); return false;\">Videos</a></li>\n        <li class=\"cannonball-house\"><a href=\"#\" onclick=\"Kiosk.getNode('node', 368); return false;\">Cannonball House</a></li>\n      </ul>\n    </nav>\n  </div>\n  <div class=\"large-2 columns text-center\" id=\"newsletter\">\n        <span>\n          Stay up to date with LHS Newsletter!\n        </span><br/><br/>\n    <a href=\"#\" data-reveal-id=\"myModal\">\n      Join today\n    </a>\n  </div>\n</div>";
   });
 templates['header.hbs'] = template(function (Handlebars,depth0,helpers,partials,data) {
   this.compilerInfo = [2,'>= 1.0.0-rc.3'];
@@ -227,9 +227,62 @@ helpers = helpers || Handlebars.helpers; data = data || {};
 templates['videos.hbs'] = template(function (Handlebars,depth0,helpers,partials,data) {
   this.compilerInfo = [2,'>= 1.0.0-rc.3'];
 helpers = helpers || Handlebars.helpers; data = data || {};
+  var buffer = "", stack1, stack2, functionType="function", escapeExpression=this.escapeExpression, self=this;
+
+function program1(depth0,data) {
   
+  var buffer = "", stack1;
+  buffer += "\n      <ul class=\"large-block-grid-3\">\n        ";
+  stack1 = helpers.each.call(depth0, depth0.items, {hash:{},inverse:self.noop,fn:self.program(2, program2, data),data:data});
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\n      </ul>\n    ";
+  return buffer;
+  }
+function program2(depth0,data) {
+  
+  var buffer = "", stack1;
+  buffer += "\n          <li>\n            <a href=\"#\" data-reveal-id=\"video-";
+  if (stack1 = helpers.nid) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
+  else { stack1 = depth0.nid; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
+  buffer += escapeExpression(stack1)
+    + "\">\n              <h4>";
+  if (stack1 = helpers.title) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
+  else { stack1 = depth0.title; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
+  buffer += escapeExpression(stack1)
+    + "</h4>\n              <img class=\"block-radius\" src=\"http://placehold.it/280x195\"/>\n            </a>\n          </li>\n        ";
+  return buffer;
+  }
 
+function program4(depth0,data) {
+  
+  var buffer = "", stack1;
+  buffer += "\n  ";
+  stack1 = helpers.each.call(depth0, depth0.items, {hash:{},inverse:self.noop,fn:self.program(5, program5, data),data:data});
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\n";
+  return buffer;
+  }
+function program5(depth0,data) {
+  
+  var buffer = "", stack1;
+  buffer += "\n    <div id=\"video-";
+  if (stack1 = helpers.nid) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
+  else { stack1 = depth0.nid; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
+  buffer += escapeExpression(stack1)
+    + "\" class=\"reveal-modal large-8\">\n      <div class=\"flex-video\" style=\"-webkit-transform-origin: 0px 0px; opacity: 0; -webkit-transform: scale(1, 1); -webkit-transition: opacity 0.1s linear; transition: opacity 0.1s linear; display: none;\">\n        <iframe src=\"http://player.vimeo.com/video/";
+  if (stack1 = helpers.vimeo_id) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
+  else { stack1 = depth0.vimeo_id; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
+  buffer += escapeExpression(stack1)
+    + "?title=0&amp;byline=0&amp;portrait=0&amp;color=ffffff\" width=\"100%\" height=\"400\" frameborder=\"0\" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>\n      </div>\n    </div>\n  ";
+  return buffer;
+  }
 
-  return "<div class=\"row\" id=\"videos\">\n  <div class=\"large-8 large-offset-2\">\n    <ul class=\"large-block-grid-3\">\n      <li>\n        <a href=\"#\" data-reveal-id=\"videoModal1\">\n          <h4 class=\"\">Video Title Here</h4>\n          <img class=\"block-radius\" src=\"http://placehold.it/280x195\"/>\n        </a>\n      </li>\n      <li>\n        <a href=\"#\" data-reveal-id=\"videoModal2\">\n          <h4 class=\"\">Video Title Here</h4>\n          <img class=\"block-radius\" src=\"http://placehold.it/280x195\"/>\n        </a>\n      </li>\n      <li>\n        <a href=\"#\" data-reveal-id=\"videoModal3\">\n          <h4 class=\"\">Video Title Here</h4>\n          <img class=\"block-radius\" src=\"http://placehold.it/280x195\"/>\n        </a>\n      </li>\n      <li>\n        <a href=\"#\" data-reveal-id=\"videoModal4\">\n          <h4 class=\"\">Video Title Here</h4>\n          <img class=\"block-radius\" src=\"http://placehold.it/280x195\"/>\n        </a>\n      </li>\n      <li>\n        <a href=\"#\" data-reveal-id=\"videoModal5\">\n          <h4 class=\"\">Video Title Here</h4>\n          <img class=\"block-radius\" src=\"http://placehold.it/280x195\"/>\n        </a>\n      </li>\n      <li>\n        <a href=\"#\" data-reveal-id=\"videoModal6\">\n          <h4 class=\"\">Video Title Here</h4>\n          <img class=\"block-radius\" src=\"http://placehold.it/280x195\"/>\n        </a>\n      </li>\n    </ul>\n  </div>\n</div>";
+  buffer += "<div class=\"row\" id=\"videos\">\n  <div class=\"large-8 large-offset-2\">\n    ";
+  stack2 = helpers['if'].call(depth0, ((stack1 = depth0.items),stack1 == null || stack1 === false ? stack1 : stack1.length), {hash:{},inverse:self.noop,fn:self.program(1, program1, data),data:data});
+  if(stack2 || stack2 === 0) { buffer += stack2; }
+  buffer += "\n  </div>\n</div>\n\n";
+  stack2 = helpers['if'].call(depth0, ((stack1 = depth0.items),stack1 == null || stack1 === false ? stack1 : stack1.length), {hash:{},inverse:self.noop,fn:self.program(4, program4, data),data:data});
+  if(stack2 || stack2 === 0) { buffer += stack2; }
+  return buffer;
   });
 })();
