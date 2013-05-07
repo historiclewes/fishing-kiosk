@@ -1,20 +1,36 @@
 // Define DrupalAjaxRequest
 var DrupalAjaxRequest = (function () {
-  var fetch = function(feed_id, callback) {
+  var fetchNode = function(node_id, callback) {
     Zepto.ajax(
-        {
-          url: Kiosk.contentUrl(feed_id),
-          dataType: 'jsonp',
-          type: 'GET',
-          cache: false,
-          success: function (result) {
-            callback(result);
-          }
+      {
+        url: Kiosk.contentUrl('node'),
+        dataType: 'jsonp',
+        data: {nid: node_id},
+        type: 'GET',
+        cache: false,
+        success: function (result) {
+          callback(result);
         }
+      }
+    );
+  }
+
+  var fetchCollections = function(callback) {
+    Zepto.ajax(
+      {
+        url: Kiosk.contentUrl('collections'),
+        dataType: 'jsonp',
+        type: 'GET',
+        cache: false,
+        success: function (result) {
+          callback(result);
+        }
+      }
     );
   }
 
   return {
-    fetch : fetch
+    fetchNode : fetchNode,
+    fetchCollections: fetchCollections
   }
 })();
