@@ -53,7 +53,7 @@ var Kiosk = (function($, window, document, undefined) {
     },
 
     // generic function to call and load local HTML files with optional Handlebars components
-    getPage: function(template, callback) {
+    getPage: function(template) {
       var Template = Handlebars.getTemplate(template);
       Kiosk.util.updateScreen(Template());
     },
