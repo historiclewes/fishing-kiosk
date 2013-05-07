@@ -105,7 +105,7 @@ span.red-span {
   font-size: 22px;
 }
 
-#header-background {
+#header {
   background: url('../images/logo-steering-wheel.png') top left no-repeat;
   height: 150px;
 }
@@ -139,7 +139,7 @@ h2.block-title {
   padding-left: 40px;
 }
 
-#site-footer {
+#footer {
   @include box-shadow(0 0 10px rgba(0, 0, 0, .4));
   background: url('../images/footer-background.png') top left repeat;
   padding-top: 5px;
@@ -186,7 +186,7 @@ h2.block-title {
   padding-bottom: 20px;
 }
 
-#site-footer {
+#footer {
   max-height: 105px;
 
   nav ul.inline-list {
