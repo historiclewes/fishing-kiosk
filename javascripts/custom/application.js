@@ -1,3 +1,4 @@
+// Define Kiosk
 var Kiosk = (function($, window, document, undefined) {
   $(document).ready(function() {
     Kiosk.go();
@@ -53,91 +54,22 @@ var Kiosk = (function($, window, document, undefined) {
       }
     },
 
-    util: {
-      // nothing yet
-    },
-
     // generic function to call and load local HTML files with optional Handlebars components
     getPage: function(template, callback) {
-      var Template = Handlebars.getTemplate(template, callback);
-
-      if (callback && typeof(callback) === 'function') {
-        callback(Template);
-      }
-    },
-
-    ajaxContent: function(feed_id) {
-      return Zepto.ajax(
-          {
-            url: this.contentUrl(feed_id),
-            dataType: 'jsonp',
-            type: 'GET',
-            cache: false,
-            success: function (result) {
-              Kiosk.processResult(result);
-            }
-          }
-      );
+      var Template = Handlebars.getTemplate(template);
+      Kiosk.updateScreen(Template());
     },
 
     getHistory: function() {
-       var template = Handlebars.getTemplate('history');
+      var template = Handlebars.getTemplate('history');
 
-       Zepto.ajax({
-        type: "GET",
-        dataType: "jsonp",
-        cache: false,
-        url: this.contentUrl('history'),
-        success: function (result) {
-          var context = {
-            title: result[0].node_title,
-            body: result[0].node_revisions_body
-          }
-
-          Kiosk.updateScreen(template(context));
+      DrupalAjaxRequest.fetch('history', function(response) {
+        var context = {
+          title: response[0].node_title,
+          body: response[0].node_revisions_body
         }
-      });
-    },
 
-    // generic function to call and load local HTML files
-    getTemplate: function(filepath, callback) {
-      // wipe the container
-      $("#main-content").html('');
-
-      Zepto.ajax({
-        type: "GET",
-        dataType: "html",
-        cache: false,
-        url: filepath,
-        success: function (result) {
-          $("#main-content").fadeIn('slow').html(result);
-        }
-      });
-    },
-
-    articles: function(id, feed_id) {
-      // wipe the container
-      $("#drupal-news").html('');
-
-      var source = $("#set-articles").html();
-      var template = Handlebars.compile(source);
-      var context = {
-        items: [],
-        id: feed_id
-      };
-
-      Zepto.ajax({
-        type: "GET",
-        dataType: "jsonp",
-        cache: false,
-        url: jsonFeeds[feed_id] + '?jsonp=?',
-        success: function (result) {
-          $.each(result.data.children, function(key, val) {
-            context.items.push({'title' : val.data.title, 'permalink': {url: val.data.permalink, text: val.data.title}, 'score': val.data.score, 'num_comments': val.data.num_comments});
-          });
-
-          $("#drupal-news").fadeIn('slow').html(template(context));
-        }
+        Kiosk.updateScreen(template(context));
       });
     },
 
