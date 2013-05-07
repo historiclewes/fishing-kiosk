@@ -18,6 +18,7 @@ var Kiosk = (function($, window, document, undefined) {
   var services = {
     node: 'kiosk/views/kiosk_nodes?display_id=block_1',
     collections: 'kiosk/views/kiosk_nodes?display_id=block_2',
+    videos: 'kiosk/views/kiosk_nodes?display_id=block_3'
   }
 
   var jsonFeeds = {
@@ -75,11 +76,27 @@ var Kiosk = (function($, window, document, undefined) {
     getCollections: function() {
       var template = Handlebars.getTemplate('collections');
 
-      DrupalAjaxRequest.fetchCollections(function(response) {
+      DrupalAjaxRequest.fetchView('collections', function(response) {
         var context = { items: [] }
 
         $.each(response, function(key, value) {
           context.items.push({'title' : value.title, 'teaser': value.teaser, 'nid': value.nid});
+        });
+
+        Kiosk.util.updateScreen(template(context));
+      });
+    },
+
+    // fetch the Videos view
+    getVideos: function() {
+      var template = Handlebars.getTemplate('videos');
+
+      DrupalAjaxRequest.fetchView('videos', function(response) {
+        var context = { items: [] }
+
+        $.each(response, function(key, value) {
+          //var thumb = VimeoAjaxRequest.getThumbnail(value.vimeo_id);
+          context.items.push({ 'title' : value.title, 'vimeo_id': value.vimeo_id, 'nid': value.nid, 'thumbnail': 'jkhfjds'});
         });
 
         Kiosk.util.updateScreen(template(context));
