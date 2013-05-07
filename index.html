@@ -8,50 +8,16 @@
   <script src="javascripts/vendor/custom.modernizr.js"></script>
 </head>
 <body>
-  <div id="header-background">
-    <div class="row">
-      <div class="large-12 columns">
-        <div class="large-6 large-offset-3 columns" id="page-title"></div>
-        <script id="set-title" type="text/x-handlebars-template">
-          <h2>{{ title }}</h2>
-        </script>
-
-        <div id="search" class="large-3 columns">
-          <div class="search-wrapper">
-            <input type="text" class="your-label-class large-1 columns" placeholder="Search">
-            <button type="submit" value="" class="telescope-button" onclick="Kiosk.getPage('templates/search/index.html'); return false;"></button>
-          </div>
-        </div>
-      </div>
-    </div>
+  <div id="header">
+    {{ header }}
   </div>
 
   <div id="main-content"></div>
 
-  <div class="large-12 columns" id="site-footer">
-    <div class="row">
-      <div class="large-10 columns">
-        <nav id="footer-navigation">
-          <ul class="inline-list">
-            <li class="home"><a id="home" href="#" onclick="Kiosk.getPage('home'); return false;">Home</a></li>
-            <li class="the-bay"><a id="the-bay" href="#" onclick="Kiosk.getPage('bay'); return false;">The Bay</a></li>
-            <li class="history"><a href="#" onclick="Kiosk.getPageNode('history', 323); return false;">History</a></li>
-            <li class="collection"><a href="#" onclick="Kiosk.getCollections(); return false;">Collection</a></li>
-            <li class="videos"><a href="#" onclick="Kiosk.getPage('videos'); return false;">Videos</a></li>
-            <li class="cannonball-house"><a href="#" onclick="Kiosk.getPageNode('cannonballhouse', 368); return false;">Cannonball House</a></li>
-          </ul>
-        </nav>
-      </div>
-      <div class="large-2 columns text-center" id="newsletter">
-        <span>
-          Stay up to date with LHS Newsletter!
-        </span><br/><br/>
-        <a href="#" data-reveal-id="myModal">
-          Join today
-        </a>
-      </div>
-    </div>
+  <div id="footer" class="large-12 columns">
+    {{ footer }}
   </div>
+
   <div id="myModal" class="reveal-modal">
     <div class="small-10 columns">
       <input type="text" placeholder="Enter e-mail address here">
@@ -92,7 +58,7 @@
   <script src="javascripts/custom/ajax.js"></script>
   <script src="javascripts/custom/application.js"></script>
   <script src="javascripts/foundation/foundation.orbit.js"></script>
-  <script src="templates/templates.js"></script>
+  <script src="templates/compiled/templates.js"></script>
   <script>$(document).foundation();</script>
 </body>
 </html>
