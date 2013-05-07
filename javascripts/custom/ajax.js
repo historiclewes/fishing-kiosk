@@ -3,7 +3,7 @@ var DrupalAjaxRequest = (function () {
   var fetchNode = function(node_id, callback) {
     Zepto.ajax(
       {
-        url: Kiosk.contentUrl('node'),
+        url: Kiosk.util.contentUrl('node'),
         dataType: 'jsonp',
         data: {nid: node_id},
         type: 'GET',
@@ -18,7 +18,7 @@ var DrupalAjaxRequest = (function () {
   var fetchCollections = function(callback) {
     Zepto.ajax(
       {
-        url: Kiosk.contentUrl('collections'),
+        url: Kiosk.util.contentUrl('collections'),
         dataType: 'jsonp',
         type: 'GET',
         cache: false,
