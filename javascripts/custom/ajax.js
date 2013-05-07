@@ -15,10 +15,10 @@ var DrupalAjaxRequest = (function () {
     );
   }
 
-  var fetchCollections = function(callback) {
+  var fetchView = function(feed_id, callback) {
     Zepto.ajax(
       {
-        url: Kiosk.util.contentUrl('collections'),
+        url: Kiosk.util.contentUrl(feed_id),
         dataType: 'jsonp',
         type: 'GET',
         cache: false,
@@ -31,6 +31,6 @@ var DrupalAjaxRequest = (function () {
 
   return {
     fetchNode : fetchNode,
-    fetchCollections: fetchCollections
+    fetchView: fetchView
   }
 })();
