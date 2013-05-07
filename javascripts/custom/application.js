@@ -16,9 +16,8 @@ var Kiosk = (function($, window, document, undefined) {
 
   // define our services endpoints back to the parent application
   var services = {
-    history: 'kiosk/views/kiosk_nodes?display_id=block_1',
-    news: '',
-    collections: '',
+    node: 'kiosk/views/kiosk_nodes?display_id=block_1',
+    collections: 'kiosk/views/kiosk_nodes?display_id=block_2',
     nodeDetail: ''
   }
 
@@ -60,14 +59,28 @@ var Kiosk = (function($, window, document, undefined) {
       Kiosk.updateScreen(Template());
     },
 
-    getHistory: function() {
-      var template = Handlebars.getTemplate('history');
+    getPageNode: function(hbTemplate, node_id) {
+      var template = Handlebars.getTemplate(hbTemplate);
 
-      DrupalAjaxRequest.fetch('history', function(response) {
+      DrupalAjaxRequest.fetchNode(node_id, function(response) {
         var context = {
-          title: response[0].node_title,
-          body: response[0].node_revisions_body
+          title: response[0].title,
+          body: response[0].body
         }
+
+        Kiosk.updateScreen(template(context));
+      });
+    },
+
+    getCollections: function() {
+      var template = Handlebars.getTemplate('collections');
+
+      DrupalAjaxRequest.fetchCollections(function(response) {
+        var context = { items: [] }
+
+        $.each(response, function(key, value) {
+          context.items.push({'title' : value.title, 'body': value.body, 'nid': value.nid});
+        });
 
         Kiosk.updateScreen(template(context));
       });
@@ -86,14 +99,16 @@ var Kiosk = (function($, window, document, undefined) {
 // Register a 'link' function through Handlebars as a formatter helper.
 Handlebars.registerHelper('link', function(object) {
   return new Handlebars.SafeString(
-      "<a href='" + object.url + "'>" + object.text + "</a>"
+    "<a href='" + object.url + "'>" + object.text + "</a>"
   );
 });
 
 Handlebars.getTemplate = function(name) {
   if (Handlebars.templates === undefined || Handlebars.templates[name] === undefined) {
     $.ajax({
+      type: 'GET',
       url : 'templates/handlebars/' + name + '.hbs',
+      cache: false,
       success : function(data) {
         if (Handlebars.templates === undefined) {
           Handlebars.templates = {};
