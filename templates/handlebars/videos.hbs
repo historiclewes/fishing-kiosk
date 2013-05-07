@@ -1,42 +1,26 @@
 <div class="row" id="videos">
   <div class="large-8 large-offset-2">
-    <ul class="large-block-grid-3">
-      <li>
-        <a href="#" data-reveal-id="videoModal1">
-          <h4 class="">Video Title Here</h4>
-          <img class="block-radius" src="http://placehold.it/280x195"/>
-        </a>
-      </li>
-      <li>
-        <a href="#" data-reveal-id="videoModal2">
-          <h4 class="">Video Title Here</h4>
-          <img class="block-radius" src="http://placehold.it/280x195"/>
-        </a>
-      </li>
-      <li>
-        <a href="#" data-reveal-id="videoModal3">
-          <h4 class="">Video Title Here</h4>
-          <img class="block-radius" src="http://placehold.it/280x195"/>
-        </a>
-      </li>
-      <li>
-        <a href="#" data-reveal-id="videoModal4">
-          <h4 class="">Video Title Here</h4>
-          <img class="block-radius" src="http://placehold.it/280x195"/>
-        </a>
-      </li>
-      <li>
-        <a href="#" data-reveal-id="videoModal5">
-          <h4 class="">Video Title Here</h4>
-          <img class="block-radius" src="http://placehold.it/280x195"/>
-        </a>
-      </li>
-      <li>
-        <a href="#" data-reveal-id="videoModal6">
-          <h4 class="">Video Title Here</h4>
-          <img class="block-radius" src="http://placehold.it/280x195"/>
-        </a>
-      </li>
-    </ul>
+    {{#if items.length}}
+      <ul class="large-block-grid-3">
+        {{#each items}}
+          <li>
+            <a href="#" data-reveal-id="video-{{ nid }}">
+              <h4>{{ title }}</h4>
+              <img class="block-radius" src="http://placehold.it/280x195"/>
+            </a>
+          </li>
+        {{/each}}
+      </ul>
+    {{/if}}
   </div>
 </div>
+
+{{#if items.length}}
+  {{#each items}}
+    <div id="video-{{ nid }}" class="reveal-modal large-8">
+      <div class="flex-video" style="-webkit-transform-origin: 0px 0px; opacity: 0; -webkit-transform: scale(1, 1); -webkit-transition: opacity 0.1s linear; transition: opacity 0.1s linear; display: none;">
+        <iframe src="http://player.vimeo.com/video/{{ vimeo_id }}?title=0&amp;byline=0&amp;portrait=0&amp;color=ffffff" width="100%" height="400" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+      </div>
+    </div>
+  {{/each}}
+{{/if}}
