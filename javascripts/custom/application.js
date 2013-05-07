@@ -18,7 +18,6 @@ var Kiosk = (function($, window, document, undefined) {
   var services = {
     node: 'kiosk/views/kiosk_nodes?display_id=block_1',
     collections: 'kiosk/views/kiosk_nodes?display_id=block_2',
-    nodeDetail: ''
   }
 
   var jsonFeeds = {
@@ -36,31 +35,31 @@ var Kiosk = (function($, window, document, undefined) {
     },
 
     init: {
-      pageTitle: function() {
-        var source = $("#set-title").html();
-        var template = Handlebars.compile(source);
-        var context = {
-          title: 'Pilots on the Bay & River Delaware'
-        };
-
-        $("div#page-title").append(template(context));
-        document.title = context.title;
+      getHeader: function() {
+        var template = Handlebars.getTemplate('header');
+        $("#header").html(template());
       },
 
       pageContent: function() {
         var template = Handlebars.getTemplate('home');
-        Kiosk.updateScreen(template());
+        Kiosk.util.updateScreen(template());
+      },
+
+      getFooter: function() {
+        var template = Handlebars.getTemplate('footer');
+        $("#footer").html(template());
       }
     },
 
     // generic function to call and load local HTML files with optional Handlebars components
     getPage: function(template, callback) {
       var Template = Handlebars.getTemplate(template);
-      Kiosk.updateScreen(Template());
+      Kiosk.util.updateScreen(Template());
     },
 
-    getPageNode: function(hbTemplate, node_id) {
-      var template = Handlebars.getTemplate(hbTemplate);
+    // fetch a node
+    getNode: function(template, node_id) {
+      var template = Handlebars.getTemplate(template);
 
       DrupalAjaxRequest.fetchNode(node_id, function(response) {
         var context = {
@@ -68,10 +67,11 @@ var Kiosk = (function($, window, document, undefined) {
           body: response[0].body
         }
 
-        Kiosk.updateScreen(template(context));
+        Kiosk.util.updateScreen(template(context));
       });
     },
 
+    // fetch the Collections view
     getCollections: function() {
       var template = Handlebars.getTemplate('collections');
 
@@ -79,19 +79,21 @@ var Kiosk = (function($, window, document, undefined) {
         var context = { items: [] }
 
         $.each(response, function(key, value) {
-          context.items.push({'title' : value.title, 'body': value.body, 'nid': value.nid});
+          context.items.push({'title' : value.title, 'teaser': value.teaser, 'nid': value.nid});
         });
 
-        Kiosk.updateScreen(template(context));
+        Kiosk.util.updateScreen(template(context));
       });
     },
 
-    contentUrl: function(feed_id) {
-      return contentServer + services[feed_id] + '&jsonp=';
-    },
+    util: {
+      contentUrl: function(feed_id) {
+        return contentServer + services[feed_id] + '&jsonp=';
+      },
 
-    updateScreen: function(content) {
-      $("#main-content").fadeIn('slow').html(content);
+      updateScreen: function(content) {
+        $("#main-content").fadeIn('slow').html(content);
+      }
     }
   }
 })(typeof Zepto === 'function' ? Zepto : jQuery, this, this.document);
