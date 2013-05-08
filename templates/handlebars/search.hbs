@@ -1,77 +1,19 @@
 <div class="row">
-  <div class="large-9 large-offset-1"><h2>Search Results</h2>
-    <a href="#" onclick="Kiosk.getPage('templates/artifacts/index.html'); return false;">
-      <div class="large-5 columns news-teaser">
-        <h4>Search Result Title</h4>
+  <div class="large-9 large-offset-1">
+    <h2>Search Results for "{{ keywords }}"</h2>
 
-        <p>n ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper
-          pharetra.</p>
+    {{#if items}}
+      {{#each items}}
+        <a href="#" onclick="Kiosk.getNode('collection', '{{ nid }}'); return false;">
+          <div class="large-5 columns news-teaser">
+            <h4>{{ title }}</h4>
 
-        <p href="#" class="right collections meddon pointer-left">Learn More</p>
-      </div>
-    </a>   <a href="#" onclick="Kiosk.getPage('templates/artifacts/index.html'); return false;">
-      <div class="large-5 columns news-teaser">
-        <h4>Search Result Title</h4>
+            {{ teaser }}
 
-        <p>n ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper
-          pharetra.</p>
-
-        <p href="#" class="right collections meddon pointer-left">Learn More</p>
-      </div>
-    </a>   <a href="#" onclick="Kiosk.getPage('templates/artifacts/index.html'); return false;">
-      <div class="large-5 columns news-teaser">
-        <h4>Search Result Title</h4>
-
-        <p>n ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper
-          pharetra.</p>
-
-        <p href="#" class="right collections meddon pointer-left">Learn More</p>
-      </div>
-    </a>   <a href="#" onclick="Kiosk.getPage('templates/artifacts/index.html'); return false;">
-      <div class="large-5 columns news-teaser">
-        <h4>Search Result Title</h4>
-
-        <p>n ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper
-          pharetra.</p>
-
-        <p href="#" class="right collections meddon pointer-left">Learn More</p>
-      </div>
-    </a>   <a href="#" onclick="Kiosk.getPage('templates/artifacts/index.html'); return false;">
-      <div class="large-5 columns news-teaser">
-        <h4>Search Result Title</h4>
-
-        <p>n ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper
-          pharetra.</p>
-
-        <p href="#" class="right collections meddon pointer-left">Learn More</p>
-      </div>
-    </a>   <a href="#" onclick="Kiosk.getPage('templates/artifacts/index.html'); return false;">
-      <div class="large-5 columns news-teaser">
-        <h4>Search Result Title</h4>
-
-        <p>n ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper
-          pharetra.</p>
-
-        <p href="#" class="right collections meddon pointer-left">Learn More</p>
-      </div>
-    </a>   <a href="#" onclick="Kiosk.getPage('templates/artifacts/index.html'); return false;">
-      <div class="large-5 columns news-teaser">
-        <h4>Search Result Title</h4>
-
-        <p>n ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper
-          pharetra.</p>
-
-        <p href="#" class="right collections meddon pointer-left">Learn More</p>
-      </div>
-    </a>   <a href="#" onclick="Kiosk.getPage('templates/artifacts/index.html'); return false;">
-      <div class="large-5 columns news-teaser">
-        <h4>Search Result Title</h4>
-
-        <p>n ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper
-          pharetra.</p>
-
-        <p href="#" class="right collections meddon pointer-left">Learn More</p>
-      </div>
-    </a>
+            <p href="#" class="right collections meddon pointer-left">Learn More</p>
+          </div>
+        </a>
+      {{/each}}
+    {{/if}}
   </div>
 </div>
