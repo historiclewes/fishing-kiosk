@@ -18,7 +18,6 @@ var Kiosk = (function($, window, document, undefined) {
   var services = {
     node: 'kiosk/views/kiosk_nodes?display_id=block_1',
     collections: 'kiosk/views/kiosk_nodes?display_id=block_2',
-    videos: 'kiosk/views/kiosk_nodes?display_id=block_3'
   }
 
   var jsonFeeds = {
