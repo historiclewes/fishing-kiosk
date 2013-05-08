@@ -6,7 +6,7 @@ var VimeoRequest = (function () {
           url: vimeoAPIRequestURL(type, id),
           dataType: 'jsonp',
           type: 'GET',
-          cache: false,
+          cache: true,
           success: function (result) {
             callback(result);
           }
