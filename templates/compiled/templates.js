@@ -103,7 +103,7 @@ helpers = helpers || Handlebars.helpers; data = data || {};
   
 
 
-  return "<div class=\"row\">\n  <div class=\"large-12 columns\">\n    <div class=\"large-6 large-offset-3 columns\" id=\"page-title\"><h2>Pilots on the Bay & River Delaware</h2></div>\n\n    <div id=\"search\" class=\"large-3 columns\">\n      <div class=\"search-wrapper\">\n        <input type=\"text\" class=\"your-label-class large-1 columns\" placeholder=\"Search\">\n        <button type=\"submit\" value=\"\" class=\"telescope-button\" onclick=\"Kiosk.getPage('search'); return false;\"></button>\n      </div>\n    </div>\n  </div>\n</div>";
+  return "<div class=\"row\">\n  <div class=\"large-12 columns\">\n    <div class=\"large-6 large-offset-3 columns\" id=\"page-title\"><h2>Pilots on the Bay & River Delaware</h2></div>\n\n    <div id=\"search\" class=\"large-3 columns\">\n      <div class=\"search-wrapper\">\n        <input type=\"text\" id=\"kiosk-search\" class=\"large-1 columns\" placeholder=\"Search\">\n        <button type=\"submit\" value=\"\" class=\"telescope-button\" onclick=\"Kiosk.getSearchResults(); return false;\"></button>\n      </div>\n    </div>\n  </div>\n</div>";
   });
 templates['history.hbs'] = template(function (Handlebars,depth0,helpers,partials,data) {
   this.compilerInfo = [2,'>= 1.0.0-rc.3'];
@@ -219,10 +219,45 @@ helpers = helpers || Handlebars.helpers; data = data || {};
 templates['search.hbs'] = template(function (Handlebars,depth0,helpers,partials,data) {
   this.compilerInfo = [2,'>= 1.0.0-rc.3'];
 helpers = helpers || Handlebars.helpers; data = data || {};
+  var buffer = "", stack1, functionType="function", escapeExpression=this.escapeExpression, self=this;
+
+function program1(depth0,data) {
   
+  var buffer = "", stack1;
+  buffer += "\n      ";
+  stack1 = helpers.each.call(depth0, depth0.items, {hash:{},inverse:self.noop,fn:self.program(2, program2, data),data:data});
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\n    ";
+  return buffer;
+  }
+function program2(depth0,data) {
+  
+  var buffer = "", stack1;
+  buffer += "\n        <a href=\"#\" onclick=\"Kiosk.getNode('collection', '";
+  if (stack1 = helpers.nid) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
+  else { stack1 = depth0.nid; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
+  buffer += escapeExpression(stack1)
+    + "'); return false;\">\n          <div class=\"large-5 columns news-teaser\">\n            <h4>";
+  if (stack1 = helpers.title) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
+  else { stack1 = depth0.title; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
+  buffer += escapeExpression(stack1)
+    + "</h4>\n\n            ";
+  if (stack1 = helpers.teaser) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
+  else { stack1 = depth0.teaser; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
+  buffer += escapeExpression(stack1)
+    + "\n\n            <p href=\"#\" class=\"right collections meddon pointer-left\">Learn More</p>\n          </div>\n        </a>\n      ";
+  return buffer;
+  }
 
-
-  return "<div class=\"row\">\n  <div class=\"large-9 large-offset-1\"><h2>Search Results</h2>\n    <a href=\"#\" onclick=\"Kiosk.getPage('templates/artifacts/index.html'); return false;\">\n      <div class=\"large-5 columns news-teaser\">\n        <h4>Search Result Title</h4>\n\n        <p>n ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper\n          pharetra.</p>\n\n        <p href=\"#\" class=\"right collections meddon pointer-left\">Learn More</p>\n      </div>\n    </a>   <a href=\"#\" onclick=\"Kiosk.getPage('templates/artifacts/index.html'); return false;\">\n      <div class=\"large-5 columns news-teaser\">\n        <h4>Search Result Title</h4>\n\n        <p>n ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper\n          pharetra.</p>\n\n        <p href=\"#\" class=\"right collections meddon pointer-left\">Learn More</p>\n      </div>\n    </a>   <a href=\"#\" onclick=\"Kiosk.getPage('templates/artifacts/index.html'); return false;\">\n      <div class=\"large-5 columns news-teaser\">\n        <h4>Search Result Title</h4>\n\n        <p>n ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper\n          pharetra.</p>\n\n        <p href=\"#\" class=\"right collections meddon pointer-left\">Learn More</p>\n      </div>\n    </a>   <a href=\"#\" onclick=\"Kiosk.getPage('templates/artifacts/index.html'); return false;\">\n      <div class=\"large-5 columns news-teaser\">\n        <h4>Search Result Title</h4>\n\n        <p>n ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper\n          pharetra.</p>\n\n        <p href=\"#\" class=\"right collections meddon pointer-left\">Learn More</p>\n      </div>\n    </a>   <a href=\"#\" onclick=\"Kiosk.getPage('templates/artifacts/index.html'); return false;\">\n      <div class=\"large-5 columns news-teaser\">\n        <h4>Search Result Title</h4>\n\n        <p>n ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper\n          pharetra.</p>\n\n        <p href=\"#\" class=\"right collections meddon pointer-left\">Learn More</p>\n      </div>\n    </a>   <a href=\"#\" onclick=\"Kiosk.getPage('templates/artifacts/index.html'); return false;\">\n      <div class=\"large-5 columns news-teaser\">\n        <h4>Search Result Title</h4>\n\n        <p>n ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper\n          pharetra.</p>\n\n        <p href=\"#\" class=\"right collections meddon pointer-left\">Learn More</p>\n      </div>\n    </a>   <a href=\"#\" onclick=\"Kiosk.getPage('templates/artifacts/index.html'); return false;\">\n      <div class=\"large-5 columns news-teaser\">\n        <h4>Search Result Title</h4>\n\n        <p>n ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper\n          pharetra.</p>\n\n        <p href=\"#\" class=\"right collections meddon pointer-left\">Learn More</p>\n      </div>\n    </a>   <a href=\"#\" onclick=\"Kiosk.getPage('templates/artifacts/index.html'); return false;\">\n      <div class=\"large-5 columns news-teaser\">\n        <h4>Search Result Title</h4>\n\n        <p>n ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper\n          pharetra.</p>\n\n        <p href=\"#\" class=\"right collections meddon pointer-left\">Learn More</p>\n      </div>\n    </a>\n  </div>\n</div>\n";
+  buffer += "<div class=\"row\">\n  <div class=\"large-9 large-offset-1\">\n    <h2>Search Results for \"";
+  if (stack1 = helpers.keywords) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
+  else { stack1 = depth0.keywords; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
+  buffer += escapeExpression(stack1)
+    + "\"</h2>\n\n    ";
+  stack1 = helpers['if'].call(depth0, depth0.items, {hash:{},inverse:self.noop,fn:self.program(1, program1, data),data:data});
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\n  </div>\n</div>\n";
+  return buffer;
   });
 templates['videos.hbs'] = template(function (Handlebars,depth0,helpers,partials,data) {
   this.compilerInfo = [2,'>= 1.0.0-rc.3'];
