@@ -16,23 +16,6 @@ helpers = helpers || Handlebars.helpers; data = data || {};
 
   return "<div class=\"row\">\n  <h2>Buoys</h2>\n</div>";
   });
-templates['cannonballhouse.hbs'] = template(function (Handlebars,depth0,helpers,partials,data) {
-  this.compilerInfo = [2,'>= 1.0.0-rc.3'];
-helpers = helpers || Handlebars.helpers; data = data || {};
-  var buffer = "", stack1, functionType="function", escapeExpression=this.escapeExpression;
-
-
-  buffer += "<div class=\"row\">\n  <div class=\"large-10 columns large-offset-1\">\n    <h2>";
-  if (stack1 = helpers.title) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
-  else { stack1 = depth0.title; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
-  buffer += escapeExpression(stack1)
-    + "</h2>\n\n    ";
-  if (stack1 = helpers.body) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
-  else { stack1 = depth0.body; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
-  if(stack1 || stack1 === 0) { buffer += stack1; }
-  buffer += "\n  </div>\n</div>";
-  return buffer;
-  });
 templates['collection.hbs'] = template(function (Handlebars,depth0,helpers,partials,data) {
   this.compilerInfo = [2,'>= 1.0.0-rc.3'];
 helpers = helpers || Handlebars.helpers; data = data || {};
@@ -95,7 +78,7 @@ helpers = helpers || Handlebars.helpers; data = data || {};
   
 
 
-  return "<div class=\"row\">\n  <div class=\"large-10 columns\">\n    <nav id=\"footer-navigation\">\n      <ul class=\"inline-list\">\n        <li class=\"home\"><a id=\"home\" href=\"#\" onclick=\"Kiosk.getPage('home'); return false;\">Home</a></li>\n        <li class=\"the-bay\"><a id=\"the-bay\" href=\"#\" onclick=\"Kiosk.getPage('bay'); return false;\">The Bay</a></li>\n        <li class=\"history\"><a href=\"#\" onclick=\"Kiosk.getNode('node', 323); return false;\">History</a></li>\n        <li class=\"collection\"><a href=\"#\" onclick=\"Kiosk.getCollections(); return false;\">Collection</a></li>\n        <li class=\"videos\"><a href=\"#\" onclick=\"Kiosk.getVideos(); return false;\">Videos</a></li>\n        <li class=\"cannonball-house\"><a href=\"#\" onclick=\"Kiosk.getNode('node', 368); return false;\">Cannonball House</a></li>\n      </ul>\n    </nav>\n  </div>\n  <div class=\"large-2 columns text-center\" id=\"newsletter\">\n        <span>\n          Stay up to date with LHS Newsletter!\n        </span><br/><br/>\n    <a href=\"#\" data-reveal-id=\"myModal\">\n      Join today\n    </a>\n  </div>\n</div>";
+  return "<div class=\"row\">\n  <div class=\"large-10 columns\">\n    <nav id=\"footer-navigation\">\n      <ul class=\"inline-list\">\n        <li class=\"home\"><a id=\"home\" href=\"#\" onclick=\"Kiosk.getPage('home'); return false;\">Home</a></li>\n        <li class=\"the-bay\"><a id=\"the-bay\" href=\"#\" onclick=\"Kiosk.getPage('bay'); return false;\">The Bay</a></li>\n        <li class=\"history\"><a href=\"#\" onclick=\"Kiosk.getNode('node', 323); return false;\">History</a></li>\n        <li class=\"collection\"><a href=\"#\" onclick=\"Kiosk.getCollections(); return false;\">Collection</a></li>\n        <li class=\"videos\"><a href=\"#\" onclick=\"Kiosk.getVideos(); return false;\">Videos</a></li>\n        <li class=\"cannonball-house\"><a href=\"#\" onclick=\"Kiosk.getNode('node', 368); return false;\">Cannonball House</a></li>\n      </ul>\n    </nav>\n  </div>\n  <div class=\"large-2 columns text-center\" id=\"newsletter\">\n        <span>\n          Stay up to date with LHS Newsletter!\n        </span><br/><br/>\n    <a href=\"#\" data-reveal-id=\"newsletter-signup\">\n      Join today\n    </a>\n  </div>\n</div>";
   });
 templates['header.hbs'] = template(function (Handlebars,depth0,helpers,partials,data) {
   this.compilerInfo = [2,'>= 1.0.0-rc.3'];
@@ -104,23 +87,6 @@ helpers = helpers || Handlebars.helpers; data = data || {};
 
 
   return "<div class=\"row\">\n  <div class=\"large-12 columns\">\n    <div class=\"large-6 large-offset-3 columns\" id=\"page-title\"><h2>Pilots on the Bay & River Delaware</h2></div>\n\n    <div id=\"search\" class=\"large-3 columns\">\n      <div class=\"search-wrapper\">\n        <input type=\"text\" id=\"kiosk-search\" class=\"large-1 columns\" placeholder=\"Search\">\n        <button type=\"submit\" value=\"\" class=\"telescope-button\" onclick=\"Kiosk.getSearchResults(); return false;\"></button>\n      </div>\n    </div>\n  </div>\n</div>";
-  });
-templates['history.hbs'] = template(function (Handlebars,depth0,helpers,partials,data) {
-  this.compilerInfo = [2,'>= 1.0.0-rc.3'];
-helpers = helpers || Handlebars.helpers; data = data || {};
-  var buffer = "", stack1, functionType="function", escapeExpression=this.escapeExpression;
-
-
-  buffer += "<div class=\"row\">\n  <div class=\"large-10 columns large-offset-1\">\n    <h2>";
-  if (stack1 = helpers.title) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
-  else { stack1 = depth0.title; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
-  buffer += escapeExpression(stack1)
-    + "</h2>\n\n    ";
-  if (stack1 = helpers.body) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
-  else { stack1 = depth0.body; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
-  if(stack1 || stack1 === 0) { buffer += stack1; }
-  buffer += "\n  </div>\n</div>";
-  return buffer;
   });
 templates['home.hbs'] = template(function (Handlebars,depth0,helpers,partials,data) {
   this.compilerInfo = [2,'>= 1.0.0-rc.3'];
@@ -158,45 +124,6 @@ function program1(depth0,data) {
   stack1 = helpers.each.call(depth0, depth0.navigation, {hash:{},inverse:self.noop,fn:self.program(1, program1, data),data:data});
   if(stack1 || stack1 === 0) { buffer += stack1; }
   buffer += "\n  </ul>\n</section>";
-  return buffer;
-  });
-templates['news.hbs'] = template(function (Handlebars,depth0,helpers,partials,data) {
-  this.compilerInfo = [2,'>= 1.0.0-rc.3'];
-helpers = helpers || Handlebars.helpers; data = data || {};
-  var buffer = "", stack1, stack2, functionType="function", escapeExpression=this.escapeExpression, self=this;
-
-function program1(depth0,data) {
-  
-  var buffer = "", stack1;
-  buffer += "\n      ";
-  stack1 = helpers.each.call(depth0, depth0.items, {hash:{},inverse:self.noop,fn:self.program(2, program2, data),data:data});
-  if(stack1 || stack1 === 0) { buffer += stack1; }
-  buffer += "\n    ";
-  return buffer;
-  }
-function program2(depth0,data) {
-  
-  var buffer = "", stack1;
-  buffer += "\n        <a href=\"#\" onclick=\"Kiosk.getNewsArticle('";
-  if (stack1 = helpers.nid) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
-  else { stack1 = depth0.nid; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
-  buffer += escapeExpression(stack1)
-    + "'); return false;\">\n          <div class=\"large-5 columns news-teaser\">\n            <h4>";
-  if (stack1 = helpers.title) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
-  else { stack1 = depth0.title; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
-  buffer += escapeExpression(stack1)
-    + "</h4>\n\n            ";
-  if (stack1 = helpers.body) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
-  else { stack1 = depth0.body; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
-  if(stack1 || stack1 === 0) { buffer += stack1; }
-  buffer += "\n\n            <p class=\"right collections meddon pointer-left\">Learn More</p>\n          </div>\n        </a>\n      ";
-  return buffer;
-  }
-
-  buffer += "<div class=\"row\">\n  <div class=\"large-9 large-offset-1\">\n    <h2>News</h2>\n\n    ";
-  stack2 = helpers['if'].call(depth0, ((stack1 = depth0.items),stack1 == null || stack1 === false ? stack1 : stack1.length), {hash:{},inverse:self.noop,fn:self.program(1, program1, data),data:data});
-  if(stack2 || stack2 === 0) { buffer += stack2; }
-  buffer += "\n  </div>\n</div>\n";
   return buffer;
   });
 templates['node.hbs'] = template(function (Handlebars,depth0,helpers,partials,data) {
