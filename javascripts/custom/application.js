@@ -121,8 +121,16 @@ var Kiosk = (function($, window, document, undefined) {
       });
     },
 
+    newsletterSignup: function() {
+      var email_address = $('#newsletter-signup input#newsletter-email-address').attr('value');
+
+      DrupalRequest.newsletterSignup(email_address, function(response) {
+        $('#newsletter-signup').foundation('reveal', 'close');
+      });
+    },
+
     util: {
-      contentUrl: function(feed_id) {
+      actionUrl: function(feed_id) {
         return contentServer + services[feed_id] + '&jsonp=';
       },
 

@@ -18,16 +18,6 @@
     {{ footer }}
   </div>
 
-  <div id="myModal" class="reveal-modal">
-    <div class="small-10 columns">
-      <input type="text" placeholder="Enter e-mail address here">
-    </div>
-    <div class="small-2 columns">
-      <a href="#" class="button prefix">Action</a>
-    </div>
-    <a class="close-reveal-modal">×</a>
-  </div>
-
   <div id="diver-man"></div>
 
   <script>document.write('<script src=' + ('__proto__' in {} ? 'javascripts/vendor/zepto' : 'javascripts/vendor/jquery') + '.js><\/script>')</script>
@@ -44,5 +34,14 @@
   <script src="javascripts/foundation/foundation.orbit.js"></script>
   <script src="templates/compiled/templates.js"></script>
   <script>$(document).foundation();</script>
+
+  <div id="newsletter-signup" class="reveal-modal">
+    <div class="small-10 columns">
+      <input type="email" id="newsletter-email-address" placeholder="Enter e-mail address here">
+    </div>
+    <div class="small-2 columns">
+      <a href="#" class="button prefix" onclick="Kiosk.newsletterSignup(); return false;">Signup!</a>
+    </div>
+  </div>
 </body>
 </html>
