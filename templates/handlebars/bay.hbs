@@ -9,118 +9,15 @@
     </div>
   </div>
 
+  <div class="large-5 columns" id="current-conditions-block"></div>
 
-  <div class="large-5 columns" id="current-conditions-block">
-    <h2 class="block-title text-center">Current Conditions</h2>
-
-    <div class="large-12 columns" id="current-conditions">
-      <div class="large-4 columns" id="temperature">
-        <h4 class="text-center">Temperature</h4>
-        <img src="http://placehold.it/125x125"/>
-
-        <div class="row">
-          <div class="large-12 columns">
-            <h4 class="left">Air:</h4>
-            <span class="red-span">75ºF</span>
-          </div>
-          <div class="large-12 columns">
-            <h4 class="left">Water:</h4>
-            <span class="red-span">65ºF</span>
-          </div>
-        </div>
-      </div>
-      <div class="large-4 columns " id="pressure">
-        <h4 class="text-center">Air Pressure</h4>
-        <img src="http://placehold.it/125x125"/>
-
-        <div class="row">
-
-          <div class="large-12 columns">
-            <span class="red-span text-center">29.56 inches</span>
-          </div>
-          <div class="large-12 columns">
-            <h4 class="text-center">Rising</h4>
-          </div>
-        </div>
-      </div>
-      <div class="large-4 columns" id="windspeed">
-        <h4 class="text-center">Wind Speed</h4>
-        <img src="http://placehold.it/125x125"/>
-
-        <div class="row">
-
-          <div class="large-12 columns">
-            <span class="red-span">10 Knots</span>
-            <h4 class="left">SSW</h4>
-          </div>
-          <div class="large-12 columns">
-            <h4 class="left">Gusts:</h4>
-            <span class="red-span">10 Kt</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-
-  </div>
   <div class="large-2 columns" id="buoy-stations">
     <h2 class="block-title text-center">Buoy Stations</h2>
 
     <div class="navigation">
-      <li><a class="button radius" href="#">Station SJSN 4</a></li>
-      <li><a class="button radius" href="#">Station SJSN 4</a></li>
-      <li><a class="button radius" href="#">Station SJSN 4</a></li>
-      <li><a class="button radius" href="#">Station SJSN 4</a></li>
+      {{#list buoys}} <a href="#" id="{{ id }}" class="button radius" onclick="Kiosk.getWeatherData('{{ id }}'); return false;">{{ name }}</a> {{/list}}
     </div>
   </div>
-  <div class="large-6 columns" id="waves-tides">
-    <div class="row waves-tides-header">
-      <div class="waves-tides-header"></div>
-      <div class="large-7 columns  block-radius">
-        <h2 class="block-title text-center">Waves</h2>
 
-        <div class="row">
-
-          <div class="large-6 columns">
-            <h4 class="left">Height:</h4>
-            <span class="red-span">2 feet</span>
-          </div>
-
-          <div class="large-6 columns">
-            <h4 class="left">Length:</h4>
-            <span class="red-span">100 m</span>
-          </div>
-
-          <div class="large-6 columns">
-            <h4 class="left">Period:</h4>
-            <span class="red-span">3.2 sec</span>
-          </div>
-
-          <div class="large-6 columns">
-            <h4 class="left">Direction:</h4>
-            <span class="red-span">NW</span>
-          </div>
-
-        </div>
-      </div>
-
-      <div class="large-4 columns block-radius">
-        <h2 class="block-title text-center">Tides</h2>
-
-        <div class="row">
-
-          <div class="large-12 columns">
-            <h4 class="left">Low:</h4>
-            <span class="red-span">1:34 AM</span>
-          </div>
-
-          <div class="large-12 columns">
-            <h4 class="left">High:</h4>
-            <span class="red-span">12:53 PM</span>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </div>
+  <div class="large-6 columns" id="waves-tides"></div>
 </div>
