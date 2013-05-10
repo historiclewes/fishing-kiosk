@@ -49,7 +49,7 @@ var Kiosk = (function($, window, document, undefined) {
 
       pageContent: function() {
         var template = Handlebars.getTemplate('home');
-        Kiosk.util.updateScreen(template());
+        Kiosk.util.updateScreen('#main-content', template());
       },
 
       getFooter: function() {
@@ -61,7 +61,23 @@ var Kiosk = (function($, window, document, undefined) {
     // generic function to call and load local HTML files with optional Handlebars components
     getPage: function(template) {
       var Template = Handlebars.getTemplate(template);
-      Kiosk.util.updateScreen(Template());
+      Kiosk.util.updateScreen('#main-content', Template());
+    },
+
+    // render the bay page and load the weather data for the first buoy
+    getBay: function() {
+      var template = Handlebars.getTemplate('bay');
+      var context = {
+        buoys: [
+          { id : "lwsd1", name : "Station LWSD1" },
+          { id : "bthd1", name : "Station BTHD1" },
+          { id : "44009", name : "Station 44009" },
+          { id : "cman4", name : "Station CMAN4" }
+        ]
+      }
+
+      Kiosk.util.updateScreen('#main-content', template(context));
+      Kiosk.getWeatherData(context.buoys[0].id);
     },
 
     // fetch a node
@@ -74,7 +90,7 @@ var Kiosk = (function($, window, document, undefined) {
           body: response[0].body
         }
 
-        Kiosk.util.updateScreen(template(context));
+        Kiosk.util.updateScreen('#main-content', template(context));
       });
     },
 
@@ -89,7 +105,7 @@ var Kiosk = (function($, window, document, undefined) {
           context.items.push({ 'title' : value.title, 'teaser': value.teaser, 'nid': value.nid });
         });
 
-        Kiosk.util.updateScreen(template(context));
+        Kiosk.util.updateScreen('#main-content', template(context));
       });
     },
 
@@ -103,7 +119,7 @@ var Kiosk = (function($, window, document, undefined) {
           context.items.push({ 'title' : value.title, 'vimeo_id': value.id, 'thumbnail_small': value.thumbnail_small, 'thumbnail_medium': value.thumbnail_medium, 'thumbnail_large': value.thumbnail_large});
         });
 
-        Kiosk.util.updateScreen(template(context));
+        Kiosk.util.updateScreen('#main-content', template(context));
       });
     },
 
@@ -117,7 +133,32 @@ var Kiosk = (function($, window, document, undefined) {
           context.items.push({ 'title' : value.title, 'nid': value.nid, 'teaser': value.teaser });
         });
 
-        Kiosk.util.updateScreen(template(context));
+        Kiosk.util.updateScreen('#main-content', template(context));
+      });
+    },
+
+    // fetch the weather data for a given buoy
+    getWeatherData: function(buoy_id) {
+      var buoyTemplate = Handlebars.getTemplate('buoy');
+      var conditionsTemplate = Handlebars.getTemplate('conditions');
+
+      BuoyRequest.getData(buoy_id, function(response) {
+        var context = {
+          wave_height: response[0].WVHT,
+          wave_length: response[0].wavelength,
+          wave_period: response[0].DPD,
+          wave_direction: response[0].MWD,
+          air_pressure: response[0].PRES,
+          air_pressure_change: response[0].PTDY,
+          air_temperature: response[0].ATMP,
+          water_temperature: response[0].WTMP,
+          wind_speed: response[0].WSPD,
+          wind_direction: response[0].WDIR,
+          wind_gusts: response[0].GST,
+        };
+
+        Kiosk.util.updateScreen('#current-conditions-block', conditionsTemplate(context));
+        Kiosk.util.updateScreen('#waves-tides', buoyTemplate(context));
       });
     },
 
@@ -134,8 +175,8 @@ var Kiosk = (function($, window, document, undefined) {
         return contentServer + services[feed_id] + '&jsonp=';
       },
 
-      updateScreen: function(content) {
-        $("#main-content").fadeIn('slow').html(content);
+      updateScreen: function(selector, content) {
+        $(selector).fadeIn('slow').html(content);
       }
     }
   }
@@ -146,6 +187,16 @@ Handlebars.registerHelper('link', function(object) {
   return new Handlebars.SafeString(
     "<a href='" + object.url + "'>" + object.text + "</a>"
   );
+});
+
+Handlebars.registerHelper('list', function(items, options) {
+  var output = '';
+
+  for(var i=0, l=items.length; i<l; i++) {
+    output = output + "<li>" + options.fn(items[i]) + "</li>";
+  }
+
+  return output;
 });
 
 Handlebars.getTemplate = function(name) {
