@@ -8,126 +8,19 @@
   <script src="javascripts/vendor/custom.modernizr.js"></script>
 </head>
 <body>
-
-<div id="header-background">
-  <div class="row">
-    <div class="large-12 columns">
-      <div class="large-6 large-offset-3 columns" id="page-title"></div>
-      <script id="set-title" type="text/x-handlebars-template">
-        <h2>{{ title }}</h2>
-      </script>
-
-      <div id="search" class="large-3 columns">
-        <div class="search-wrapper">
-          <input type="text" class="your-label-class large-1 columns" placeholder="Search">
-          <button type="submit" value="" class="telescope-button" onclick="Kiosk.getPage('templates/search/index.html'); return false;"></button>
-        </div>
-      </div>
-    </div>
+  <div id="header">
+    {{ header }}
   </div>
-</div>
 
-<div id="main-content"></div>
+  <div id="main-content"></div>
 
-<div class="large-12 columns" id="site-footer">
-  <div class="row">
-    <div class="large-10 columns">
-      <nav id="footer-navigation">
-        <ul class="inline-list">
-          <li class="home"><a id="home" href="#" onclick="Kiosk.getPage('home'); return false;">Home</a></li>
-          <li class="the-bay"><a id="the-bay" href="#" onclick="Kiosk.getPage('templates/the-bay/index.html'); return false;">The Bay</a></li>
-          <li class="history"><a href="#" onclick="Kiosk.getHistory(); return false;">History</a></li>
-          <li class="collection"><a href="#" onclick="Kiosk.getPage('templates/collection/index.html'); return false;">Collection</a></li>
-          <li class="videos"><a href="#" onclick="Kiosk.getPage('templates/videos/index.html'); return false;">Videos</a></li>
-          <li class="cannonball-house"><a href="#" onclick="Kiosk.getPage('templates/cannonballhouse/index.html'); return false;">Cannonball House</a></li>
-        </ul>
-      </nav>
-    </div>
-    <div class="large-2 columns text-center" id="newsletter">
-      <span>
-        Stay up to date with LHS Newsletter!
-      </span><br/><br/>
-      <a href="#" data-reveal-id="myModal">
-        Join today
-      </a>
-    </div>
+  <div id="footer" class="large-12 columns">
+    {{ footer }}
   </div>
-</div>
-<div id="myModal" class="reveal-modal">
-  <div class="small-10 columns">
-    <input type="text" placeholder="Enter e-mail address here">
-  </div>
-  <div class="small-2 columns">
-    <a href="#" class="button prefix">Action</a>
-  </div>
-  <a class="close-reveal-modal">×</a>
-</div>
 
+  <div id="diver-man"></div>
 
-<div id="videoModal1" class="reveal-modal large-8">
-  <div class="flex-video"
-       style="-webkit-transform-origin: 0px 0px; opacity: 0; -webkit-transform: scale(1, 1); -webkit-transition: opacity 0.1s linear; transition: opacity 0.1s linear; display: none;">
-    <iframe src="http://player.vimeo.com/video/30708149?title=0&amp;byline=0&amp;portrait=0&amp;color=ffffff"
-            width="100%" height="400" frameborder="0" webkitAllowFullScreen mozallowfullscreen
-            allowFullScreen></iframe>
-    <a class="close-reveal-modal">×</a>
-  </div>
-</div>
-
-<div id="videoModal2" class="reveal-modal large-8">
-  <div class="flex-video"
-       style="-webkit-transform-origin: 0px 0px; opacity: 0; -webkit-transform: scale(1, 1); -webkit-transition: opacity 0.1s linear; transition: opacity 0.1s linear; display: none;">
-    <iframe src="http://player.vimeo.com/video/30708149?title=0&amp;byline=0&amp;portrait=0&amp;color=ffffff"
-            width="100%" height="400" frameborder="0" webkitAllowFullScreen mozallowfullscreen
-            allowFullScreen></iframe>
-    <a class="close-reveal-modal">×</a>
-  </div>
-</div>
-
-<div id="videoModal3" class="reveal-modal large-8">
-  <div class="flex-video"
-       style="-webkit-transform-origin: 0px 0px; opacity: 0; -webkit-transform: scale(1, 1); -webkit-transition: opacity 0.1s linear; transition: opacity 0.1s linear; display: none;">
-    <iframe src="http://player.vimeo.com/video/64686559?title=0&amp;byline=0&amp;portrait=0" width="100%"
-            height="400" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
-    <a class="close-reveal-modal">×</a>
-  </div>
-</div>
-
-<div id="videoModal4" class="reveal-modal large-8">
-  <div class="flex-video"
-       style="-webkit-transform-origin: 0px 0px; opacity: 0; -webkit-transform: scale(1, 1); -webkit-transition: opacity 0.1s linear; transition: opacity 0.1s linear; display: none;">
-    <iframe src="http://player.vimeo.com/video/65014898?title=0&amp;byline=0&amp;portrait=0" width="100%"
-            height="400" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
-    <a class="close-reveal-modal">×</a>
-  </div>
-</div>
-
-<div id="videoModal5" class="reveal-modal large-8">
-  <div class="small-10 columns">
-    <div class="flex-video"
-         style="-webkit-transform-origin: 0px 0px; opacity: 0; -webkit-transform: scale(1, 1); -webkit-transition: opacity 0.1s linear; transition: opacity 0.1s linear; display: none;">
-      <iframe src="http://player.vimeo.com/video/46974187?title=0&amp;byline=0&amp;portrait=0" width="100%"
-              height="400" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
-      <a class="close-reveal-modal">×</a>
-    </div>
-  </div></div>
-
-  <div id="videoModal6" class="reveal-modal large-8">
-    <div class="flex-video"
-         style="-webkit-transform-origin: 0px 0px; opacity: 0; -webkit-transform: scale(1, 1); -webkit-transition: opacity 0.1s linear; transition: opacity 0.1s linear; display: none;">
-      <iframe src="http://player.vimeo.com/video/46974187?title=0&amp;byline=0&amp;portrait=0" width="100%"
-              height="400" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
-      <a class="close-reveal-modal">×</a>
-    </div>
-  </div>  <div id="diver-man"></div>
-
-
-  <script>
-    document.write('<script src=' +
-        ('__proto__' in {} ? 'javascripts/vendor/zepto' : 'javascripts/vendor/jquery') +
-        '.js><\/script>')
-  </script>
-
+  <script>document.write('<script src=' + ('__proto__' in {} ? 'javascripts/vendor/zepto' : 'javascripts/vendor/jquery') + '.js><\/script>')</script>
   <script src="javascripts/foundation/foundation.js"></script>
   <script src="javascripts/foundation/foundation.clearing.js"></script>
   <script src="javascripts/foundation/foundation.cookie.js"></script>
@@ -135,9 +28,21 @@
   <script src="javascripts/foundation/foundation.reveal.js"></script>
   <script src="javascripts/foundation/foundation.topbar.js"></script>
   <script src="javascripts/vendor/handlebars.min.js"></script>
+  <script src="javascripts/custom/drupal.js"></script>
+  <script src="javascripts/custom/vimeo.js"></script>
+  <script src="javascripts/custom/buoy.js"></script>
   <script src="javascripts/custom/application.js"></script>
   <script src="javascripts/foundation/foundation.orbit.js"></script>
-  <script src="templates/templates.js"></script>
+  <script src="templates/compiled/templates.js"></script>
   <script>$(document).foundation();</script>
+
+  <div id="newsletter-signup" class="reveal-modal">
+    <div class="small-10 columns">
+      <input type="email" id="newsletter-email-address" placeholder="Enter e-mail address here">
+    </div>
+    <div class="small-2 columns">
+      <a href="#" class="button prefix" onclick="Kiosk.newsletterSignup(); return false;">Signup!</a>
+    </div>
+  </div>
 </body>
 </html>

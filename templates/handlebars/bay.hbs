@@ -1,0 +1,23 @@
+<div class="row">
+  <div class="large-5 columns text-center" id="bay-map">
+    <h2 class="block-title">Current<br/> Shipping Traffic</h2>
+
+    <div class="map">
+      <iframe name="marinetraffic" id="marinetraffic" width="425" height="415" scrolling="no" src="http://www.marinetraffic.com/ais/embed.aspx?zoom=10&remember=false&shownames=true&notation=false&border=0&maptype=1&latitude=38.7744&longitude=75.1397"></iframe>
+    </div>
+    <div class="large-12 columns"><span class="text-center">Touch a ship to view more information</span>
+    </div>
+  </div>
+
+  <div class="large-5 columns" id="current-conditions-block"></div>
+
+  <div class="large-2 columns" id="buoy-stations">
+    <h2 class="block-title text-center">Buoy Stations</h2>
+
+    <div class="navigation">
+      {{#list buoys}} <a href="#" id="{{ id }}" class="button radius" onclick="Kiosk.getWeatherData('{{ id }}'); return false;">{{ name }}</a> {{/list}}
+    </div>
+  </div>
+
+  <div class="large-6 columns" id="waves-tides"></div>
+</div>

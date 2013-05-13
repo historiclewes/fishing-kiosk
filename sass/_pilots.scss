@@ -2,15 +2,15 @@
 
 @font-face {
   font-family: "Meddon";
-  src: url("../fonts/Meddon/Meddon.eot?") format("eot");
+  src: url("Meddon.eot?") format("eot"), url("Meddon.woff") format("woff"), url("Meddon.ttf") format("truetype"), url("Meddon.svg#Meddon") format("svg");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'RokkittRegular';
-  src: url('../fonts/Rokkitt/Rokkitt-webfont.eot');
-  src: url('../fonts/Rokkitt/Rokkitt-webfont.eot?#iefix') format('embedded-opentype'), url('Rokkitt-webfont.woff') format('woff'), url('Rokkitt-webfont.ttf') format('truetype'), url('Rokkitt-webfont.svg#RokkittRegular') format('svg');
+  src: url('Rokkitt-webfont.eot');
+  src: url('Rokkitt-webfont.eot?#iefix') format('embedded-opentype'), url('Rokkitt-webfont.woff') format('woff'), url('Rokkitt-webfont.ttf') format('truetype'), url('Rokkitt-webfont.svg#RokkittRegular') format('svg');
   font-weight: normal;
   font-style: normal;
 
@@ -105,7 +105,7 @@ span.red-span {
   font-size: 22px;
 }
 
-#header-background {
+#header {
   background: url('../images/logo-steering-wheel.png') top left no-repeat;
   height: 150px;
 }
@@ -139,7 +139,7 @@ h2.block-title {
   padding-left: 40px;
 }
 
-#site-footer {
+#footer {
   @include box-shadow(0 0 10px rgba(0, 0, 0, .4));
   background: url('../images/footer-background.png') top left repeat;
   padding-top: 5px;
@@ -186,7 +186,7 @@ h2.block-title {
   padding-bottom: 20px;
 }
 
-#site-footer {
+#footer {
   max-height: 105px;
 
   nav ul.inline-list {
@@ -578,7 +578,7 @@ h2.block-title {
   .block-radius {
     padding: 15px;
     margin: 0 15px;
-    min-height:210px;
+    min-height: 210px;
   }
 
   .artifact-divider {
@@ -593,4 +593,5 @@ h2.block-title {
   padding: 15px;
   @include box-shadow(0 0 5px rgba(0, 0, 0, .4));
   margin: 15px;
-display:block;}
+  display: block;
+}
