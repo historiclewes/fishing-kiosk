@@ -1,25 +1,36 @@
+// Define Kiosk
 var Kiosk = (function($, window, document, undefined) {
   $(document).ready(function() {
     Kiosk.go();
-
-//    $('nav#footer-navigation a').bind(click, function(){
-//
-//      var id = $(this).attr('id');
-//      $(this).addClass('active');
-//      console.log("Hello");
-//    });
-
-
   });
 
+  // Application variables
+  var localContentServer = 'http://historiclewes.localhost:8082/';
+  var remoteContentServer = 'http://www.historiclewes.org/';
 
+  // this should be set to production unless working locally (and you have proper local setup).
+  var kioskMode = 'development';
+
+  // reference to the content server set above
+  var contentServer = (kioskMode === 'development') ? localContentServer : remoteContentServer;
+
+  // define our services endpoints back to the parent application
+  var services = {
+    node: 'kiosk/views/kiosk_nodes?display_id=block_1',
+    collections: 'kiosk/views/kiosk_nodes?display_id=block_2',
+    search: 'kiosk/views/kiosk_nodes?display_id=block_4'
+  }
 
   var jsonFeeds = {
-    proggit: 'http://www.reddit.com/r/programming/.json',
-    tech: 'http://www.reddit.com/r/technology/.json',
-    webdev: 'http://www.reddit.com/r/webdev/.json',
-    drupal: 'http://www.reddit.com/r/drupal/.json'
+    tbd: 'tbd'
   };
+
+  var vimeo = {
+    'type': 'user',
+    'id': 'user1949213'
+  };
+
+  // End application variables
 
   return {
     go: function() {
@@ -31,117 +42,177 @@ var Kiosk = (function($, window, document, undefined) {
     },
 
     init: {
-      pageTitle: function() {
-        var source = $("#set-title").html();
-        var template = Handlebars.compile(source);
-        var context = {
-          title: 'Pilots on the Bay & River Delaware'
-        };
-
-        $("div#page-title").append(template(context));
-        document.title = context.title;
+      getHeader: function() {
+        var template = Handlebars.getTemplate('header');
+        $("#header").html(template());
       },
 
       pageContent: function() {
-       Kiosk.page('templates/news/index.html');
+        var template = Handlebars.getTemplate('home');
+        Kiosk.util.updateScreen('#main-content', template());
+      },
 
-//        $("div#main-content").append(template(context));
+      getFooter: function() {
+        var template = Handlebars.getTemplate('footer');
+        $("#footer").html(template());
+      }
+    },
+
+    // generic function to call and load local HTML files with optional Handlebars components
+    getPage: function(template) {
+      var Template = Handlebars.getTemplate(template);
+      Kiosk.util.updateScreen('#main-content', Template());
+    },
+
+    // render the bay page and load the weather data for the first buoy
+    getBay: function() {
+      var template = Handlebars.getTemplate('bay');
+      var context = {
+        buoys: [
+          { id : "lwsd1", name : "Station LWSD1" },
+          { id : "bthd1", name : "Station BTHD1" },
+          { id : "44009", name : "Station 44009" },
+          { id : "cman4", name : "Station CMAN4" }
+        ]
       }
 
-//      generateBuoys: function() {
-//        Zepto.ajax({
-//          url: './templates/buoys/index.html',
-//          type: 'GET',
-//          cache: true,
-//          success: function (data) {
-//            template = Handlebars.compile(data);
-//            var context = {
-//              title: 'Weather Buoys',
-//              buoys: [
-//                { href : "#", id : "BUOY1", name : "Buoy #1", feed_id: 'proggit' },
-//                { href : "#", id : "BUOY2", name : "Buoy #2", feed_id: 'tech' },
-//                { href : "#", id : "BUOY3", name : "Buoy #3", feed_id: 'webdev' },
-//                { href : "#", id : "BUOY4", name : "Buoy #4", feed_id: 'drupal' }
-//              ]
-//            };
-//
-//            $("div#weather").append(template(context));
-//          }
-//        });
-//      },
-
-//      generateNavigation: function() {
-//        Zepto.ajax({
-//          url: './templates/navigation/main.html',
-//          type: 'GET',
-//          cache: true,
-//          success: function (data) {
-//            template = Handlebars.compile(data);
-//            var context = {
-//              navigation: [
-//                { href : "/front", id : "history", name : "History" },
-//                { href : "/front", id : "collections", name : "Collections" },
-//                { href : "/front", id : "videos", name : "Videos" },
-//                { href : "/front", id : "news", name : "News" }
-//              ]
-//            };
-//
-//            $("#footer-navigation").append(template(context));
-//          }
-//        });
-//      }
+      Kiosk.util.updateScreen('#main-content', template(context));
+      Kiosk.getWeatherData(context.buoys[0].id);
     },
 
-    util: {
-      // nothing yet
-    },
+    // fetch a node
+    getNode: function(template, node_id) {
+      var template = Handlebars.getTemplate(template);
 
-    articles: function(id, feed_id) {
-      // wipe the container
-      $("#drupal-news").html('');
-
-      var source = $("#set-articles").html();
-      var template = Handlebars.compile(source);
-      var context = {
-        items: [],
-        id: feed_id
-      };
-
-      Zepto.ajax({
-        type: "GET",
-        dataType: "jsonp",
-        cache: false,
-        url: jsonFeeds[feed_id] + '?jsonp=?',
-        success: function (result) {
-          $.each(result.data.children, function(key, val) {
-            context.items.push({'title' : val.data.title, 'permalink': {url: val.data.permalink, text: val.data.title}, 'score': val.data.score, 'num_comments': val.data.num_comments});
-          });
-
-          $("#drupal-news").fadeIn('slow').html(template(context));
+      DrupalRequest.fetchNode(node_id, function(response) {
+        var context = {
+          title: response[0].title,
+          body: response[0].body
         }
+
+        Kiosk.util.updateScreen('#main-content', template(context));
       });
     },
 
-      page: function(url) {
-        // wipe the container
-        $("#main-content").html('');
+    // fetch Collections
+    getCollections: function() {
+      var template = Handlebars.getTemplate('collections');
 
-        Zepto.ajax({
-          type: "GET",
-          dataType: "html",
-          cache: false,
-          url: url,
-          success: function (result) {
-            $("#main-content").fadeIn('slow').html(result);
-          }
+      DrupalRequest.fetchView('collections', function(response) {
+        var context = { items: [] }
+
+        $.each(response, function(key, value) {
+          context.items.push({ 'title' : value.title, 'teaser': value.teaser, 'nid': value.nid });
         });
+
+        Kiosk.util.updateScreen('#main-content', template(context));
+      });
+    },
+
+    // fetch Videos
+    getVideos: function() {
+      var template = Handlebars.getTemplate('videos');
+      var context = { items: [] }
+
+      VimeoRequest.getData(vimeo.type, vimeo.id, function(response) {
+        $.each(response, function(key, value) {
+          context.items.push({ 'title' : value.title, 'vimeo_id': value.id, 'thumbnail_small': value.thumbnail_small, 'thumbnail_medium': value.thumbnail_medium, 'thumbnail_large': value.thumbnail_large});
+        });
+
+        Kiosk.util.updateScreen('#main-content', template(context));
+      });
+    },
+
+    getSearchResults: function() {
+      var template = Handlebars.getTemplate('search');
+      var keywords = $('#kiosk-search').attr('value');
+      var context = { items: [], keywords: keywords }
+
+      DrupalRequest.doSearch('search', keywords, function(response) {
+        $.each(response, function(key, value) {
+          context.items.push({ 'title' : value.title, 'nid': value.nid, 'teaser': value.teaser });
+        });
+
+        Kiosk.util.updateScreen('#main-content', template(context));
+      });
+    },
+
+    // fetch the weather data for a given buoy
+    getWeatherData: function(buoy_id) {
+      var buoyTemplate = Handlebars.getTemplate('buoy');
+      var conditionsTemplate = Handlebars.getTemplate('conditions');
+
+      BuoyRequest.getData(buoy_id, function(response) {
+        var context = {
+          wave_height: response[0].WVHT,
+          wave_length: response[0].wavelength,
+          wave_period: response[0].DPD,
+          wave_direction: response[0].MWD,
+          air_pressure: response[0].PRES,
+          air_pressure_change: response[0].PTDY,
+          air_temperature: response[0].ATMP,
+          water_temperature: response[0].WTMP,
+          wind_speed: response[0].WSPD,
+          wind_direction: response[0].WDIR,
+          wind_gusts: response[0].GST,
+        };
+
+        Kiosk.util.updateScreen('#current-conditions-block', conditionsTemplate(context));
+        Kiosk.util.updateScreen('#waves-tides', buoyTemplate(context));
+      });
+    },
+
+    newsletterSignup: function() {
+      var email_address = $('#newsletter-signup input#newsletter-email-address').attr('value');
+
+      DrupalRequest.newsletterSignup(email_address, function(response) {
+        $('#newsletter-signup').foundation('reveal', 'close');
+      });
+    },
+
+    util: {
+      actionUrl: function(feed_id) {
+        return contentServer + services[feed_id] + '&jsonp=';
+      },
+
+      updateScreen: function(selector, content) {
+        $(selector).fadeIn('slow').html(content);
       }
     }
-  
+  }
 })(typeof Zepto === 'function' ? Zepto : jQuery, this, this.document);
 
+// Register a 'link' function through Handlebars as a formatter helper.
 Handlebars.registerHelper('link', function(object) {
   return new Handlebars.SafeString(
-      "<a href='" + object.url + "'>" + object.text + "</a>"
+    "<a href='" + object.url + "'>" + object.text + "</a>"
   );
 });
+
+Handlebars.registerHelper('list', function(items, options) {
+  var output = '';
+
+  for(var i=0, l=items.length; i<l; i++) {
+    output = output + "<li>" + options.fn(items[i]) + "</li>";
+  }
+
+  return output;
+});
+
+Handlebars.getTemplate = function(name) {
+  if (Handlebars.templates === undefined || Handlebars.templates[name] === undefined) {
+    $.ajax({
+      type: 'GET',
+      url : 'templates/handlebars/' + name + '.hbs',
+      cache: false,
+      success : function(data) {
+        if (Handlebars.templates === undefined) {
+          Handlebars.templates = {};
+        }
+        Handlebars.templates[name] = Handlebars.compile(data);
+      },
+      async : false
+    });
+  }
+  return Handlebars.templates[name];
+};

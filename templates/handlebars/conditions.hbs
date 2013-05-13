@@ -1,0 +1,47 @@
+<h2 class="block-title text-center">Current Conditions</h2>
+
+<div class="large-12 columns" id="current-conditions">
+  <div class="large-4 columns" id="temperature">
+    <h4 class="text-center">Temperature</h4>
+    <img src="http://placehold.it/125x125"/>
+
+    <div class="row">
+      <div class="large-12 columns">
+        <h4 class="left">Air:</h4>
+        <span class="red-span">{{ air_temperature }}</span>
+      </div>
+      <div class="large-12 columns">
+        <h4 class="left">Water:</h4>
+        <span class="red-span">{{ water_temperature }}</span>
+      </div>
+    </div>
+  </div>
+  <div class="large-4 columns " id="pressure">
+    <h4 class="text-center">Air Pressure</h4>
+    <img src="http://placehold.it/125x125"/>
+
+    <div class="row">
+      <div class="large-12 columns">
+        <span class="red-span text-center">{{ air_pressure }}</span>
+      </div>
+      <div class="large-12 columns">
+        <h4 class="text-center">{{ air_pressure_change }}</h4>
+      </div>
+    </div>
+  </div>
+  <div class="large-4 columns" id="windspeed">
+    <h4 class="text-center">Wind Speed</h4>
+    <img src="http://placehold.it/125x125"/>
+
+    <div class="row">
+      <div class="large-12 columns">
+        <span class="red-span">{{ wind_speed }}</span>
+        <h4 class="left">{{ wind_direction }}</h4>
+      </div>
+      <div class="large-12 columns">
+        <h4 class="left">Gusts:</h4>
+        <span class="red-span">{{ wind_gusts }}</span>
+      </div>
+    </div>
+  </div>
+</div>

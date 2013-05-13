@@ -1,0 +1,37 @@
+<div class="row" id="collection">
+  <div class="large-5 columns slideshow">
+    <div class="large-12 collection-slideshow">
+      <img src="http://placehold.it/419x268"/>
+    </div>
+    <div class="large-12 block-radius collections-cta">
+      <h5 class="meddon">Learn About Artifacts</h5>
+
+      <p>Scroll through our many artifacts on the right. Click on any you wish to view more information on!</p>
+    </div>
+  </div>
+
+  <div class="large-6 columns" id="collection-teaser">
+    <div class="collection-teaser-top"></div>
+    <div class="content large-12 columns">
+      {{#if items.length}}
+        {{#each items}}
+          <a href="#" onclick="Kiosk.getNode('collection', '{{ nid }}'); return false;">
+            <div class="large-12 columns artifact-teaser">
+              <div class="large-3 columns">
+                <img src="http://placehold.it/425x415"/>
+              </div>
+              <div class="large-9 columns">
+                <h4>{{ title }}</h4>
+
+                {{{ teaser }}}
+
+                <p class="right collections meddon pointer-left">Learn More</p>
+              </div>
+            </div>
+          </a>
+        {{/each}}
+      {{/if}}
+    </div>
+    <div class="collection-teaser-bottom"></div>
+  </div>
+</div>
