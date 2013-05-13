@@ -28,7 +28,7 @@ function program1(depth0,data) {
   options = {hash:{},inverse:self.noop,fn:self.program(1, program1, data),data:data};
   stack2 = ((stack1 = helpers.list),stack1 ? stack1.call(depth0, depth0.buoys, options) : helperMissing.call(depth0, "list", depth0.buoys, options));
   if(stack2 || stack2 === 0) { buffer += stack2; }
-  buffer += "\n    </div>\n  </div>\n\n  <div class=\"large-6 columns\" id=\"waves-tides\"></div>\n</div>\n";
+  buffer += "\n    </div>\n  </div>\n\n  <div class=\"large-6 columns\" id=\"waves-tides\"></div>\n</div>";
   return buffer;
   });
 templates['buoy.hbs'] = template(function (Handlebars,depth0,helpers,partials,data) {
@@ -118,7 +118,7 @@ helpers = helpers || Handlebars.helpers; data = data || {};
   var buffer = "", stack1, functionType="function", escapeExpression=this.escapeExpression;
 
 
-  buffer += "<h2 class=\"block-title text-center\">Current Conditions</h2>\n\n<div class=\"large-12 columns\" id=\"current-conditions\">\n  <div class=\"large-4 columns\" id=\"temperature\">\n    <h4 class=\"text-center\">Temperature</h4>\n    <img src=\"http://placehold.it/125x125\"/>\n\n    <div class=\"row\">\n      <div class=\"large-12 columns\">\n        <h4 class=\"left\">Air:</h4>\n        <span class=\"red-span\">";
+  buffer += "<h2 class=\"block-title text-center\">Current Conditions</h2>\n\n<div class=\"large-12 columns\" id=\"current-conditions\">\n  <div class=\"large-4 columns\" id=\"temperature\">\n    <h4 class=\"text-center\">Temperature</h4>\n    <div id=\"air_temperature_gauge\"></div>\n\n    <div class=\"row\">\n      <div class=\"large-12 columns\">\n        <h4 class=\"left\">Air:</h4>\n        <span class=\"red-span\">";
   if (stack1 = helpers.air_temperature) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
   else { stack1 = depth0.air_temperature; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
   buffer += escapeExpression(stack1)
@@ -126,7 +126,7 @@ helpers = helpers || Handlebars.helpers; data = data || {};
   if (stack1 = helpers.water_temperature) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
   else { stack1 = depth0.water_temperature; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
   buffer += escapeExpression(stack1)
-    + "</span>\n      </div>\n    </div>\n  </div>\n  <div class=\"large-4 columns \" id=\"pressure\">\n    <h4 class=\"text-center\">Air Pressure</h4>\n    <img src=\"http://placehold.it/125x125\"/>\n\n    <div class=\"row\">\n      <div class=\"large-12 columns\">\n        <span class=\"red-span text-center\">";
+    + "</span>\n      </div>\n    </div>\n  </div>\n  <div class=\"large-4 columns \" id=\"pressure\">\n    <h4 class=\"text-center\">Air Pressure</h4>\n    <div id=\"air_pressure_gauge\"></div>\n\n    <div class=\"row\">\n      <div class=\"large-12 columns\">\n        <span class=\"red-span text-center\">";
   if (stack1 = helpers.air_pressure) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
   else { stack1 = depth0.air_pressure; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
   buffer += escapeExpression(stack1)
@@ -134,7 +134,7 @@ helpers = helpers || Handlebars.helpers; data = data || {};
   if (stack1 = helpers.air_pressure_change) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
   else { stack1 = depth0.air_pressure_change; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
   buffer += escapeExpression(stack1)
-    + "</h4>\n      </div>\n    </div>\n  </div>\n  <div class=\"large-4 columns\" id=\"windspeed\">\n    <h4 class=\"text-center\">Wind Speed</h4>\n    <img src=\"http://placehold.it/125x125\"/>\n\n    <div class=\"row\">\n      <div class=\"large-12 columns\">\n        <span class=\"red-span\">";
+    + "</h4>\n      </div>\n    </div>\n  </div>\n  <div class=\"large-4 columns\" id=\"windspeed\">\n    <h4 class=\"text-center\">Wind Speed</h4>\n    <div id=\"wind_speed_gauge\"></div>\n\n    <div class=\"row\">\n      <div class=\"large-12 columns\">\n        <span class=\"red-span\">";
   if (stack1 = helpers.wind_speed) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
   else { stack1 = depth0.wind_speed; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
   buffer += escapeExpression(stack1)
