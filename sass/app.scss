@@ -7,14 +7,14 @@
 
 @font-face {
   font-family: "Meddon";
-  src: url("Meddon.eot?") format("eot"), url("../fonts/Meddon/Meddon.woff") format("woff"), url("../fonts//Meddon/Meddon.ttf") format("truetype"), url("../fonts//Meddon/Meddon.svg#Meddon") format("svg");
+url("../fonts//Meddon/Meddon.svg#Meddon") format("svg"), src: url("Meddon.eot?") format("eot"), url("../fonts/Meddon/Meddon.woff") format("woff"), url("../fonts//Meddon/Meddon.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Rokkitt";
-  src: url("../fonts/Rokkitt/Rokkitt-Regular.eot?") format("eot"), url("../fonts/Rokkitt/Rokkitt-Regular.woff") format("woff"), url("../fonts/Rokkitt/Rokkitt-Regular.ttf") format("truetype"), url("../fonts/Rokkitt/Rokkitt-Regular.svg#Rokkitt") format("svg");
+url("../fonts/Rokkitt/Rokkitt-Regular.svg#Rokkitt") format("svg"), src: url("../fonts/Rokkitt/Rokkitt-Regular.eot?") format("eot"), url("../fonts/Rokkitt/Rokkitt-Regular.woff") format("woff"), url("../fonts/Rokkitt/Rokkitt-Regular.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }

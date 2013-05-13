@@ -1,5 +1,7 @@
 //LOAD LOCAL FONTS
-
+html {
+  -webkit-font-smoothing: antialiased;
+}
 
 
 body {
@@ -98,9 +100,9 @@ span.red-span {
 
 #page-title h2 {
   text-align: center;
-  margin-top: 32px;
+  margin-top: 40px;
   color: $blue;
-  font-size: 25px;
+  font-size: 24px;
 
 }
 
@@ -464,6 +466,7 @@ h2.block-title {
 
   h4 {
     margin-top: 20px;
+    font-size:18px;
   }
 
 }
