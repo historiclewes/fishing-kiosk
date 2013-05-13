@@ -1,14 +1,12 @@
 //LOAD LOCAL FONTS
 
-body
-{
-  -webkit-text-stroke: .001px transparent;
+body {
+  -webkit-text-stroke: .02em;
 }
 
 html {
-  -webkit-font-smoothing:subpixel-antialiased;
+  -webkit-font-smoothing: subpixel-antialiased;
 }
-
 
 body {
   background: url('../images/site-background.png') top left repeat;
@@ -472,7 +470,7 @@ h2.block-title {
 
   h4 {
     margin-top: 20px;
-    font-size:18px;
+    font-size: 18px;
   }
 
 }
