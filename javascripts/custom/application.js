@@ -14,10 +14,6 @@ var Kiosk = (function($, window, document, undefined) {
     search: 'kiosk/views/kiosk_nodes?display_id=block_4'
   }
 
-  var jsonFeeds = {
-    tbd: 'tbd'
-  };
-
   var vimeo = {
     'type': 'user',
     'id': 'user1949213'
