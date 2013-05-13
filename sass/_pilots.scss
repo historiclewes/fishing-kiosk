@@ -1,6 +1,12 @@
 //LOAD LOCAL FONTS
+
+body
+{
+  -webkit-text-stroke: .001px transparent;
+}
+
 html {
-  -webkit-font-smoothing: antialiased;
+  -webkit-font-smoothing:subpixel-antialiased;
 }
 
 
