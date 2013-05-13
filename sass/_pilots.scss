@@ -14,6 +14,15 @@ body {
   padding-bottom: 120px;
 }
 
+table, table tr, table tr.even, table tr.alt, table tr:nth-of-type(even) {
+  background: transparent;
+  border: none;
+}
+
+table {
+  min-width: 250px !important;
+}
+
 #diver-man {
   background: url('../images/diver.png') bottom right no-repeat;
   position: fixed;
@@ -237,7 +246,11 @@ h2.block-title {
     text-align: center;
     font-size: 18px;
     padding-right: 30px;
-    background: url('../images/join-today.png') right 13px no-repeat;
+    width: 230px;
+    height: 190px;
+    display: block;
+    margin-top: -46px;
+    margin-left: -10px;
     &:hover {
       color: $blue;
       text-decoration: underline;
@@ -245,6 +258,26 @@ h2.block-title {
 
   }
 
+}
+
+#newsletter-signup {
+  padding: 20px 0 0;
+  input {
+    background-color: transparent;
+    border: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    -webkit-appearance: none;
+    color: #8c8c8c;
+    font-family: "Rokkitt";
+    font-size: 24px;
+    width: 620px;
+    height: 30px;
+    padding: 0;
+    margin: 0px 10px 0px 0;
+    border-bottom: dotted 2px #8c8c8c;
+  }
 }
 
 #search {
@@ -434,6 +467,11 @@ h2.block-title {
       list-style: none;
       background: url('../images/navigation-buttons.png') left -42px no-repeat;
       padding-left: 40px;
+
+      a.button {
+        font-size: 15px;
+        width: 150px;
+      }
     }
     padding-top: 25px;
     .button {
@@ -470,7 +508,7 @@ h2.block-title {
 
   h4 {
     margin-top: 20px;
-    font-size: 18px;
+    font-size: 16px;
   }
 
 }
@@ -579,6 +617,16 @@ h2.block-title {
     height: 40px;
 
   }
+  #artifact-image {
+    background: url(../images/artifact-frame.png) top left no-repeat;
+    padding: 43px 36px;
+    img {
+      width: 348px;
+      height: 340px;
+
+    }
+  }
+
 }
 
 .news-teaser {

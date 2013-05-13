@@ -5,14 +5,7 @@ var Kiosk = (function($, window, document, undefined) {
   });
 
   // Application variables
-  var localContentServer = 'http://historiclewes.localhost:8082/';
-  var remoteContentServer = 'http://www.historiclewes.org/';
-
-  // this should be set to production unless working locally (and you have proper local setup).
-  var kioskMode = 'development';
-
-  // reference to the content server set above
-  var contentServer = (kioskMode === 'development') ? localContentServer : remoteContentServer;
+  var contentServer = 'http://www.historiclewes.org/';
 
   // define our services endpoints back to the parent application
   var services = {
@@ -20,10 +13,6 @@ var Kiosk = (function($, window, document, undefined) {
     collections: 'kiosk/views/kiosk_nodes?display_id=block_2',
     search: 'kiosk/views/kiosk_nodes?display_id=block_4'
   }
-
-  var jsonFeeds = {
-    tbd: 'tbd'
-  };
 
   var vimeo = {
     'type': 'user',
@@ -88,6 +77,11 @@ var Kiosk = (function($, window, document, undefined) {
         var context = {
           title: response[0].title,
           body: response[0].body
+        }
+
+        // if a kiosk description exists, use that instead of the existing node body
+        if (response[0].kiosk_body && response[0].kiosk_body.length) {
+          context.body = response[0].kiosk_body;
         }
 
         Kiosk.util.updateScreen('#main-content', template(context));
@@ -172,7 +166,7 @@ var Kiosk = (function($, window, document, undefined) {
 
     util: {
       actionUrl: function(feed_id) {
-        return contentServer + services[feed_id] + '&jsonp=';
+        return contentServer + services[feed_id];
       },
 
       updateScreen: function(selector, content) {
