@@ -15,7 +15,7 @@ var BuoyRequest = (function () {
   }
 
   var dataFeedUrl = function(buoy_id) {
-    return '../../json/' + buoy_id + '.json';
+    return 'json/' + buoy_id + '.json';
   }
 
   return {
