@@ -39,8 +39,15 @@ table {
   @include border-radius(8px);
   width: 60%;
   left: 60%;
-
+  //top: 20px !important;
+  max-height: 600px;
+  z-index: 1001;
   border: dotted 2px $brown;
+}
+
+.reveal-modal-bg {
+  background-color: rgba(0, 0, 0, .8);
+  z-index: 1000;
 
 }
 
@@ -229,9 +236,11 @@ h2.block-title {
 }
 
 #newsletter {
-  background: url(../images/newsletter-signup-bg.png) top right no-repeat;
   padding: 15px 10px 20px 10px;
 
+  img {
+    margin-top: 43px;
+  }
   span {
     font-family: 'Rokkitt';
     font-weight: bold;
@@ -327,10 +336,10 @@ h2.block-title {
   .slideshow {
     a.collections {
       position: absolute;
-      font-size: 22px;
+      font-size: 20px;
       position: absolute;
       top: 35px;
-      right: 130px;
+      right: 135px;
       padding-left: 34px;
       background: url('../images/pointer-right.png') center left no-repeat;
       color: $red;
@@ -553,7 +562,7 @@ h2.block-title {
     padding: 15px 0 0 0;
     @include box-shadow(0 0 5px rgba(0, 0, 0, .4));
     margin: 15px 0;
-
+    min-height: 150px;
     h4 {
       margin-bottom: 0;
     }
