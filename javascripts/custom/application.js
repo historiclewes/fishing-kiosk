@@ -9,7 +9,7 @@ var Kiosk = (function($, window, document, undefined) {
   var remoteContentServer = 'http://www.historiclewes.org/';
 
   // this should be set to production unless working locally (and you have proper local setup).
-  var kioskMode = 'development';
+  var kioskMode = 'production';
 
   // reference to the content server set above
   var contentServer = (kioskMode === 'development') ? localContentServer : remoteContentServer;
