@@ -94,7 +94,7 @@ var Kiosk = (function($, window, document, undefined) {
 
       DrupalRequest.fetchView('collections', function(response) {
         var context = { items: [] }
-
+        console.log(response);
         $.each(response, function(key, value) {
           context.items.push({ 'title' : value.title, 'teaser': value.teaser, 'nid': value.nid });
         });
@@ -131,6 +131,23 @@ var Kiosk = (function($, window, document, undefined) {
       });
     },
 
+    drawGauge: function(value, container_id) {
+      var data = google.visualization.arrayToDataTable([
+        ['Label', 'Value'],
+        ['', parseInt(value)],
+      ]);
+
+      var options = {
+        width: 400, height: 120,
+        redFrom: 90, redTo: 100,
+        yellowFrom:75, yellowTo: 90,
+        minorTicks: 5
+      };
+
+      var chart = new google.visualization.Gauge(document.getElementById(container_id));
+      chart.draw(data, options);
+    },
+
     // fetch the weather data for a given buoy
     getWeatherData: function(buoy_id) {
       var buoyTemplate = Handlebars.getTemplate('buoy');
@@ -151,8 +168,12 @@ var Kiosk = (function($, window, document, undefined) {
           wind_gusts: response[0].GST,
         };
 
+
         Kiosk.util.updateScreen('#current-conditions-block', conditionsTemplate(context));
         Kiosk.util.updateScreen('#waves-tides', buoyTemplate(context));
+        Kiosk.drawGauge(response[0].ATMP, 'air_temperature_gauge');
+        Kiosk.drawGauge(response[0].PRES, 'air_pressure_gauge');
+        Kiosk.drawGauge(response[0].WSPD, 'wind_speed_gauge');
       });
     },
 
