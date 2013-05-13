@@ -28,7 +28,7 @@ function program1(depth0,data) {
   options = {hash:{},inverse:self.noop,fn:self.program(1, program1, data),data:data};
   stack2 = ((stack1 = helpers.list),stack1 ? stack1.call(depth0, depth0.buoys, options) : helperMissing.call(depth0, "list", depth0.buoys, options));
   if(stack2 || stack2 === 0) { buffer += stack2; }
-  buffer += "\n    </div>\n  </div>\n\n  <div class=\"large-6 columns\" id=\"waves-tides\"></div>\n</div>";
+  buffer += "\n    </div>\n  </div>\n\n  <div class=\"large-6 columns\" id=\"waves-tides\"></div>\n</div>\n";
   return buffer;
   });
 templates['buoy.hbs'] = template(function (Handlebars,depth0,helpers,partials,data) {
@@ -155,7 +155,7 @@ helpers = helpers || Handlebars.helpers; data = data || {};
   
 
 
-  return "<div class=\"row\">\n  <div class=\"large-10 columns\">\n    <nav id=\"footer-navigation\">\n      <ul class=\"inline-list\">\n        <li class=\"home\"><a id=\"home\" href=\"#\" onclick=\"Kiosk.getPage('home'); return false;\">Home</a></li>\n        <li class=\"the-bay\"><a id=\"the-bay\" href=\"#\" onclick=\"Kiosk.getBay(); return false;\">The Bay</a></li>\n        <li class=\"history\"><a href=\"#\" onclick=\"Kiosk.getNode('node', 323); return false;\">History</a></li>\n        <li class=\"collection\"><a href=\"#\" onclick=\"Kiosk.getCollections(); return false;\">Collection</a></li>\n        <li class=\"videos\"><a href=\"#\" onclick=\"Kiosk.getVideos(); return false;\">Videos</a></li>\n        <li class=\"cannonball-house\"><a href=\"#\" onclick=\"Kiosk.getNode('node', 368); return false;\">Cannonball House</a></li>\n      </ul>\n    </nav>\n  </div>\n  <div class=\"large-2 columns text-center\" id=\"newsletter\">\n        <span>\n\n        </span><br/><br/>\n    <a href=\"#\" data-reveal-id=\"newsletter-signup\">\n\n    </a>\n  </div>\n</div>";
+  return "<div class=\"row\">\n  <div class=\"large-10 columns\">\n    <nav id=\"footer-navigation\">\n      <ul class=\"inline-list\">\n        <li class=\"home\"><a id=\"home\" href=\"#\" onclick=\"Kiosk.getPage('home'); return false;\">Home</a></li>\n        <li class=\"the-bay\"><a id=\"the-bay\" href=\"#\" onclick=\"Kiosk.getBay(); return false;\">The Bay</a></li>\n        <li class=\"history\"><a href=\"#\" onclick=\"Kiosk.getNode('node', 323); return false;\">History</a></li>\n        <li class=\"collection\"><a href=\"#\" onclick=\"Kiosk.getCollections(); return false;\">Collection</a></li>\n        <li class=\"videos\"><a href=\"#\" onclick=\"Kiosk.getVideos(); return false;\">Videos</a></li>\n        <li class=\"cannonball-house\"><a href=\"#\" onclick=\"Kiosk.getNode('node', 368); return false;\">Cannonball House</a></li>\n      </ul>\n    </nav>\n  </div>\n  <div class=\"large-2 columns text-center\" id=\"newsletter\">\n\n    <a href=\"#\" data-reveal-id=\"newsletter-signup\">\n    <img src=\"images/newsletter-signup-bg.png\" />\n\n    </a>\n  </div>\n</div>";
   });
 templates['header.hbs'] = template(function (Handlebars,depth0,helpers,partials,data) {
   this.compilerInfo = [2,'>= 1.0.0-rc.3'];
