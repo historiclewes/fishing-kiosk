@@ -171,7 +171,38 @@ helpers = helpers || Handlebars.helpers; data = data || {};
   
 
 
-  return "<div class=\"row\" id=\"homepage\">\n  <div class=\"large-7 columns slideshow\">\n    <a href=\"#\" class=\"collections rokkitt\" onclick=\"Kiosk.getCollections(); return false;\">View\n      the Collection</a>\n\n    <div class=\"slideshow-frame\">\n      <!-- REPLACE THE PLACEHOLDIT IMAGE WITH SLIDESHOW FIELDS -->\n      <img src=\"http://placehold.it/587x375\"/>\n      <!-- REPLACE THE PLACEHOLDIT IMAGE WITH SLIDESHOW FIELDS -->\n\n    </div>\n  </div>\n  <div class=\"large-5 columns\">\n    <div class=\"large-6 columns\" id=\"videos-cta\">\n      <div class=\"large-6 right\"><h2 class=\"red-header\">Videos</h2>\n\n        <p>This gentleman was surely not equipped to watch videos but you certainly are.</p>\n      </div>\n      <a class=\"meddon\" href=\"#\"\n         onclick=\"Kiosk.getVideos(); return false;\">Watch</a></div>\n    <div class=\"large-6 columns\" id=\"history-cta\">\n      <h2 class=\"red-header\">History</h2>\n\n      <p>Explore the ebb and flow of a fishing industry once central to our local economy.</p>\n      <a class=\"meddon\" href=\"#\"\n         onclick=\"Kiosk.getNode('node', 323); return false;\">Learn</a>\n    </div>\n    <div class=\"large-12 columns\" id=\"whale-divider\">\n    </div>\n    <div class=\"large-9 columns block-radius\" id=\"homepage-cta\">\n      <h2 class=\"text-center red-header\">The Bay</h2>\n      <h4>Live Bay Reporting</h4>\n\n      <p>View our interactive map which shows not only the buoys currently in the Delaware Bay, but displays useful\n        inforamtion about the weather and tides!</p>\n      <a href=\"#\" class=\"right collections meddon pointer-left\"\n         onclick=\"Kiosk.getBay(); return false;\">View\n        The Bay</a>\n    </div>\n  </div>\n</div>";
+  return "<div class=\"row\" id=\"homepage\">\n  <div class=\"large-7 columns slideshow\">\n    <a href=\"#\" class=\"collections rokkitt\" onclick=\"Kiosk.getCollections(); return false;\">View the Collection</a>\n    <script type=\"text/javascript\">Kiosk.getSlideshow('homepage_slider');</script>\n\n    <div class=\"slideshow-frame\">\n      <!--<img src=\"http://placehold.it/587x375/ffffff\"/>\n      <img src=\"http://placehold.it/587x375/000000\"/>\n      <img src=\"http://placehold.it/587x375/ff0000\"/>\n      <img src=\"http://placehold.it/587x375/00ffff\"/>\n      <img src=\"http://placehold.it/587x375/ffff00\"/>\n      <img src=\"http://placehold.it/587x375/cccccc\"/>\n      <img src=\"http://placehold.it/587x375/efefef\"/>-->\n    </div>\n  </div>\n  <div class=\"large-5 columns\">\n    <div class=\"large-6 columns\" id=\"videos-cta\">\n      <div class=\"large-6 right\"><h2 class=\"red-header\">Videos</h2>\n\n        <p>This gentleman was surely not equipped to watch videos but you certainly are.</p>\n      </div>\n      <a class=\"meddon\" href=\"#\"\n         onclick=\"Kiosk.getVideos(); return false;\">Watch</a></div>\n    <div class=\"large-6 columns\" id=\"history-cta\">\n      <h2 class=\"red-header\">History</h2>\n\n      <p>Explore the ebb and flow of a fishing industry once central to our local economy.</p>\n      <a class=\"meddon\" href=\"#\"\n         onclick=\"Kiosk.getNode('node', 323); return false;\">Learn</a>\n    </div>\n    <div class=\"large-12 columns\" id=\"whale-divider\">\n    </div>\n    <div class=\"large-9 columns block-radius\" id=\"homepage-cta\">\n      <h2 class=\"text-center red-header\">The Bay</h2>\n      <h4>Live Bay Reporting</h4>\n\n      <p>View our interactive map which shows not only the buoys currently in the Delaware Bay, but displays useful\n        inforamtion about the weather and tides!</p>\n      <a href=\"#\" class=\"right collections meddon pointer-left\"\n         onclick=\"Kiosk.getBay(); return false;\">View\n        The Bay</a>\n    </div>\n  </div>\n</div>";
+  });
+templates['homepage_slider.hbs'] = template(function (Handlebars,depth0,helpers,partials,data) {
+  this.compilerInfo = [2,'>= 1.0.0-rc.3'];
+helpers = helpers || Handlebars.helpers; data = data || {};
+  var buffer = "", stack1, stack2, functionType="function", escapeExpression=this.escapeExpression, self=this;
+
+function program1(depth0,data) {
+  
+  var buffer = "", stack1;
+  buffer += "\n    ";
+  stack1 = helpers.each.call(depth0, depth0.items, {hash:{},inverse:self.noop,fn:self.program(2, program2, data),data:data});
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\n  ";
+  return buffer;
+  }
+function program2(depth0,data) {
+  
+  var buffer = "", stack1;
+  buffer += "\n      <li><img src=\"";
+  if (stack1 = helpers.src) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
+  else { stack1 = depth0.src; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
+  buffer += escapeExpression(stack1)
+    + "\" /></li>\n    ";
+  return buffer;
+  }
+
+  buffer += "<ul data-orbit>\n  ";
+  stack2 = helpers['if'].call(depth0, ((stack1 = depth0.items),stack1 == null || stack1 === false ? stack1 : stack1.length), {hash:{},inverse:self.noop,fn:self.program(1, program1, data),data:data});
+  if(stack2 || stack2 === 0) { buffer += stack2; }
+  buffer += "\n</ul>";
+  return buffer;
   });
 templates['navigation.hbs'] = template(function (Handlebars,depth0,helpers,partials,data) {
   this.compilerInfo = [2,'>= 1.0.0-rc.3'];
