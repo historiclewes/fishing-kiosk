@@ -155,7 +155,7 @@ helpers = helpers || Handlebars.helpers; data = data || {};
   
 
 
-  return "<div class=\"row\">\n  <div class=\"large-10 columns\">\n    <nav id=\"footer-navigation\">\n      <ul class=\"inline-list\">\n        <li class=\"home inactive\"><a id=\"home\" href=\"#\" onclick=\"Kiosk.getPage('home'); return false;\">Home</a></li>\n        <li class=\"the-bay inactive\"><a id=\"the-bay\" href=\"#\" onclick=\"Kiosk.getBay(); return false;\">The Bay</a></li>\n        <li class=\"history inactive\"><a href=\"#\" onclick=\"Kiosk.getNode('node', 323); return false;\">History</a></li>\n        <li class=\"collection inactive\"><a href=\"#\" onclick=\"Kiosk.getCollections(); return false;\">Collection</a></li>\n        <li class=\"videos inactive\"><a href=\"#\" onclick=\"Kiosk.getVideos(); return false;\">Videos</a></li>\n        <li class=\"cannonball-house inactive\"><a href=\"#\" onclick=\"Kiosk.getNode('node', 368); return false;\">Cannonball House</a></li>\n      </ul>\n    </nav>\n  </div>\n  <div class=\"large-2 columns text-center\" id=\"newsletter\">\n\n    <a href=\"#\" data-reveal-id=\"newsletter-signup\">\n    <img src=\"images/newsletter-signup-bg.png\" />\n\n    </a>\n  </div>\n</div>";
+  return "<div class=\"row\">\n  <div class=\"large-10 columns\">\n    <nav id=\"footer-navigation\">\n      <ul class=\"inline-list\">\n        <li class=\"home inactive\"><a id=\"home\" href=\"#\" onclick=\"Kiosk.getPage('home'); return false;\">Home</a></li>\n        <li class=\"the-bay inactive\"><a id=\"the-bay\" href=\"#\" onclick=\"Kiosk.getBay(); return false;\">The Bay</a></li>\n        <li class=\"history inactive\"><a href=\"#\" onclick=\"Kiosk.getNode('node', 323); return false;\">History</a></li>\n        <li class=\"collection inactive\"><a href=\"#\" onclick=\"Kiosk.getCollections(); return false;\">Collection</a></li>\n        <li class=\"videos inactive\"><a href=\"#\" onclick=\"Kiosk.getVideos(); return false;\">Videos</a></li>\n        <li class=\"videos inactive\"><a href=\"#\" onclick=\"Kiosk.getNews(); return false;\">News</a></li>\n        <li class=\"cannonball-house inactive\"><a href=\"#\" onclick=\"Kiosk.getNode('node', 368); return false;\">Cannonball House</a></li>\n      </ul>\n    </nav>\n  </div>\n  <div class=\"large-2 columns text-center\" id=\"newsletter\">\n\n    <a href=\"#\" data-reveal-id=\"newsletter-signup\">\n    <img src=\"images/newsletter-signup-bg.png\" />\n\n    </a>\n  </div>\n</div>";
   });
 templates['header.hbs'] = template(function (Handlebars,depth0,helpers,partials,data) {
   this.compilerInfo = [2,'>= 1.0.0-rc.3'];
@@ -251,6 +251,49 @@ helpers = helpers || Handlebars.helpers; data = data || {};
   buffer += "\n  </div>\n</div>";
   return buffer;
   });
+templates['rss.hbs'] = template(function (Handlebars,depth0,helpers,partials,data) {
+  this.compilerInfo = [2,'>= 1.0.0-rc.3'];
+helpers = helpers || Handlebars.helpers; data = data || {};
+  var buffer = "", stack1, stack2, functionType="function", escapeExpression=this.escapeExpression, self=this;
+
+function program1(depth0,data) {
+  
+  var buffer = "", stack1;
+  buffer += "\n    ";
+  stack1 = helpers.each.call(depth0, depth0.items, {hash:{},inverse:self.noop,fn:self.program(2, program2, data),data:data});
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\n  ";
+  return buffer;
+  }
+function program2(depth0,data) {
+  
+  var buffer = "", stack1;
+  buffer += "\n      <h3>";
+  if (stack1 = helpers.title) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
+  else { stack1 = depth0.title; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
+  buffer += escapeExpression(stack1)
+    + "</h3>\n      <time>";
+  if (stack1 = helpers.date) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
+  else { stack1 = depth0.date; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
+  buffer += escapeExpression(stack1)
+    + "</time>\n\n      <p>";
+  if (stack1 = helpers.description) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
+  else { stack1 = depth0.description; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
+  buffer += escapeExpression(stack1)
+    + "</p>\n\n      <p><a href=\"#\" data-reveal-id=\"rss-"
+    + escapeExpression(((stack1 = data.index),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
+    + "\">Read More &raquo;</a></p>\n\n      <div id=\"rss-"
+    + escapeExpression(((stack1 = data.index),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
+    + "\" class=\"reveal-modal large-8\">\n        <div>\n          <p>This should be more content - but may not be possible with an iframe (too slow).</p>\n          <a class=\"close-reveal-modal\">x</a>\n        </div>\n      </div>\n    ";
+  return buffer;
+  }
+
+  buffer += "<div class=\"row\">\n  ";
+  stack2 = helpers['if'].call(depth0, ((stack1 = depth0.items),stack1 == null || stack1 === false ? stack1 : stack1.length), {hash:{},inverse:self.noop,fn:self.program(1, program1, data),data:data});
+  if(stack2 || stack2 === 0) { buffer += stack2; }
+  buffer += "\n</div>";
+  return buffer;
+  });
 templates['search.hbs'] = template(function (Handlebars,depth0,helpers,partials,data) {
   this.compilerInfo = [2,'>= 1.0.0-rc.3'];
 helpers = helpers || Handlebars.helpers; data = data || {};
@@ -323,7 +366,15 @@ function program2(depth0,data) {
   if (stack1 = helpers.thumbnail_medium) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
   else { stack1 = depth0.thumbnail_medium; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
   buffer += escapeExpression(stack1)
-    + "\"/>\n            </a>\n          </li>\n        ";
+    + "\"/>\n            </a>\n          </li>\n\n        <div id=\"video-";
+  if (stack1 = helpers.vimeo_id) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
+  else { stack1 = depth0.vimeo_id; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
+  buffer += escapeExpression(stack1)
+    + "\" class=\"reveal-modal large-8\">\n          <div class=\"flex-video\" style=\"-webkit-transform-origin: 0px 0px; opacity: 0; -webkit-transform: scale(1, 1); -webkit-transition: opacity 0.1s linear; transition: opacity 0.1s linear; display: none;\">\n            <iframe src=\"http://player.vimeo.com/video/";
+  if (stack1 = helpers.vimeo_id) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
+  else { stack1 = depth0.vimeo_id; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
+  buffer += escapeExpression(stack1)
+    + "?title=0&amp;byline=0&amp;portrait=0&amp;color=ffffff\" width=\"100%\" height=\"400\" frameborder=\"0\" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>\n          </div>\n        </div>\n        ";
   return buffer;
   }
 
@@ -338,17 +389,8 @@ function program4(depth0,data) {
   }
 function program5(depth0,data) {
   
-  var buffer = "", stack1;
-  buffer += "\n    <div id=\"video-";
-  if (stack1 = helpers.vimeo_id) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
-  else { stack1 = depth0.vimeo_id; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
-  buffer += escapeExpression(stack1)
-    + "\" class=\"reveal-modal large-8\">\n      <div class=\"flex-video\" style=\"-webkit-transform-origin: 0px 0px; opacity: 0; -webkit-transform: scale(1, 1); -webkit-transition: opacity 0.1s linear; transition: opacity 0.1s linear; display: none;\">\n        <iframe src=\"http://player.vimeo.com/video/";
-  if (stack1 = helpers.vimeo_id) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
-  else { stack1 = depth0.vimeo_id; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
-  buffer += escapeExpression(stack1)
-    + "?title=0&amp;byline=0&amp;portrait=0&amp;color=ffffff\" width=\"100%\" height=\"400\" frameborder=\"0\" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>\n      </div>\n    </div>\n  ";
-  return buffer;
+  
+  return "\n\n  ";
   }
 
   buffer += "<div class=\"row\" id=\"videos\">\n  <div class=\"large-8 large-offset-2\">\n    ";
