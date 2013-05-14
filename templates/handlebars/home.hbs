@@ -1,13 +1,9 @@
 <div class="row" id="homepage">
   <div class="large-7 columns slideshow">
-    <a href="#" class="collections rokkitt" onclick="Kiosk.getCollections(); return false;">View
-      the Collection</a>
-
+    <script type="text/javascript">Kiosk.getSlideshow('homepage_slider');</script>
+    <a href="#" class="collections rokkitt" onclick="Kiosk.getCollections(); return false;">View the Collection</a>
     <div class="slideshow-frame">
-      <!-- REPLACE THE PLACEHOLDIT IMAGE WITH SLIDESHOW FIELDS -->
-      <img src="http://placehold.it/587x375"/>
-      <!-- REPLACE THE PLACEHOLDIT IMAGE WITH SLIDESHOW FIELDS -->
-
+      <div id="slideshow" style="width: 575px;"></div>
     </div>
   </div>
   <div class="large-5 columns">

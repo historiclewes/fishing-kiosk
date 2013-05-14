@@ -11,6 +11,7 @@ var Kiosk = (function($, window, document, undefined) {
   var services = {
     node: 'kiosk/views/kiosk_nodes?display_id=block_1',
     collections: 'kiosk/views/kiosk_nodes?display_id=block_2',
+    slideshow: 'kiosk/views/kiosk_nodes?display_id=block_3',
     search: 'kiosk/views/kiosk_nodes?display_id=block_4'
   }
 
@@ -51,6 +52,22 @@ var Kiosk = (function($, window, document, undefined) {
     getPage: function(template) {
       var Template = Handlebars.getTemplate(template);
       Kiosk.util.updateScreen('#main-content', Template());
+    },
+
+    // generic function to call and load local HTML files with optional Handlebars components
+    getSlideshow: function(template) {
+      var template = Handlebars.getTemplate(template);
+
+      DrupalRequest.fetchView('slideshow', function(response) {
+        var context = { items: [] };
+
+        $.each(response, function(key, value) {
+          context.items.push({ 'src' : value.picture });
+        });
+
+        Kiosk.util.updateScreen('#slideshow', template(context));
+        Foundation.libs.orbit.init();
+      });
     },
 
     // render the bay page and load the weather data for the first buoy
@@ -94,7 +111,7 @@ var Kiosk = (function($, window, document, undefined) {
 
       DrupalRequest.fetchView('collections', function(response) {
         var context = { items: [] }
-        console.log(response);
+
         $.each(response, function(key, value) {
           context.items.push({ 'title' : value.title, 'teaser': value.teaser, 'nid': value.nid });
         });
@@ -167,7 +184,6 @@ var Kiosk = (function($, window, document, undefined) {
           wind_direction: response[0].WDIR,
           wind_gusts: response[0].GST,
         };
-
 
         Kiosk.util.updateScreen('#current-conditions-block', conditionsTemplate(context));
         Kiosk.util.updateScreen('#waves-tides', buoyTemplate(context));
