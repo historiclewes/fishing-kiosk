@@ -34,6 +34,7 @@
   <script src="javascripts/foundation/foundation.forms.js"></script>
   <script src="javascripts/foundation/foundation.reveal.js"></script>
   <script src="javascripts/foundation/foundation.topbar.js"></script>
+  <script src="javascripts/foundation/foundation.orbit.js"></script>
   <script src="javascripts/vendor/handlebars.min.js"></script>
   <script src="javascripts/custom/drupal.js"></script>
   <script src="javascripts/custom/vimeo.js"></script>
@@ -41,7 +42,30 @@
   <script src="javascripts/custom/application.js"></script>
   <script src="javascripts/foundation/foundation.orbit.js"></script>
   <script src="templates/compiled/templates.js"></script>
-  <script>$(document).foundation();</script>
+  <script>
+    $(document).foundation()
+        .foundation('orbit', {
+          timer_speed: 8000,
+          animation_speed: 500,
+          bullets: false,
+          stack_on_small: true,
+          container_class: 'orbit-container',
+          stack_on_small_class: 'orbit-stack-on-small',
+          next_class: 'orbit-next',
+          prev_class: 'orbit-prev',
+          timer_container_class: 'orbit-timer',
+          timer_paused_class: 'paused',
+          timer_progress_class: 'orbit-progress',
+          slides_container_class: 'orbit-slides-container',
+          bullets_container_class: 'orbit-bullets',
+          bullets_active_class: 'active',
+          slide_number_class: 'orbit-slide-number',
+          caption_class: 'orbit-caption',
+          active_slide_class: 'active',
+          orbit_transition_class: 'orbit-transitioning'
+        }
+      );
+  </script>
 
   <div id="newsletter-signup" class="reveal-modal">
     <div class="small-10 columns">
