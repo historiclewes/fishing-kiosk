@@ -51,25 +51,10 @@ table {
 
 }
 
-//
-//.reveal-modal .close-reveal-modal {
-//  color: $tan;
-//  font-family: 'Meddon';
-//  background-color: $brown;
-//  border: dotted 2px $tan;
-//  @include border-radius(999px);
-//  @include box-shadow(0 0 5px rgba(0, 0, 0, .2));
-//  width: 25px;
-//  height: 25px;
-//  font-size: 34px;
-//  padding: 0;
-//  line-height: 13px;
-//  z-index:20;
-//
-//}
-
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Meddon';
+  font-weight: normal;
+
 }
 
 h3, h4, h5, h6 {
@@ -88,6 +73,7 @@ h3, h4, h5, h6 {
 
 .meddon {
   font-family: 'Meddon';
+  font-weight: normal;
 }
 
 .button {
@@ -172,6 +158,12 @@ h2.block-title {
 
     }
   }
+  nav ul li.active a {
+    cursor: pointer;
+    background-color: $blue;
+    border-color: $tan;
+    color: $tan;
+  }
   a {
 
     &:active, &:hover {
@@ -229,7 +221,7 @@ h2.block-title {
 
   li {
     padding-top: 30px;
-    &:hover {
+    &.active, &:hover {
       background-position: center -150px;
     }
   }
@@ -252,6 +244,8 @@ h2.block-title {
   a {
     font-family: 'Meddon';
     color: $blue;
+    font-weight: normal;
+
     text-align: center;
     font-size: 18px;
     padding-right: 30px;
@@ -626,16 +620,17 @@ h2.block-title {
     height: 40px;
 
   }
-  #artifact-image {
-    background: url(../images/artifact-frame.png) top left no-repeat;
-    padding: 43px 36px;
-    img {
-      width: 348px;
-      height: 340px;
 
-    }
+}
+
+#artifact-image {
+  background: url(../images/artifact-frame.png) top left no-repeat;
+  padding: 43px 36px;
+  img {
+    width: 348px;
+    height: 340px;
+
   }
-
 }
 
 .news-teaser {

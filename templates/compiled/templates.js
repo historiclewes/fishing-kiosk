@@ -12,7 +12,7 @@ function program1(depth0,data) {
   if (stack1 = helpers.id) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
   else { stack1 = depth0.id; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
   buffer += escapeExpression(stack1)
-    + "\" class=\"button radius\" onclick=\"Kiosk.getWeatherData('";
+    + "\" class=\"button radius inactive\" onclick=\"Kiosk.getWeatherData('";
   if (stack1 = helpers.id) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
   else { stack1 = depth0.id; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
   buffer += escapeExpression(stack1)
@@ -126,7 +126,7 @@ helpers = helpers || Handlebars.helpers; data = data || {};
   if (stack1 = helpers.water_temperature) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
   else { stack1 = depth0.water_temperature; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
   buffer += escapeExpression(stack1)
-    + "</span>\n      </div>\n    </div>\n  </div>\n  <div class=\"large-4 columns \" id=\"pressure\">\n    <h4 class=\"text-center\">Air Pressure</h4>\n    <div id=\"air_pressure_gauge\"></div>\n\n    <div class=\"row\">\n      <div class=\"large-12 columns\">\n        <span class=\"red-span text-center\">";
+    + "</span>\n      </div>\n    </div>\n  </div>\n  <div class=\"large-4 columns \" id=\"pressure\">\n    <h4 class=\"text-center\">Air Pressure</h4>\n    <div id=\"air_pressure_gauge\"></div>\n\n    <div class=\"row\">\n      <div class=\"large-12 columns text-center\">\n        <span class=\"red-span\">";
   if (stack1 = helpers.air_pressure) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
   else { stack1 = depth0.air_pressure; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
   buffer += escapeExpression(stack1)
@@ -155,7 +155,7 @@ helpers = helpers || Handlebars.helpers; data = data || {};
   
 
 
-  return "<div class=\"row\">\n  <div class=\"large-10 columns\">\n    <nav id=\"footer-navigation\">\n      <ul class=\"inline-list\">\n        <li class=\"home\"><a id=\"home\" href=\"#\" onclick=\"Kiosk.getPage('home'); return false;\">Home</a></li>\n        <li class=\"the-bay\"><a id=\"the-bay\" href=\"#\" onclick=\"Kiosk.getBay(); return false;\">The Bay</a></li>\n        <li class=\"history\"><a href=\"#\" onclick=\"Kiosk.getNode('node', 323); return false;\">History</a></li>\n        <li class=\"collection\"><a href=\"#\" onclick=\"Kiosk.getCollections(); return false;\">Collection</a></li>\n        <li class=\"videos\"><a href=\"#\" onclick=\"Kiosk.getVideos(); return false;\">Videos</a></li>\n        <li class=\"cannonball-house\"><a href=\"#\" onclick=\"Kiosk.getNode('node', 368); return false;\">Cannonball House</a></li>\n      </ul>\n    </nav>\n  </div>\n  <div class=\"large-2 columns text-center\" id=\"newsletter\">\n\n    <a href=\"#\" data-reveal-id=\"newsletter-signup\">\n    <img src=\"images/newsletter-signup-bg.png\" />\n\n    </a>\n  </div>\n</div>";
+  return "<div class=\"row\">\n  <div class=\"large-10 columns\">\n    <nav id=\"footer-navigation\">\n      <ul class=\"inline-list\">\n        <li class=\"home inactive\"><a id=\"home\" href=\"#\" onclick=\"Kiosk.getPage('home'); return false;\">Home</a></li>\n        <li class=\"the-bay inactive\"><a id=\"the-bay\" href=\"#\" onclick=\"Kiosk.getBay(); return false;\">The Bay</a></li>\n        <li class=\"history inactive\"><a href=\"#\" onclick=\"Kiosk.getNode('node', 323); return false;\">History</a></li>\n        <li class=\"collection inactive\"><a href=\"#\" onclick=\"Kiosk.getCollections(); return false;\">Collection</a></li>\n        <li class=\"videos inactive\"><a href=\"#\" onclick=\"Kiosk.getVideos(); return false;\">Videos</a></li>\n        <li class=\"cannonball-house inactive\"><a href=\"#\" onclick=\"Kiosk.getNode('node', 368); return false;\">Cannonball House</a></li>\n      </ul>\n    </nav>\n  </div>\n  <div class=\"large-2 columns text-center\" id=\"newsletter\">\n\n    <a href=\"#\" data-reveal-id=\"newsletter-signup\">\n    <img src=\"images/newsletter-signup-bg.png\" />\n\n    </a>\n  </div>\n</div>";
   });
 templates['header.hbs'] = template(function (Handlebars,depth0,helpers,partials,data) {
   this.compilerInfo = [2,'>= 1.0.0-rc.3'];
@@ -171,7 +171,7 @@ helpers = helpers || Handlebars.helpers; data = data || {};
   
 
 
-  return "<div class=\"row\" id=\"homepage\">\n  <div class=\"large-7 columns slideshow\">\n    <a href=\"#\" class=\"collections rokkitt\" onclick=\"Kiosk.getCollections(); return false;\">View the Collection</a>\n    <script type=\"text/javascript\">Kiosk.getSlideshow('homepage_slider');</script>\n\n    <div class=\"slideshow-frame\">\n      <!--<img src=\"http://placehold.it/587x375/ffffff\"/>\n      <img src=\"http://placehold.it/587x375/000000\"/>\n      <img src=\"http://placehold.it/587x375/ff0000\"/>\n      <img src=\"http://placehold.it/587x375/00ffff\"/>\n      <img src=\"http://placehold.it/587x375/ffff00\"/>\n      <img src=\"http://placehold.it/587x375/cccccc\"/>\n      <img src=\"http://placehold.it/587x375/efefef\"/>-->\n    </div>\n  </div>\n  <div class=\"large-5 columns\">\n    <div class=\"large-6 columns\" id=\"videos-cta\">\n      <div class=\"large-6 right\"><h2 class=\"red-header\">Videos</h2>\n\n        <p>This gentleman was surely not equipped to watch videos but you certainly are.</p>\n      </div>\n      <a class=\"meddon\" href=\"#\"\n         onclick=\"Kiosk.getVideos(); return false;\">Watch</a></div>\n    <div class=\"large-6 columns\" id=\"history-cta\">\n      <h2 class=\"red-header\">History</h2>\n\n      <p>Explore the ebb and flow of a fishing industry once central to our local economy.</p>\n      <a class=\"meddon\" href=\"#\"\n         onclick=\"Kiosk.getNode('node', 323); return false;\">Learn</a>\n    </div>\n    <div class=\"large-12 columns\" id=\"whale-divider\">\n    </div>\n    <div class=\"large-9 columns block-radius\" id=\"homepage-cta\">\n      <h2 class=\"text-center red-header\">The Bay</h2>\n      <h4>Live Bay Reporting</h4>\n\n      <p>View our interactive map which shows not only the buoys currently in the Delaware Bay, but displays useful\n        inforamtion about the weather and tides!</p>\n      <a href=\"#\" class=\"right collections meddon pointer-left\"\n         onclick=\"Kiosk.getBay(); return false;\">View\n        The Bay</a>\n    </div>\n  </div>\n</div>";
+  return "<div class=\"row\" id=\"homepage\">\n  <div class=\"large-7 columns slideshow\">\n    <script type=\"text/javascript\">Kiosk.getSlideshow('homepage_slider');</script>\n    <a href=\"#\" class=\"collections rokkitt\" onclick=\"Kiosk.getCollections(); return false;\">View the Collection</a>\n    <div class=\"slideshow-frame\">\n      <div id=\"slideshow\" style=\"width: 575px;\"></div>\n    </div>\n  </div>\n  <div class=\"large-5 columns\">\n    <div class=\"large-6 columns\" id=\"videos-cta\">\n      <div class=\"large-6 right\"><h2 class=\"red-header\">Videos</h2>\n\n        <p>This gentleman was surely not equipped to watch videos but you certainly are.</p>\n      </div>\n      <a class=\"meddon\" href=\"#\"\n         onclick=\"Kiosk.getVideos(); return false;\">Watch</a></div>\n    <div class=\"large-6 columns\" id=\"history-cta\">\n      <h2 class=\"red-header\">History</h2>\n\n      <p>Explore the ebb and flow of a fishing industry once central to our local economy.</p>\n      <a class=\"meddon\" href=\"#\"\n         onclick=\"Kiosk.getNode('node', 323); return false;\">Learn</a>\n    </div>\n    <div class=\"large-12 columns\" id=\"whale-divider\">\n    </div>\n    <div class=\"large-9 columns block-radius\" id=\"homepage-cta\">\n      <h2 class=\"text-center red-header\">The Bay</h2>\n      <h4>Live Bay Reporting</h4>\n\n      <p>View our interactive map which shows not only the buoys currently in the Delaware Bay, but displays useful\n        inforamtion about the weather and tides!</p>\n      <a href=\"#\" class=\"right collections meddon pointer-left\"\n         onclick=\"Kiosk.getBay(); return false;\">View\n        The Bay</a>\n    </div>\n  </div>\n</div>";
   });
 templates['homepage_slider.hbs'] = template(function (Handlebars,depth0,helpers,partials,data) {
   this.compilerInfo = [2,'>= 1.0.0-rc.3'];
@@ -212,7 +212,7 @@ helpers = helpers || Handlebars.helpers; data = data || {};
 function program1(depth0,data) {
   
   var buffer = "", stack1;
-  buffer += "\n    <li><a href=\"";
+  buffer += "\n    <li class=\"inactive\"><a href=\"";
   if (stack1 = helpers.href) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
   else { stack1 = depth0.href; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
   buffer += escapeExpression(stack1)
@@ -240,7 +240,7 @@ helpers = helpers || Handlebars.helpers; data = data || {};
   var buffer = "", stack1, functionType="function", escapeExpression=this.escapeExpression;
 
 
-  buffer += "<div class=\"row\">\n  <div class=\"large-11 columns\">\n    <h2>";
+  buffer += "<div class=\"row\">\n  <div id=\"artifact-image\" class=\"large-4  columns artifact-image\">\n    <img src=\"http://placehold.it/348x340\"/>\n  </div>\n  <div class=\"large-7 columns\">\n    <h2>";
   if (stack1 = helpers.title) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
   else { stack1 = depth0.title; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
   buffer += escapeExpression(stack1)
