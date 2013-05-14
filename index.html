@@ -11,45 +11,48 @@
   <script type="text/javascript" src="https://www.google.com/jsapi"></script>
   <script type="text/javascript">
     // Load the Visualization API library and the piechart library.
-    google.load('visualization', '1.0', {'packages':['gauge']});
+    google.load('visualization', '1.0', {'packages': ['gauge']});
   </script>
 </head>
 <body>
-  <div id="header">
-    {{ header }}
+<div id="header">
+  {{ header }}
+</div>
+
+<div id="main-content"></div>
+
+<div id="footer" class="large-12 columns">
+  {{ footer }}
+</div>
+
+<div id="diver-man"></div>
+
+<script>document.write('<script src=' + ('__proto__' in {} ? 'javascripts/vendor/zepto' : 'javascripts/vendor/jquery') + '.js><\/script>')</script>
+<script src="javascripts/foundation/foundation.js"></script>
+<script src="javascripts/foundation/foundation.clearing.js"></script>
+<script src="javascripts/foundation/foundation.cookie.js"></script>
+<script src="javascripts/foundation/foundation.forms.js"></script>
+<script src="javascripts/foundation/foundation.reveal.js"></script>
+<script src="javascripts/foundation/foundation.topbar.js"></script>
+<script src="javascripts/vendor/handlebars.min.js"></script>
+<script src="javascripts/custom/drupal.js"></script>
+<script src="javascripts/custom/vimeo.js"></script>
+<script src="javascripts/custom/buoy.js"></script>
+<script src="javascripts/custom/application.js"></script>
+<script src="javascripts/foundation/foundation.orbit.js"></script>
+<script src="templates/compiled/templates.js"></script>
+<script src="javascripts/custom/navigation.js"></script>
+
+
+<script>$(document).foundation();</script>
+
+<div id="newsletter-signup" class="reveal-modal">
+  <div class="small-10 columns">
+    <input type="email" id="newsletter-email-address" placeholder="Enter e-mail address here">
   </div>
-
-  <div id="main-content"></div>
-
-  <div id="footer" class="large-12 columns">
-    {{ footer }}
+  <div class="small-2 columns">
+    <a href="#" class="button radius" onclick="Kiosk.newsletterSignup(); return false;">Signup!</a>
   </div>
-
-  <div id="diver-man"></div>
-
-  <script>document.write('<script src=' + ('__proto__' in {} ? 'javascripts/vendor/zepto' : 'javascripts/vendor/jquery') + '.js><\/script>')</script>
-  <script src="javascripts/foundation/foundation.js"></script>
-  <script src="javascripts/foundation/foundation.clearing.js"></script>
-  <script src="javascripts/foundation/foundation.cookie.js"></script>
-  <script src="javascripts/foundation/foundation.forms.js"></script>
-  <script src="javascripts/foundation/foundation.reveal.js"></script>
-  <script src="javascripts/foundation/foundation.topbar.js"></script>
-  <script src="javascripts/vendor/handlebars.min.js"></script>
-  <script src="javascripts/custom/drupal.js"></script>
-  <script src="javascripts/custom/vimeo.js"></script>
-  <script src="javascripts/custom/buoy.js"></script>
-  <script src="javascripts/custom/application.js"></script>
-  <script src="javascripts/foundation/foundation.orbit.js"></script>
-  <script src="templates/compiled/templates.js"></script>
-  <script>$(document).foundation();</script>
-
-  <div id="newsletter-signup" class="reveal-modal">
-    <div class="small-10 columns">
-      <input type="email" id="newsletter-email-address" placeholder="Enter e-mail address here">
-    </div>
-    <div class="small-2 columns">
-      <a href="#" class="button radius" onclick="Kiosk.newsletterSignup(); return false;">Signup!</a>
-    </div>
-  </div>
+</div>
 </body>
 </html>

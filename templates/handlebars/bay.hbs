@@ -15,7 +15,7 @@
     <h2 class="block-title text-center">Buoy Stations</h2>
 
     <div class="navigation">
-      {{#list buoys}} <a href="#" id="{{ id }}" class="button radius" onclick="Kiosk.getWeatherData('{{ id }}'); return false;">{{ name }}</a> {{/list}}
+      {{#list buoys}} <a href="#" id="{{ id }}" class="button radius inactive" onclick="Kiosk.getWeatherData('{{ id }}'); return false;">{{ name }}</a> {{/list}}
     </div>
   </div>
 
