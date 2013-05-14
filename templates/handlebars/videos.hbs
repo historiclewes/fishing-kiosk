@@ -9,6 +9,13 @@
               <img class="block-radius" src="{{ thumbnail_medium }}"/>
             </a>
           </li>
+
+        <div id="video-{{ vimeo_id }}" class="reveal-modal large-8">
+          <div class="flex-video" style="-webkit-transform-origin: 0px 0px; opacity: 0; -webkit-transform: scale(1, 1); -webkit-transition: opacity 0.1s linear; transition: opacity 0.1s linear; display: none;">
+            <iframe src="http://player.vimeo.com/video/{{ vimeo_id }}?title=0&amp;byline=0&amp;portrait=0&amp;color=ffffff" width="100%" height="400" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+            <a class="close-reveal-modal">x</a>
+          </div>
+        </div>
         {{/each}}
       </ul>
     {{/if}}
@@ -17,10 +24,6 @@
 
 {{#if items.length}}
   {{#each items}}
-    <div id="video-{{ vimeo_id }}" class="reveal-modal large-8">
-      <div class="flex-video" style="-webkit-transform-origin: 0px 0px; opacity: 0; -webkit-transform: scale(1, 1); -webkit-transition: opacity 0.1s linear; transition: opacity 0.1s linear; display: none;">
-        <iframe src="http://player.vimeo.com/video/{{ vimeo_id }}?title=0&amp;byline=0&amp;portrait=0&amp;color=ffffff" width="100%" height="400" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
-      </div>
-    </div>
+
   {{/each}}
 {{/if}}
