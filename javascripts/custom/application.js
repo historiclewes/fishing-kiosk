@@ -15,6 +15,10 @@ var Kiosk = (function($, window, document, undefined) {
     search: 'kiosk/views/kiosk_nodes?display_id=block_4'
   }
 
+  var rssFeeds = {
+    cnn_us: 'http://rss.cnn.com/rss/cnn_us.rss',
+  }
+
   var vimeo = {
     'type': 'user',
     'id': 'user1949213'
@@ -134,6 +138,15 @@ var Kiosk = (function($, window, document, undefined) {
       });
     },
 
+    // fetch News
+    getNews: function(feed_id) {
+      var template = Handlebars.getTemplate('rss');
+
+      RSSRequest.getFeed(rssFeeds[feed_id], function(response) {
+        Kiosk.util.updateScreen('#main-content', template(response));
+      });
+    },
+
     getSearchResults: function() {
       var template = Handlebars.getTemplate('search');
       var keywords = $('#kiosk-search').attr('value');
@@ -148,18 +161,11 @@ var Kiosk = (function($, window, document, undefined) {
       });
     },
 
-    drawGauge: function(value, container_id) {
+    drawGauge: function(value, container_id, options) {
       var data = google.visualization.arrayToDataTable([
         ['Label', 'Value'],
-        ['', parseInt(value)],
+        ['', parseFloat(value)],
       ]);
-
-      var options = {
-        width: 400, height: 120,
-        redFrom: 90, redTo: 100,
-        yellowFrom:75, yellowTo: 90,
-        minorTicks: 5
-      };
 
       var chart = new google.visualization.Gauge(document.getElementById(container_id));
       chart.draw(data, options);
@@ -187,9 +193,58 @@ var Kiosk = (function($, window, document, undefined) {
 
         Kiosk.util.updateScreen('#current-conditions-block', conditionsTemplate(context));
         Kiosk.util.updateScreen('#waves-tides', buoyTemplate(context));
-        Kiosk.drawGauge(response[0].ATMP, 'air_temperature_gauge');
-        Kiosk.drawGauge(response[0].PRES, 'air_pressure_gauge');
-        Kiosk.drawGauge(response[0].WSPD, 'wind_speed_gauge');
+
+        var options = {
+          min: 0,
+          max: 120,
+          width: 400,
+          height: 120,
+          redFrom: 90,
+          redTo: 120,
+          yellowFrom: 80,
+          yellowTo: 90,
+          minorTicks: 5,
+          animation: {
+            duration: 900,
+            easing: 'inAndOut'
+          }
+        }
+
+        Kiosk.drawGauge(response[0].ATMP, 'air_temperature_gauge', options);
+
+        var options = {
+          min: 10,
+          max: 33,
+          width: 400,
+          height: 120,
+          yellowFrom: 30,
+          yellowTo: 33,
+          minorTicks: 5,
+          animation: {
+            duration: 900,
+            easing: 'inAndOut'
+          }
+        }
+
+        Kiosk.drawGauge(response[0].PRES, 'air_pressure_gauge', options);
+
+        var options = {
+          min: 0,
+          max: 100,
+          width: 400,
+          height: 120,
+          redFrom: 45,
+          redTo: 100,
+          yellowFrom: 30,
+          yellowTo: 45,
+          minorTicks: 5,
+          animation: {
+            duration: 900,
+            easing: 'inAndOut'
+          }
+        }
+
+        Kiosk.drawGauge(response[0].WSPD, 'wind_speed_gauge', options);
       });
     },
 
