@@ -186,7 +186,7 @@ var Kiosk = (function($, window, document, undefined) {
 
     // Application variables
     variables: {
-      kiosk_id: 123,
+      kiosk_id: 436,
       contentServer: 'http://www.historiclewes.org/',
 
       services: {
