@@ -1,9 +1,9 @@
 <div class="row artifact">
   <div id="artifact-image" class="large-4  columns artifact-image">
-    <img src="http://placehold.it/348x340"/>
+    <img src="{{ image_src }}"/>
   </div>
   <div class="large-8 columns">
-    <h2>{{ title }}</h2>
+    <h2>{{{ title }}}</h2>
 
     <div class="large-12 artifact-info">
       {{{ body }}}
@@ -16,34 +16,34 @@
         <div class="large-12">
           <h6 class="meddon text-center">Description</h6>
           <h5>Early Date:</h5>
-          <span class="red-span">1960</span>
+          <span class="red-span">{{ early_date }}</span>
         </div>
         <div class="large-12">
           <h5>Late Date:</h5>
-          <span class="red-span">1999</span>
+          <span class="red-span">{{ late_date }}</span>
         </div>
         <div class="large-12">
           <h5>Condition:</h5>
-          <span class="red-span">Good</span>
+          <span class="red-span">{{ condition }}</span>
         </div>
       </div>
       <div class="large-5 columns  categorical-info block-radius">
         <div class="large-12">
           <h6 class="meddon text-center">Categorical Information</h6>
           <h5>Collection:</h5>
-          <span class="red-span">Objects</span>
+          <span class="red-span">{{ collection }}</span>
         </div>
         <div class="large-12">
           <h5>Object ID:</h5>
-          <span class="red-span">2001.15.20</span>
+          <span class="red-span">{{ object_id }}</span>
         </div>
         <div class="large-12">
           <h5>Object Name:</h5>
-          <span class="red-span">Cup & Saucer</span>
+          <span class="red-span">{{ object_name }}</span>
         </div>
         <div class="large-12">
           <h5>Sterms:</h5>
-          <span class="red-span">Cup & Saucer</span>
+          <span class="red-span">{{ sterms }}</span>
         </div>
       </div>
     </div>
