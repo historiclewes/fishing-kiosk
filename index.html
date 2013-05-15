@@ -43,6 +43,10 @@
   <script src="javascripts/foundation/foundation.orbit.js"></script>
   <script src="templates/compiled/templates.js"></script>
   <script>
+    $(document).ready(function() {
+      Kiosk.init();
+    });
+
     $(document).foundation()
         .foundation('orbit', {
           timer_speed: 8000,

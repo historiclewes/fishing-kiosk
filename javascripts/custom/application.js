@@ -1,33 +1,15 @@
 // Define Kiosk
 var Kiosk = (function($, window, document, undefined) {
-  $(document).ready(function() {
-    Kiosk.go();
-  });
-
   return {
-    go: function() {
-      var i, j = this.init;
+    init: function() {
+      var template = Handlebars.getTemplate('header');
+      $("#header").html(template());
 
-      for (i in j) {
-        j.hasOwnProperty(i) && j[i]();
-      }
-    },
+      var template = Handlebars.getTemplate('home');
+      Kiosk.util.updateScreen('#main-content', template());
 
-    init: {
-      getHeader: function() {
-        var template = Handlebars.getTemplate('header');
-        $("#header").html(template());
-      },
-
-      pageContent: function() {
-        var template = Handlebars.getTemplate('home');
-        Kiosk.util.updateScreen('#main-content', template());
-      },
-
-      getFooter: function() {
-        var template = Handlebars.getTemplate('footer');
-        $("#footer").html(template());
-      }
+      var template = Handlebars.getTemplate('footer');
+      $("#footer").html(template());
     },
 
     // generic function to call and load local HTML files with optional Handlebars components
@@ -204,6 +186,7 @@ var Kiosk = (function($, window, document, undefined) {
 
     // Application variables
     variables: {
+      kiosk_id: 123,
       contentServer: 'http://www.historiclewes.org/',
 
       services: {
