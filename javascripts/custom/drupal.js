@@ -5,7 +5,7 @@ var DrupalRequest = (function () {
       {
         url: Kiosk.util.actionUrl('node'),
         dataType: 'jsonp',
-        data: {nid: node_id},
+        data: {args: [node_id]},
         type: 'GET',
         cache: false,
         success: function (response) {
@@ -77,7 +77,7 @@ var DrupalRequest = (function () {
       {
         url: Kiosk.util.actionUrl(feed_id),
         dataType: 'jsonp',
-        data: {tid: Kiosk.variables.kiosk_id},
+        data: {args: [Kiosk.variables.kiosk_id]},
         type: 'GET',
         cache: false,
         success: function (response) {
@@ -105,7 +105,7 @@ var DrupalRequest = (function () {
       {
         url: Kiosk.util.actionUrl(feed_id),
         dataType: 'jsonp',
-        data: {tid: Kiosk.variables.kiosk_id},
+        data: {args: [Kiosk.variables.kiosk_id]},
         type: 'GET',
         cache: false,
         success: function (response) {
@@ -126,7 +126,7 @@ var DrupalRequest = (function () {
       {
         url: Kiosk.util.actionUrl(feed_id),
         dataType: 'jsonp',
-        data: {title: keywords, tid: Kiosk.variables.kiosk_id},
+        data: {filters: { title: keywords }, args: [Kiosk.variables.kiosk_id] },
         type: 'GET',
         cache: false,
         success: function (response) {
