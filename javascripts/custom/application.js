@@ -75,7 +75,7 @@ var Kiosk = (function($, window, document, undefined) {
     getNews: function(feed_id) {
       var template = Handlebars.getTemplate('rss');
 
-      RSSRequest.getFeed(rssFeeds[feed_id], function(response) {
+      RSSRequest.getFeed(Kiosk.variables.rssFeeds[feed_id], function(response) {
         Kiosk.util.updateScreen('#main-content', template(response));
       });
     },
