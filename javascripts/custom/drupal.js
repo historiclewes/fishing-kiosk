@@ -74,7 +74,7 @@ var DrupalRequest = (function () {
         type: 'GET',
         cache: false,
         success: function (response) {
-          var context = { items: [] }
+          var context = { items: [], keywords: keywords }
 
           $.each(response, function(key, value) {
             context.items.push({ 'title' : value.title, 'nid': value.nid, 'teaser': value.teaser });
