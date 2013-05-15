@@ -53,10 +53,10 @@ var Kiosk = (function($, window, document, undefined) {
     },
 
     // generic function to call and load local HTML files with optional Handlebars components
-    getSlideshow: function(template) {
+    getSlideshow: function(template, feed_id) {
       var template = Handlebars.getTemplate(template);
 
-      DrupalRequest.fetchSlideshowView('slideshow', function(response) {
+      DrupalRequest.fetchSlideshowView(feed_id, function(response) {
         Kiosk.util.updateScreen('#slideshow', template(response));
         Foundation.libs.orbit.init();
       });
@@ -192,7 +192,8 @@ var Kiosk = (function($, window, document, undefined) {
       services: {
         node: 'kiosk/views/kiosk_nodes?display_id=block_1',
         collections: 'kiosk/views/kiosk_nodes?display_id=block_2',
-        slideshow: 'kiosk/views/kiosk_nodes?display_id=block_3',
+        homepage_slideshow: 'kiosk/views/kiosk_nodes?display_id=block_3',
+        collections_slideshow: 'kiosk/views/kiosk_nodes?display_id=block_5',
         search: 'kiosk/views/kiosk_nodes?display_id=block_4'
       },
 
