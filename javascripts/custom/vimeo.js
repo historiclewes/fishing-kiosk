@@ -7,8 +7,14 @@ var VimeoRequest = (function () {
           dataType: 'jsonp',
           type: 'GET',
           cache: true,
-          success: function (result) {
-            callback(result);
+          success: function (response) {
+            var context = { items: [] }
+
+            $.each(response, function(key, value) {
+              context.items.push({ 'title' : value.title, 'vimeo_id': value.id, 'thumbnail_small': value.thumbnail_small, 'thumbnail_medium': value.thumbnail_medium, 'thumbnail_large': value.thumbnail_large});
+            });
+
+            callback(context);
           }
         }
     );
