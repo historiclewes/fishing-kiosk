@@ -523,6 +523,8 @@ h2.block-title {
     margin-top: 20px;
     background: url('../images/collections-slideshow.png') 13px 0px no-repeat;
 
+
+
   }
 
   #collection-teaser {
@@ -575,9 +577,13 @@ h2.block-title {
 
   .collection-slideshow {
     height: 345px;
-
+margin:0 0 0 49px;
+padding-top:47px;
+    .orbit-container {
+      background-color:transparent;
+    }
     img {
-      margin: 46px 0 0 48px;
+      //margin: 46px 0 0 48px;
       @include border-radius(6px);
     }
 
@@ -639,4 +645,11 @@ h2.block-title {
   @include box-shadow(0 0 5px rgba(0, 0, 0, .4));
   margin: 15px;
   display: block;
+}
+
+
+//DISABLE SLIDESHOW NAVIGATION ITEMS
+
+a.orbit-prev, a.orbit-next, .orbit-slide-number, .orbit-timer {
+  display:none;
 }
