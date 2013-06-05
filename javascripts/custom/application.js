@@ -23,10 +23,10 @@ var Kiosk = (function($, window, document, undefined) {
       var template = Handlebars.getTemplate('bay');
       var context = {
         buoys: [
-          { id : "lwsd1", name : "Station LWSD1" },
-          { id : "bthd1", name : "Station BTHD1" },
-          { id : "44009", name : "Station 44009" },
-          { id : "cman4", name : "Station CMAN4" }
+          { id : "lwsd1", name : "Lewes" },
+          { id : "bthd1", name : "Indian River Inlet" },
+          { id : "44009", name : "Delaware Bay" },
+          { id : "cman4", name : "Cape May" }
         ]
       }
 
@@ -194,17 +194,26 @@ var Kiosk = (function($, window, document, undefined) {
         collections: 'kiosk/views/kiosk_nodes?display_id=block_2',
         homepage_slideshow: 'kiosk/views/kiosk_nodes?display_id=block_3',
         collections_slideshow: 'kiosk/views/kiosk_nodes?display_id=block_5',
-        search: 'kiosk/views/kiosk_nodes?display_id=block_4'
+        search: 'kiosk/views/kiosk_nodes?display_id=page_1'
       },
 
-      rssFeeds: {
-        cnn_us: 'http://rss.cnn.com/rss/cnn_us.rss'
+      tideXML: {
+        lewes: '/tides/lewes.xml'
       },
 
       vimeo: {
         'type': 'user',
-        'id': 'user1949213'
+        'id': 'user18747085'
       }
     }
   }
 })(typeof Zepto === 'function' ? Zepto : jQuery, this, this.document);
+
+
+$(".news-teaser").click(function(){
+  window.location=$(this).find("a").attr("href");
+  return false;
+});
+
+
+

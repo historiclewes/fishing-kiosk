@@ -130,11 +130,15 @@ var DrupalRequest = (function () {
         type: 'GET',
         cache: false,
         success: function (response) {
-          var context = { items: [], keywords: keywords }
+          var context = { items: [], keywords: keywords, empty: false }
 
           $.each(response, function(key, value) {
             context.items.push({ 'title' : value.title, 'nid': value.nid, 'teaser': value.teaser });
           });
+
+          if (context.items.length == 0) {
+            context.empty = true;
+          }
 
           callback(context);
         }
