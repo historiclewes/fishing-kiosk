@@ -2,6 +2,10 @@
   <div class="large-9 large-offset-1">
     <h2>Search Results for "{{ keywords }}"</h2>
 
+    {{#if empty}}
+      <p>Your search for "{{ keywords }}" yielded no results. Please try another search term.</p>
+    {{/if}}
+
     {{#if items}}
       {{#each items}}
         <a href="#" onclick="Kiosk.getNode('collection', '{{ nid }}'); return false;">
