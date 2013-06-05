@@ -26,7 +26,7 @@ var Kiosk = (function($, window, document, undefined) {
           { id : "lwsd1", name : "Station LWSD1" },
           { id : "bthd1", name : "Station BTHD1" },
           { id : "44009", name : "Station 44009" },
-          { id : "cman4", name : "Station CMAN4" }
+          { id : "cman4", name : "Cape May" }
         ]
       }
 
@@ -194,16 +194,12 @@ var Kiosk = (function($, window, document, undefined) {
         collections: 'kiosk/views/kiosk_nodes?display_id=block_2',
         homepage_slideshow: 'kiosk/views/kiosk_nodes?display_id=block_3',
         collections_slideshow: 'kiosk/views/kiosk_nodes?display_id=block_5',
-        search: 'kiosk/views/kiosk_nodes?display_id=block_4'
-      },
-
-      rssFeeds: {
-        cnn_us: 'http://rss.cnn.com/rss/cnn_us.rss'
+        search: 'kiosk/views/kiosk_nodes?display_id=page_1'
       },
 
       vimeo: {
         'type': 'user',
-        'id': 'user1949213'
+        'id': 'user18747085'
       }
     }
   }
