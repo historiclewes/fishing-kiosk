@@ -208,3 +208,12 @@ var Kiosk = (function($, window, document, undefined) {
     }
   }
 })(typeof Zepto === 'function' ? Zepto : jQuery, this, this.document);
+
+
+$(".news-teaser").click(function(){
+  window.location=$(this).find("a").attr("href");
+  return false;
+});
+
+
+
