@@ -10,6 +10,12 @@ var Kiosk = (function($, window, document, undefined) {
 
       var template = Handlebars.getTemplate('footer');
       $("#footer").html(template());
+
+      $('#kiosk-search').bind('keyup', function(e) {
+        if (e.keyCode == 13) {
+          Kiosk.getSearchResults();
+        }
+      });
     },
 
     // generic function to call and load local HTML files with optional Handlebars components
