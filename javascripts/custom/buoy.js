@@ -28,6 +28,38 @@ var BuoyRequest = (function () {
     );
   }
 
+  var getTideData = function(buoy_id, callback) {
+    Zepto.ajax(
+        {
+          url: tideXMLUrl(buoy_id),
+          type: 'GET',
+          dataType: 'xml',
+          cache: false,
+          success: function (response) {
+            var today = new Date();
+            var formattedDate = today.getFullYear() + '/' + ('0' + (today.getMonth() + 1)).slice(-2) + '/' + ('0' + (today.getDate())).slice(-2);
+
+            //var nodes = response.
+
+            console.log(response.childNodes[0].getElementsByTagName('data'));
+
+            $.each(response.childNodes[0].getElementsByTagName('data'), function(key, value) {
+              //console.log(key);console.log(value);
+            });
+
+            var context = {
+              //wave_height: response[0].WVHT,
+              //wave_length: response[0].wavelength,
+              //wind_direction: response[0].WDIR,
+              //wind_gusts: response[0].GST,
+            };
+
+            callback(context);
+          }
+        }
+    );
+  }
+
   var dataFeedUrl = function(buoy_id) {
     return 'json/' + buoy_id + '.json';
   }
