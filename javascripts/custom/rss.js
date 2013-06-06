@@ -7,7 +7,7 @@ var RSSRequest = (function () {
     feed.load(function(response) {
       var context = { items: [] }
 
-      $.each(response.feed.entries, function(key, value) {console.log(value.link);
+      $.each(response.feed.entries, function(key, value) {
         context.items.push({ 'title' : value.title, 'description': value.contentSnippet, 'permalink': value.link, 'date': value.publishedDate });
       });
 
