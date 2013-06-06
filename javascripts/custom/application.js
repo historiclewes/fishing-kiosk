@@ -107,12 +107,17 @@ var Kiosk = (function($, window, document, undefined) {
 
     // fetch the weather data for a given buoy
     getWeatherData: function(buoy_id) {
-      var buoyTemplate = Handlebars.getTemplate('buoy');
+      var waveTemplate = Handlebars.getTemplate('waves');
+      var tideTemplate = Handlebars.getTemplate('tides');
       var conditionsTemplate = Handlebars.getTemplate('conditions');
+
+      BuoyRequest.getTideData(buoy_id, function(response) {
+        Kiosk.util.updateScreen('#tides', tideTemplate(response));
+      }),
 
       BuoyRequest.getData(buoy_id, function(response) {
         Kiosk.util.updateScreen('#current-conditions-block', conditionsTemplate(response));
-        Kiosk.util.updateScreen('#waves-tides', buoyTemplate(response));
+        Kiosk.util.updateScreen('#wave-data', waveTemplate(response));
 
         var options = {
           min: 0,
