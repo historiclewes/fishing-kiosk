@@ -24,46 +24,11 @@ function program1(depth0,data) {
   return buffer;
   }
 
-  buffer += "<div class=\"row\">\n  <div class=\"large-5 columns text-center\" id=\"bay-map\">\n    <h2 class=\"block-title\">Current<br/> Shipping Traffic</h2>\n\n    <div class=\"map\">\n      <iframe name=\"marinetraffic\" id=\"marinetraffic\" width=\"425\" height=\"415\" scrolling=\"no\" src=\"http://www.marinetraffic.com/ais/embed.aspx?zoom=10&remember=false&shownames=true&notation=false&border=0&maptype=1&latitude=38.7744&longitude=75.1397\"></iframe>\n    </div>\n    <div class=\"large-12 columns\"><span class=\"text-center\">Touch a ship to view more information</span>\n    </div>\n  </div>\n\n  <div class=\"large-5 columns\" id=\"current-conditions-block\"></div>\n\n  <div class=\"large-2 columns\" id=\"buoy-stations\">\n    <h2 class=\"block-title text-center\">Buoy Stations</h2>\n\n    <div class=\"navigation\">\n      ";
+  buffer += "<div class=\"row\">\n  <div class=\"large-5 columns text-center\" id=\"bay-map\">\n    <h2 class=\"block-title\">Current<br/> Shipping Traffic</h2>\n\n    <div class=\"map\">\n      <iframe name=\"marinetraffic\" id=\"marinetraffic\" width=\"425\" height=\"415\" scrolling=\"no\" src=\"http://www.marinetraffic.com/ais/embed.aspx?zoom=10&remember=false&shownames=true&notation=false&border=0&maptype=1&centery=38.7744&centerx=-75.1397\"></iframe>\n    </div>\n    <div class=\"large-12 columns\"><span class=\"text-center\">Touch a ship to view more information</span>\n    </div>\n  </div>\n\n  <div class=\"large-5 columns\" id=\"current-conditions-block\"></div>\n\n  <div class=\"large-2 columns\" id=\"buoy-stations\">\n    <h2 class=\"block-title text-center\">Buoy Stations</h2>\n\n    <div class=\"navigation\">\n      ";
   options = {hash:{},inverse:self.noop,fn:self.program(1, program1, data),data:data};
   stack2 = ((stack1 = helpers.list),stack1 ? stack1.call(depth0, depth0.buoys, options) : helperMissing.call(depth0, "list", depth0.buoys, options));
   if(stack2 || stack2 === 0) { buffer += stack2; }
   buffer += "\n    </div>\n  </div>\n\n  <div id=\"waves-tides\" class=\"large-6 columns\">\n    <div class=\"row waves-tides-header\">\n      <div class=\"waves-tides-header\"></div>\n      <div id=\"waves\" class=\"large-7 columns block-radius\">\n        <h2 class=\"block-title text-center\">Waves</h2>\n        <div id=\"wave-data\" class=\"row\"></div>\n      </div>\n\n      <div id=\"tides\"></div>\n    </div>\n  </div>\n</div>";
-  return buffer;
-  });
-templates['buoy.hbs'] = template(function (Handlebars,depth0,helpers,partials,data) {
-  this.compilerInfo = [2,'>= 1.0.0-rc.3'];
-helpers = helpers || Handlebars.helpers; data = data || {};
-  var buffer = "", stack1, functionType="function", escapeExpression=this.escapeExpression, self=this;
-
-function program1(depth0,data) {
-  
-  var buffer = "", stack1;
-  buffer += "\n          ";
-  stack1 = helpers.each.call(depth0, depth0.tides, {hash:{},inverse:self.noop,fn:self.program(2, program2, data),data:data});
-  if(stack1 || stack1 === 0) { buffer += stack1; }
-  buffer += "\n        ";
-  return buffer;
-  }
-function program2(depth0,data) {
-  
-  var buffer = "", stack1;
-  buffer += "\n            <div class=\"large-12 columns\">\n              <h4 class=\"left\">";
-  if (stack1 = helpers.highlow) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
-  else { stack1 = depth0.highlow; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
-  buffer += escapeExpression(stack1)
-    + ":</h4>\n              <span class=\"red-span\">";
-  if (stack1 = helpers.time) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
-  else { stack1 = depth0.time; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
-  buffer += escapeExpression(stack1)
-    + "</span>\n            </div>\n          ";
-  return buffer;
-  }
-
-  buffer += "<div class=\"row waves-tides-header\">\n\n\n  <div id=\"tides\" class=\"large-4 columns block-radius\">\n    <h2 class=\"block-title text-center\">Tides</h2>\n      <div id=\"tide-data\" class=\"row\">\n        ";
-  stack1 = helpers['if'].call(depth0, depth0.tides, {hash:{},inverse:self.noop,fn:self.program(1, program1, data),data:data});
-  if(stack1 || stack1 === 0) { buffer += stack1; }
-  buffer += "\n      </div>\n  </div>\n</div>";
   return buffer;
   });
 templates['collection.hbs'] = template(function (Handlebars,depth0,helpers,partials,data) {
