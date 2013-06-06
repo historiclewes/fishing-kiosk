@@ -281,6 +281,7 @@ h2.block-title {
     margin: 0px 10px 0px 0;
     border-bottom: dotted 2px #8c8c8c;
   }
+
 }
 
 #search {
@@ -301,7 +302,7 @@ h2.block-title {
     margin: 20px 10px 20px 0;
   }
 
- input.telescope-button {
+  button.telescope-button {
     border: none;
     background: none;
     @include box-shadow(none);
@@ -309,9 +310,8 @@ h2.block-title {
     background: url('../images/telescope.png') center right no-repeat;
     position: absolute;
     display: block;
-    top: -10px;
-    left: 184px;
-   width:35px;
+    top: 10px;
+    left: 170px;
 
   }
 
