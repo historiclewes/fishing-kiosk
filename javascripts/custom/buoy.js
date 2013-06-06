@@ -10,7 +10,7 @@ var BuoyRequest = (function () {
           success: function (response) {
             var context = {
               wave_height: response[0].WVHT,
-              wave_length: response[0].wavelength,
+              wave_length: (response[0].wavelength && response[0].wavelength.length) ? response[0].wavelength : 'n/a',
               wave_period: response[0].DPD,
               wave_direction: response[0].MWD,
               air_pressure: response[0].PRES,
