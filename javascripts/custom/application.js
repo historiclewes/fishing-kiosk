@@ -88,7 +88,7 @@ var Kiosk = (function($, window, document, undefined) {
 
     getSearchResults: function() {
       var template = Handlebars.getTemplate('search');
-      var keywords = $('#kiosk-search').attr('value');
+      var keywords = $('#kiosk-search').val();
 
       DrupalRequest.doSearch('search', keywords, function(response) {
         Kiosk.util.updateScreen('#main-content', template(response));

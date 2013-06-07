@@ -1,7 +1,7 @@
 // Define VimeoRequest
 var VimeoRequest = (function () {
   var getData = function(type, id, callback) {
-    Zepto.ajax(
+    $.ajax(
         {
           url: vimeoAPIRequestURL(type, id),
           dataType: 'jsonp',

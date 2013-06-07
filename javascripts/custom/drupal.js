@@ -1,7 +1,7 @@
 // Define DrupalRequest
 var DrupalRequest = (function () {
   var fetchNode = function(node_id, callback) {
-    Zepto.ajax(
+    $.ajax(
       {
         url: Kiosk.util.actionUrl('node'),
         dataType: 'jsonp',
@@ -73,7 +73,7 @@ var DrupalRequest = (function () {
   }
 
   var fetchCollectionsView = function(feed_id, callback) {
-    Zepto.ajax(
+    $.ajax(
       {
         url: Kiosk.util.actionUrl(feed_id),
         dataType: 'jsonp',
@@ -101,7 +101,7 @@ var DrupalRequest = (function () {
   }
 
   var fetchSlideshowView = function(feed_id, callback) {
-    Zepto.ajax(
+    $.ajax(
       {
         url: Kiosk.util.actionUrl(feed_id),
         dataType: 'jsonp',
@@ -122,7 +122,7 @@ var DrupalRequest = (function () {
   }
 
   var doSearch = function(feed_id, keywords, callback) {
-    Zepto.ajax(
+    $.ajax(
       {
         url: Kiosk.util.actionUrl(feed_id),
         dataType: 'jsonp',
@@ -147,7 +147,7 @@ var DrupalRequest = (function () {
   }
 
   var newsletterSignup = function(email_address, callback) {
-    Zepto.ajax(
+    $.ajax(
       {
         url: 'http://oi.vresp.com?fid=873b7bef06' + '&email_address=' + email_address,
         type: 'POST',
