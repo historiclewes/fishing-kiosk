@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<sitekiosk-local-config xmlns="urn:schemas-sitekiosk-com:configuration" xmlns:dt="urn:schemas-microsoft-com:datatypes">
+	<computer guid="91a92f07-7cba-416c-9e81-d9e4927e63a8"/>
+	<plugin name="SiteCam" clsid="5aadd108-c1ba-4fe7-8096-65cf19d58e14"/>
+	<plugin name="SiteCash" clsid="476d1841-6b58-424f-a9e5-f024f0384ab1"/>
+	<plugin name="SiteCoach" clsid="224a0aa6-0d86-48d5-874f-a308029209d0"/>
+	<plugin name="SiteDog" clsid="f0c667df-b700-11d3-a785-00400547c51f"/>
+	<plugin name="SitePhone" clsid="0a340eb7-1bf6-450c-b6cf-a578d55839be"/>
+	<plugin name="SiteRemote" clsid="2f5b83e1-88bc-44d2-9e5d-b3d621c4a292"><heatmap enabled="False"></heatmap></plugin>
+</sitekiosk-local-config>
