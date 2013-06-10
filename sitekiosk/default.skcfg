@@ -18,7 +18,7 @@
 		<ie9-gpu-rendering enabled="true" />
 		<antisabotage enabled="true" />
 		<prevent-foreground enabled="false" />
-		<max-browserwindows>1</max-browserwindows>
+		<max-browserwindows>2</max-browserwindows>
 		<shutdown-list>
 			<shutdown-entry>
 				<action>0</action>
@@ -39,8 +39,8 @@
 		<activex>true</activex>
 		<clear-cache-shutdown>false</clear-cache-shutdown>
 		<clear-cache-midnight>true</clear-cache-midnight>
-		<no-script-errors>true</no-script-errors>
-		<no-http-uploads>true</no-http-uploads>
+		<no-script-errors>false</no-script-errors>
+		<no-http-uploads>false</no-http-uploads>
 	</netaccess>
 	<email enabled="false">
 		<action>0</action>
@@ -163,7 +163,7 @@
 		</activator>
 	</screensaver-activators>
 	<security>
-		<cd-lock>true</cd-lock>
+		<cd-lock>false</cd-lock>
 		<block-removable-storage>false</block-removable-storage>
 		<block-copy-move>true</block-copy-move>
 		<watchdog>true</watchdog>
@@ -1061,9 +1061,9 @@
 		<quit-button>false</quit-button>
 		<idle-deactivate>false</idle-deactivate>
 		<deactivate-time>60</deactivate-time>
-		<password>U90050005f0052000200d5000b0011</password>
+		<password>U200b500000010005300f30053001d0067</password>
 		<enable-general-password>true</enable-general-password>
-		<hotkey enabled="false" alt="true" ctrl="true" shift="false" ext="false">119</hotkey>
+		<hotkey enabled="true" alt="true" ctrl="true" shift="true" ext="false">8</hotkey>
 		<secondary-password enabled="false">
 			<password />
 			<quit>false</quit>
@@ -1080,7 +1080,7 @@
 		<style>2</style>
 		<show-address-box>true</show-address-box>
 		<anim-url>http://www.provisio.com/en-US/</anim-url>
-		<hidemode>1</hidemode>
+		<hidemode>0</hidemode>
 		<show-window-bar>false</show-window-bar>
 		<show-external-windows>false</show-external-windows>
 		<hide-window-bar-if-fullscreen>false</hide-window-bar-if-fullscreen>
@@ -1276,8 +1276,8 @@
 		<startpage>http://localhost:8082</startpage>
 		<altstartpage>file://$(SiteKioskPath)\HTML\startpage\start.htm</altstartpage>
 		<templateenabled>false</templateenabled>
-		<templatename></templatename>
-		<templatedeffilename></templatedeffilename>
+		<templatename />
+		<templatedeffilename />
 		<config-focused>false</config-focused>
 		<reset-browser-on-screensaver-start>true</reset-browser-on-screensaver-start>
 	</startpageconfig>
