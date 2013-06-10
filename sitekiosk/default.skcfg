@@ -1,0 +1,1562 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<sitekiosk-configuration xmlns="urn:schemas-sitekiosk-com:configuration" xmlns:dt="urn:schemas-microsoft-com:datatypes" version="8.7.1435.0" encrypted="false">
+	<global>
+		<splashscreen>false</splashscreen>
+		<skuseragent enabled="true" />
+		<useragent name="$(ComputerName)" enabled="false" />
+		<searchengine enabled="true">
+			<protocol>http://</protocol>
+			<url>www.bing.com</url>
+		</searchengine>
+		<popup-blocking enabled="false" />
+		<dde enabled="true" />
+		<shutdown enabled="false" hour="18" minute="0" second="0" />
+		<reboot enabled="false" hour="4" minute="0" second="0" />
+		<scriptfile enabled="false" />
+		<usefavicons enabled="true" />
+		<ie8-compatibility-view enabled="true" />
+		<ie9-gpu-rendering enabled="true" />
+		<antisabotage enabled="true" />
+		<prevent-foreground enabled="false" />
+		<max-browserwindows>2</max-browserwindows>
+		<shutdown-list>
+			<shutdown-entry>
+				<action>0</action>
+				<weekday>7</weekday>
+				<hour>4</hour>
+				<minute>0</minute>
+				<second>0</second>
+			</shutdown-entry>
+		</shutdown-list>
+	</global>
+	<netaccess>
+		<online>true</online>
+		<scripts>true</scripts>
+		<applets>true</applets>
+		<background-music>true</background-music>
+		<download-new-activex>false</download-new-activex>
+		<videos>true</videos>
+		<activex>true</activex>
+		<clear-cache-shutdown>false</clear-cache-shutdown>
+		<clear-cache-midnight>true</clear-cache-midnight>
+		<no-script-errors>false</no-script-errors>
+		<no-http-uploads>false</no-http-uploads>
+	</netaccess>
+	<email enabled="false">
+		<action>0</action>
+		<smtp-server>mail.server</smtp-server>
+		<smtp-port>25</smtp-port>
+		<account-owner>account@domain</account-owner>
+		<display-name>SiteKiosk Terminal</display-name>
+		<mailto-enabled>false</mailto-enabled>
+		<charset>28591</charset>
+		<smtp-auth enabled="false" method="2">
+			<server>pop.server</server>
+			<server-port>110</server-port>
+			<user>username</user>
+			<pass encrypted="true"></pass>
+		</smtp-auth>
+		<custom-url>http://</custom-url>
+		<recipient>example@email.com</recipient>
+		<signature type="0">NOTE: This email was sent from a public access SiteKiosk Internet terminal. The administrator did not create this email and is, therefore, not responsible for the content of this message. http://www.provisio.com/ </signature>
+		<custom-signature />
+	</email>
+	<multimedia>
+		<volume start-value="0.6" set-on-start="true" restore-on-reset="true" />
+		<mute start-value="false" set-on-start="true" restore-on-reset="true" />
+		<rec-volume start-value="0.6" set-on-start="false" restore-on-reset="false" />
+		<rec-mute start-value="false" set-on-start="false" restore-on-reset="false" />
+		<mic-volume start-value="0.6" set-on-start="true" restore-on-reset="true" />
+		<mic-mute start-value="false" set-on-start="true" restore-on-reset="true" />
+	</multimedia>
+	<printing>
+		<show-print-button>true</show-print-button>
+		<mode>0</mode>
+		<enable-monitoring>false</enable-monitoring>
+		<default-printer>
+			<name></name>
+			<monitor-printer>true</monitor-printer>
+			<show-printer-in-dialog>true</show-printer-in-dialog>
+			<confirm-jobs>true</confirm-jobs>
+			<keep-printer-paused>true</keep-printer-paused>
+			<charge-for-printing>true</charge-for-printing>
+			<price>0.5</price>
+			<enable-for-free-zone>false</enable-for-free-zone>
+			<limit-jobs>true</limit-jobs>
+			<max-jobs>4</max-jobs>
+			<limit-pages>true</limit-pages>
+			<max-pages>8</max-pages>
+		</default-printer>
+		<printer-list />
+		<page-setup>
+			<header />
+			<footer />
+			<margin-top>0</margin-top>
+			<margin-bottom>0</margin-bottom>
+			<margin-left>0</margin-left>
+			<margin-right>0</margin-right>
+		</page-setup>
+		<printtemplates>
+			<enabled>false</enabled>
+			<templatepath />
+			<preview>true</preview>
+		</printtemplates>
+	</printing>
+	<screensaver enabled="true">
+		<application />
+		<app-mode>0</app-mode>
+		<idletime>120</idletime>
+		<interval>30</interval>
+		<random>false</random>
+		<fullscreen>false</fullscreen>
+		<hide-mouse>true</hide-mouse>
+		<capture-mouse>true</capture-mouse>
+		<return-homepage>true</return-homepage>
+		<clear-cache>true</clear-cache>
+		<check-direct-input>true</check-direct-input>
+		<disable-if-credit>true</disable-if-credit>
+		<delete-cookies>true</delete-cookies>
+		<reset-counter>100</reset-counter>
+		<welcome>false</welcome>
+		<welcome-page></welcome-page>
+		<url duration="140">http://www.provisio.com/link/WindowsIdle</url>
+		<adv-time>4</adv-time>
+		<adv-text>Powered by www.SITEKIOSK.com</adv-text>
+		<welcomeprotocol />
+		<welcomeurl />
+	</screensaver>
+	<screensaver-activators loadonlyactive="true">
+		<activator name="Larco COM mat (COM-Port mat)" clsid="6fb4b7a7-f1eb-4422-a78b-c23680c74c39" enabled="false">
+			<comport>1</comport>
+			<idletime>1</idletime>
+		</activator>
+		<activator name="Echo-Finder HB1033 (Proximity Sensor)" clsid="3a926cc8-460d-4551-a0b2-c0f399602b38" enabled="false">
+			<comport>1</comport>
+		</activator>
+		<activator name="IBM MotionSensor AnyPlace Kiosk 4838-5xx, 7xx,9xx" clsid="4549cfd3-8383-49b3-82f2-cd211ed535d7" enabled="false">
+			<logical-name />
+		</activator>
+		<activator name="Larco USB mat (USB-Port mat)" clsid="f062a0e7-1577-454a-9257-0e05a5b338ac" enabled="false">
+			<idletime>1</idletime>
+			<enter-sequence idle-time="75">
+				<hotkey vkey="122" alt="true" control="true" shift="true" windows="false" />
+			</enter-sequence>
+			<exit-sequence idle-time="75">
+				<hotkey vkey="120" alt="true" control="true" shift="true" windows="false" />
+			</exit-sequence>
+		</activator>
+		<activator name="TF2000/pcProx (Proximity Sensor)" clsid="8aeae269-ef28-4315-bca6-acac1ca9c7f5" enabled="false">
+			<idletime>1</idletime>
+			<enter-sequence idle-time="75">
+				<hotkey vkey="35" alt="true" control="true" shift="true" windows="false" />
+			</enter-sequence>
+			<exit-sequence idle-time="75">
+				<hotkey vkey="40" alt="true" control="true" shift="true" windows="false" />
+			</exit-sequence>
+			<sonar min-distance="41" max-distance="92" ping-rate="332" />
+		</activator>
+		<activator name="WebCam Motion Detector" clsid="00711770-0fd4-49fb-b14a-353698a6c245" enabled="false">
+			<device />
+			<device-id />
+			<alarm-threshold>0.02</alarm-threshold>
+			<max-alarm-time-seconds>10</max-alarm-time-seconds>
+		</activator>
+	</screensaver-activators>
+	<security>
+		<cd-lock>false</cd-lock>
+		<block-removable-storage>false</block-removable-storage>
+		<block-copy-move>true</block-copy-move>
+		<watchdog>true</watchdog>
+		<watchdog-time>30</watchdog-time>
+		<start-monitoring emergency-interval="300" emergency-count="10">true</start-monitoring>
+		<deactivated-timeout>30</deactivated-timeout>
+		<keyblocking enabled="true">
+			<ctrl-alt-del>true</ctrl-alt-del>
+			<alt-tab>true</alt-tab>
+			<shift-f10>true</shift-f10>
+			<strg-esc>true</strg-esc>
+			<alt-esc>true</alt-esc>
+			<windows-keys>true</windows-keys>
+			<ctrl-alt-f12>true</ctrl-alt-f12>
+			<custom enabled="false" scancode_0="0" scancode_1="0" scancode_2="0" scancode_3="0" />
+			<custom enabled="false" scancode_0="0" scancode_1="0" scancode_2="0" scancode_3="0" />
+			<custom enabled="false" scancode_0="0" scancode_1="0" scancode_2="0" scancode_3="0" />
+			<custom enabled="false" scancode_0="0" scancode_1="0" scancode_2="0" scancode_3="0" />
+		</keyblocking>
+		<script-urls>
+			<url>file://$(SiteKioskPath)\skins\public\*</url>
+			<url>file://$(SiteKioskPath)\html\*</url>
+			<url>file://C:\kiosk*</url>
+			<url>http://www.vimeo.com*</url>
+			<url>http://historiclewes.org*</url>
+			<url>http://www.historiclewes.org*</url>
+			<url>*C:\Kiosk\*</url>
+			<url>http://localhost:8082*</url>
+		</script-urls>
+		<mem-check enabled="true">
+			<max-mem-usage>7952</max-mem-usage>
+			<max-pagefile>90</max-pagefile>
+			<max-gdi-objects>9999</max-gdi-objects>
+		</mem-check>
+		<enable-activex-blocklist>true</enable-activex-blocklist>
+		<disable-accessibility>true</disable-accessibility>
+		<enable-automatic-restart>true</enable-automatic-restart>
+		<automatic-restart-time>360</automatic-restart-time>
+		<run-level>2</run-level>
+	</security>
+	<screenmode>
+		<xres>800</xres>
+		<yres>600</yres>
+		<bitdepth>16</bitdepth>
+		<frequency>0</frequency>
+		<autoset>false</autoset>
+		<workarea enabled="false" absolute-coordinates="false">
+			<capture-mouse>true</capture-mouse>
+			<left>0</left>
+			<top>0</top>
+			<right>100</right>
+			<bottom>100</bottom>
+		</workarea>
+		<optical-zoom>100</optical-zoom>
+	</screenmode>
+	<touchscreen enable="true">
+		<layout>Natural Black</layout>
+		<language>0</language>
+		<key-repeat>false</key-repeat>
+		<delay-time>500</delay-time>
+		<repeat-rate>4</repeat-rate>
+		<loom-time>250</loom-time>
+		<hide-mouse-cursor>false</hide-mouse-cursor>
+		<default-url-allowed>true</default-url-allowed>
+		<position-default>true</position-default>
+		<position-left>0</position-left>
+		<position-top>0</position-top>
+		<transparence>5</transparence>
+		<autopopup>true</autopopup>
+		<autohide>true</autohide>
+		<floating>false</floating>
+		<url allowed="true">http://localhost:8082*</url>
+		<sound-effect>false</sound-effect>
+	</touchscreen>
+	<windowmanager>
+		<show-block-msg>true</show-block-msg>
+		<use-secure-user>false</use-secure-user>
+		<lang>
+			<id>65535</id>
+			<version>292</version>
+		</lang>
+		<lang>
+			<id>9</id>
+			<version>268</version>
+		</lang>
+		<window id="-67">
+			<close-on-screensaver>true</close-on-screensaver>
+			<kill-process>false</kill-process>
+			<secure>false</secure>
+			<langid>65535</langid>
+			<name>Microsoft Visual*</name>
+			<class>*</class>
+			<action>0</action>
+			<enum-subwindows>0</enum-subwindows>
+			<close-type>0</close-type>
+			<close-command-id>0</close-command-id>
+			<subwindow id="1">
+				<control-id>0</control-id>
+				<name>*iteCast*</name>
+				<class>*</class>
+			</subwindow>
+		</window>
+		<window id="-66">
+			<close-on-screensaver>true</close-on-screensaver>
+			<kill-process>false</kill-process>
+			<secure>false</secure>
+			<langid>65535</langid>
+			<name>SiteCaster</name>
+			<class>#32770</class>
+			<action>0</action>
+			<enum-subwindows>0</enum-subwindows>
+			<close-type>0</close-type>
+			<close-command-id>0</close-command-id>
+		</window>
+		<window id="-65">
+			<close-on-screensaver>true</close-on-screensaver>
+			<kill-process>true</kill-process>
+			<secure>false</secure>
+			<langid>65535</langid>
+			<name>*Task*Manager</name>
+			<class>*</class>
+			<action>0</action>
+			<enum-subwindows>0</enum-subwindows>
+			<close-type>0</close-type>
+			<close-command-id>0</close-command-id>
+		</window>
+		<window id="-64">
+			<close-on-screensaver>true</close-on-screensaver>
+			<kill-process>false</kill-process>
+			<secure>false</secure>
+			<langid>65535</langid>
+			<name>*sysinternal*</name>
+			<class>*</class>
+			<action>0</action>
+			<enum-subwindows>0</enum-subwindows>
+			<close-type>0</close-type>
+			<close-command-id>0</close-command-id>
+		</window>
+		<window id="-63">
+			<close-on-screensaver>true</close-on-screensaver>
+			<kill-process>false</kill-process>
+			<secure>false</secure>
+			<langid>65535</langid>
+			<name>Internet Explorer</name>
+			<class>#32770</class>
+			<action>0</action>
+			<enum-subwindows>0</enum-subwindows>
+			<close-type>1</close-type>
+			<close-command-id>6</close-command-id>
+			<subwindow id="1">
+				<control-id>0</control-id>
+				<name>*ptio*</name>
+				<class>ToolbarWindow32</class>
+			</subwindow>
+		</window>
+		<window id="-62">
+			<close-on-screensaver>true</close-on-screensaver>
+			<kill-process>false</kill-process>
+			<secure>false</secure>
+			<langid>65535</langid>
+			<name>*nstallatio*</name>
+			<class>#32770</class>
+			<action>0</action>
+			<enum-subwindows>0</enum-subwindows>
+			<close-type>0</close-type>
+			<close-command-id>0</close-command-id>
+		</window>
+		<window id="-60">
+			<close-on-screensaver>true</close-on-screensaver>
+			<kill-process>false</kill-process>
+			<secure>false</secure>
+			<langid>65535</langid>
+			<name>Windows Media Player*</name>
+			<class>*</class>
+			<action>0</action>
+			<enum-subwindows>0</enum-subwindows>
+			<close-type>0</close-type>
+			<close-command-id>0</close-command-id>
+		</window>
+		<window id="-59">
+			<close-on-screensaver>true</close-on-screensaver>
+			<kill-process>false</kill-process>
+			<secure>false</secure>
+			<langid>65535</langid>
+			<name>*</name>
+			<class>WMP Skin Host</class>
+			<action>0</action>
+			<enum-subwindows>0</enum-subwindows>
+			<close-type>0</close-type>
+			<close-command-id>0</close-command-id>
+		</window>
+		<window id="-58">
+			<close-on-screensaver>true</close-on-screensaver>
+			<kill-process>false</kill-process>
+			<secure>false</secure>
+			<langid>65535</langid>
+			<name>*</name>
+			<class>QuickTimePlayer</class>
+			<action>0</action>
+			<enum-subwindows>0</enum-subwindows>
+			<close-type>0</close-type>
+			<close-command-id>0</close-command-id>
+		</window>
+		<window id="-57">
+			<close-on-screensaver>true</close-on-screensaver>
+			<kill-process>false</kill-process>
+			<secure>false</secure>
+			<langid>65535</langid>
+			<name>*</name>
+			<class>WMPlayerApp</class>
+			<action>0</action>
+			<enum-subwindows>0</enum-subwindows>
+			<close-type>0</close-type>
+			<close-command-id>0</close-command-id>
+		</window>
+		<window id="-56">
+			<close-on-screensaver>true</close-on-screensaver>
+			<kill-process>false</kill-process>
+			<secure>false</secure>
+			<langid>65535</langid>
+			<name>*</name>
+			<class>Media Player*</class>
+			<action>0</action>
+			<enum-subwindows>0</enum-subwindows>
+			<close-type>0</close-type>
+			<close-command-id>0</close-command-id>
+		</window>
+		<window id="-55">
+			<close-on-screensaver>false</close-on-screensaver>
+			<kill-process>false</kill-process>
+			<secure>false</secure>
+			<langid>65535</langid>
+			<name>*</name>
+			<class>TskOptionsForm.UnicodeClass</class>
+			<action>2</action>
+			<enum-subwindows>0</enum-subwindows>
+			<close-type>0</close-type>
+			<close-command-id>0</close-command-id>
+		</window>
+		<window id="-54">
+			<close-on-screensaver>true</close-on-screensaver>
+			<kill-process>false</kill-process>
+			<secure>false</secure>
+			<langid>65535</langid>
+			<name>*emote*</name>
+			<class>#32770</class>
+			<action>0</action>
+			<enum-subwindows>0</enum-subwindows>
+			<close-type>1</close-type>
+			<close-command-id>1</close-command-id>
+		</window>
+		<window id="-53">
+			<close-on-screensaver>true</close-on-screensaver>
+			<kill-process>false</kill-process>
+			<secure>false</secure>
+			<langid>65535</langid>
+			<name>*</name>
+			<class>HelpPane</class>
+			<action>0</action>
+			<enum-subwindows>0</enum-subwindows>
+			<close-type>0</close-type>
+			<close-command-id>0</close-command-id>
+		</window>
+		<window id="-52">
+			<close-on-screensaver>true</close-on-screensaver>
+			<kill-process>false</kill-process>
+			<secure>false</secure>
+			<langid>65535</langid>
+			<name>*</name>
+			<class>ExploreWClass</class>
+			<action>0</action>
+			<enum-subwindows>0</enum-subwindows>
+			<close-type>0</close-type>
+			<close-command-id>0</close-command-id>
+		</window>
+		<window id="-51">
+			<close-on-screensaver>true</close-on-screensaver>
+			<kill-process>false</kill-process>
+			<secure>false</secure>
+			<langid>65535</langid>
+			<name>*</name>
+			<class>rctrl_renwnd32</class>
+			<action>0</action>
+			<enum-subwindows>0</enum-subwindows>
+			<close-type>0</close-type>
+			<close-command-id>0</close-command-id>
+		</window>
+		<window id="-50">
+			<close-on-screensaver>true</close-on-screensaver>
+			<kill-process>false</kill-process>
+			<secure>false</secure>
+			<langid>65535</langid>
+			<name>*</name>
+			<class>OfficeTooltip</class>
+			<action>2</action>
+			<enum-subwindows>0</enum-subwindows>
+			<close-type>0</close-type>
+			<close-command-id>0</close-command-id>
+		</window>
+		<window id="-49">
+			<close-on-screensaver>true</close-on-screensaver>
+			<kill-process>false</kill-process>
+			<secure>false</secure>
+			<langid>65535</langid>
+			<name>*</name>
+			<class>CabinetWClass</class>
+			<action>0</action>
+			<enum-subwindows>0</enum-subwindows>
+			<close-type>0</close-type>
+			<close-command-id>0</close-command-id>
+			<subwindow id="1">
+				<control-id>0</control-id>
+				<name>*</name>
+				<class>Shell DocObject View</class>
+			</subwindow>
+		</window>
+		<window id="-47">
+			<close-on-screensaver>true</close-on-screensaver>
+			<kill-process>false</kill-process>
+			<secure>true</secure>
+			<langid>65535</langid>
+			<name>*</name>
+			<class>CabinetWClass</class>
+			<action>0</action>
+			<enum-subwindows>0</enum-subwindows>
+			<close-type>0</close-type>
+			<close-command-id>0</close-command-id>
+		</window>
+		<window id="-45">
+			<close-on-screensaver>true</close-on-screensaver>
+			<kill-process>false</kill-process>
+			<secure>false</secure>
+			<langid>65535</langid>
+			<name>*</name>
+			<class>MSNMSBLClass</class>
+			<action>1</action>
+			<enum-subwindows>0</enum-subwindows>
+			<close-type>0</close-type>
+			<close-command-id>0</close-command-id>
+		</window>
+		<window id="-43">
+			<close-on-screensaver>true</close-on-screensaver>
+			<kill-process>false</kill-process>
+			<secure>false</secure>
+			<langid>65535</langid>
+			<name>*</name>
+			<class>MSBLChatBrowser</class>
+			<action>0</action>
+			<enum-subwindows>0</enum-subwindows>
+			<close-type>0</close-type>
+			<close-command-id>0</close-command-id>
+		</window>
+		<window id="-42">
+			<close-on-screensaver>true</close-on-screensaver>
+			<kill-process>false</kill-process>
+			<secure>false</secure>
+			<langid>65535</langid>
+			<name>*</name>
+			<class>MsgsPhoneWindowsClass</class>
+			<action>0</action>
+			<enum-subwindows>0</enum-subwindows>
+			<close-type>0</close-type>
+			<close-command-id>0</close-command-id>
+		</window>
+		<window id="-41">
+			<close-on-screensaver>true</close-on-screensaver>
+			<kill-process>false</kill-process>
+			<secure>false</secure>
+			<langid>65535</langid>
+			<name>*</name>
+			<class>MSBLMSNTodayWinClass</class>
+			<action>0</action>
+			<enum-subwindows>0</enum-subwindows>
+			<close-type>0</close-type>
+			<close-command-id>0</close-command-id>
+		</window>
+		<window id="-40">
+			<close-on-screensaver>true</close-on-screensaver>
+			<kill-process>false</kill-process>
+			<secure>false</secure>
+			<langid>65535</langid>
+			<name>*</name>
+			<class>MS_WINHELP</class>
+			<action>0</action>
+			<enum-subwindows>0</enum-subwindows>
+			<close-type>0</close-type>
+			<close-command-id>0</close-command-id>
+		</window>
+		<window id="-39">
+			<close-on-screensaver>true</close-on-screensaver>
+			<kill-process>false</kill-process>
+			<secure>false</secure>
+			<langid>65535</langid>
+			<name>*</name>
+			<class>MozillaWindowClass</class>
+			<action>0</action>
+			<enum-subwindows>0</enum-subwindows>
+			<close-type>0</close-type>
+			<close-command-id>0</close-command-id>
+		</window>
+		<window id="-38">
+			<close-on-screensaver>true</close-on-screensaver>
+			<kill-process>false</kill-process>
+			<secure>false</secure>
+			<langid>65535</langid>
+			<name>*</name>
+			<class>GeminiWindowClass</class>
+			<action>0</action>
+			<enum-subwindows>0</enum-subwindows>
+			<close-type>0</close-type>
+			<close-command-id>0</close-command-id>
+		</window>
+		<window id="-32">
+			<close-on-screensaver>true</close-on-screensaver>
+			<kill-process>false</kill-process>
+			<secure>false</secure>
+			<langid>65535</langid>
+			<name>*</name>
+			<class>Scr*Saver*</class>
+			<action>2</action>
+			<enum-subwindows>0</enum-subwindows>
+			<close-type>0</close-type>
+			<close-command-id>0</close-command-id>
+		</window>
+		<window id="-31">
+			<close-on-screensaver>true</close-on-screensaver>
+			<kill-process>false</kill-process>
+			<secure>false</secure>
+			<langid>65535</langid>
+			<name>Saver*</name>
+			<class>*</class>
+			<action>2</action>
+			<enum-subwindows>0</enum-subwindows>
+			<close-type>0</close-type>
+			<close-command-id>0</close-command-id>
+		</window>
+		<window id="-29">
+			<close-on-screensaver>true</close-on-screensaver>
+			<kill-process>false</kill-process>
+			<secure>false</secure>
+			<langid>65535</langid>
+			<name>RealPlayer*</name>
+			<class>*</class>
+			<action>1</action>
+			<enum-subwindows>0</enum-subwindows>
+			<close-type>0</close-type>
+			<close-command-id>0</close-command-id>
+		</window>
+		<window id="-28">
+			<close-on-screensaver>true</close-on-screensaver>
+			<kill-process>false</kill-process>
+			<secure>false</secure>
+			<langid>65535</langid>
+			<name>*.mov*</name>
+			<class>*</class>
+			<action>1</action>
+			<enum-subwindows>0</enum-subwindows>
+			<close-type>0</close-type>
+			<close-command-id>0</close-command-id>
+		</window>
+		<window id="-27">
+			<close-on-screensaver>true</close-on-screensaver>
+			<kill-process>false</kill-process>
+			<secure>false</secure>
+			<langid>65535</langid>
+			<name>*.avi*</name>
+			<class>*</class>
+			<action>1</action>
+			<enum-subwindows>0</enum-subwindows>
+			<close-type>0</close-type>
+			<close-command-id>0</close-command-id>
+		</window>
+		<window id="-26">
+			<close-on-screensaver>true</close-on-screensaver>
+			<kill-process>false</kill-process>
+			<secure>false</secure>
+			<langid>65535</langid>
+			<name>*.mpg*</name>
+			<class>*</class>
+			<action>1</action>
+			<enum-subwindows>0</enum-subwindows>
+			<close-type>0</close-type>
+			<close-command-id>0</close-command-id>
+		</window>
+		<window id="-25">
+			<close-on-screensaver>true</close-on-screensaver>
+			<kill-process>false</kill-process>
+			<secure>false</secure>
+			<langid>65535</langid>
+			<name>*.mpeg*</name>
+			<class>*</class>
+			<action>1</action>
+			<enum-subwindows>0</enum-subwindows>
+			<close-type>0</close-type>
+			<close-command-id>0</close-command-id>
+		</window>
+		<window id="-24">
+			<close-on-screensaver>true</close-on-screensaver>
+			<kill-process>false</kill-process>
+			<secure>false</secure>
+			<langid>65535</langid>
+			<name>*mIRC*</name>
+			<class>*</class>
+			<action>1</action>
+			<enum-subwindows>0</enum-subwindows>
+			<close-type>0</close-type>
+			<close-command-id>0</close-command-id>
+		</window>
+		<window id="-22">
+			<close-on-screensaver>true</close-on-screensaver>
+			<kill-process>false</kill-process>
+			<secure>false</secure>
+			<langid>65535</langid>
+			<name>*</name>
+			<class>MSAWT_Comp_Class</class>
+			<action>1</action>
+			<enum-subwindows>0</enum-subwindows>
+			<close-type>0</close-type>
+			<close-command-id>0</close-command-id>
+		</window>
+		<window id="-21">
+			<close-on-screensaver>true</close-on-screensaver>
+			<kill-process>false</kill-process>
+			<secure>false</secure>
+			<langid>65535</langid>
+			<name>*</name>
+			<class>MPlayer</class>
+			<action>1</action>
+			<enum-subwindows>0</enum-subwindows>
+			<close-type>0</close-type>
+			<close-command-id>0</close-command-id>
+		</window>
+		<window id="-20">
+			<close-on-screensaver>true</close-on-screensaver>
+			<kill-process>false</kill-process>
+			<secure>false</secure>
+			<langid>65535</langid>
+			<name>*</name>
+			<class>mIRC32</class>
+			<action>1</action>
+			<enum-subwindows>0</enum-subwindows>
+			<close-type>0</close-type>
+			<close-command-id>0</close-command-id>
+		</window>
+		<window id="-19">
+			<close-on-screensaver>true</close-on-screensaver>
+			<kill-process>false</kill-process>
+			<secure>false</secure>
+			<langid>65535</langid>
+			<name>ms-dos*</name>
+			<class>*</class>
+			<action>0</action>
+			<enum-subwindows>0</enum-subwindows>
+			<close-type>0</close-type>
+			<close-command-id>0</close-command-id>
+		</window>
+		<window id="-18">
+			<close-on-screensaver>true</close-on-screensaver>
+			<kill-process>false</kill-process>
+			<secure>false</secure>
+			<langid>65535</langid>
+			<name>*</name>
+			<class>RegEdit_RegEdit</class>
+			<action>0</action>
+			<enum-subwindows>0</enum-subwindows>
+			<close-type>0</close-type>
+			<close-command-id>0</close-command-id>
+		</window>
+		<window id="-16">
+			<close-on-screensaver>true</close-on-screensaver>
+			<kill-process>false</kill-process>
+			<secure>false</secure>
+			<langid>65535</langid>
+			<name>*</name>
+			<class>HH Parent</class>
+			<action>0</action>
+			<enum-subwindows>0</enum-subwindows>
+			<close-type>0</close-type>
+			<close-command-id>0</close-command-id>
+		</window>
+		<window id="-15">
+			<close-on-screensaver>true</close-on-screensaver>
+			<kill-process>false</kill-process>
+			<secure>false</secure>
+			<langid>65535</langid>
+			<name>*</name>
+			<class>ConsoleWindowClass</class>
+			<action>0</action>
+			<enum-subwindows>0</enum-subwindows>
+			<close-type>0</close-type>
+			<close-command-id>0</close-command-id>
+		</window>
+		<window id="-14">
+			<close-on-screensaver>true</close-on-screensaver>
+			<kill-process>false</kill-process>
+			<secure>false</secure>
+			<langid>65535</langid>
+			<name>*</name>
+			<class>tty*</class>
+			<action>0</action>
+			<enum-subwindows>0</enum-subwindows>
+			<close-type>0</close-type>
+			<close-command-id>0</close-command-id>
+		</window>
+		<window id="-13">
+			<close-on-screensaver>true</close-on-screensaver>
+			<kill-process>false</kill-process>
+			<secure>false</secure>
+			<langid>65535</langid>
+			<name>*</name>
+			<class>ATH_Note</class>
+			<action>0</action>
+			<enum-subwindows>0</enum-subwindows>
+			<close-type>0</close-type>
+			<close-command-id>0</close-command-id>
+		</window>
+		<window id="-12">
+			<close-on-screensaver>true</close-on-screensaver>
+			<kill-process>false</kill-process>
+			<secure>false</secure>
+			<langid>65535</langid>
+			<name>*</name>
+			<class>Outlook Express Browser Class</class>
+			<action>0</action>
+			<enum-subwindows>0</enum-subwindows>
+			<close-type>0</close-type>
+			<close-command-id>0</close-command-id>
+		</window>
+		<window id="-10">
+			<close-on-screensaver>true</close-on-screensaver>
+			<kill-process>false</kill-process>
+			<secure>false</secure>
+			<langid>65535</langid>
+			<name>*</name>
+			<class>IEFrame</class>
+			<action>0</action>
+			<enum-subwindows>0</enum-subwindows>
+			<close-type>0</close-type>
+			<close-command-id>0</close-command-id>
+		</window>
+		<window id="6">
+			<close-on-screensaver>true</close-on-screensaver>
+			<kill-process>false</kill-process>
+			<secure>false</secure>
+			<langid>9</langid>
+			<name>*download*</name>
+			<class>*</class>
+			<action>1</action>
+			<enum-subwindows>0</enum-subwindows>
+			<close-type>0</close-type>
+			<close-command-id>0</close-command-id>
+		</window>
+		<window id="7">
+			<close-on-screensaver>true</close-on-screensaver>
+			<kill-process>false</kill-process>
+			<secure>false</secure>
+			<langid>9</langid>
+			<name>Security Warning</name>
+			<class>#32770</class>
+			<action>0</action>
+			<enum-subwindows>0</enum-subwindows>
+			<close-type>0</close-type>
+			<close-command-id>0</close-command-id>
+		</window>
+		<window id="10">
+			<close-on-screensaver>true</close-on-screensaver>
+			<kill-process>false</kill-process>
+			<secure>false</secure>
+			<langid>9</langid>
+			<name>Print to File*</name>
+			<class>#32770</class>
+			<action>0</action>
+			<enum-subwindows>0</enum-subwindows>
+			<close-type>0</close-type>
+			<close-command-id>0</close-command-id>
+		</window>
+		<window id="12">
+			<close-on-screensaver>true</close-on-screensaver>
+			<kill-process>false</kill-process>
+			<secure>false</secure>
+			<langid>9</langid>
+			<name>Add Printer Wizard</name>
+			<class>*</class>
+			<action>0</action>
+			<enum-subwindows>0</enum-subwindows>
+			<close-type>0</close-type>
+			<close-command-id>0</close-command-id>
+		</window>
+		<window id="13">
+			<close-on-screensaver>true</close-on-screensaver>
+			<kill-process>false</kill-process>
+			<secure>false</secure>
+			<langid>9</langid>
+			<name>Connect to Printer</name>
+			<class>*</class>
+			<action>0</action>
+			<enum-subwindows>0</enum-subwindows>
+			<close-type>0</close-type>
+			<close-command-id>0</close-command-id>
+		</window>
+		<window id="15">
+			<close-on-screensaver>true</close-on-screensaver>
+			<kill-process>false</kill-process>
+			<secure>false</secure>
+			<langid>9</langid>
+			<name>Confirm*Folder Delete</name>
+			<class>*</class>
+			<action>0</action>
+			<enum-subwindows>0</enum-subwindows>
+			<close-type>0</close-type>
+			<close-command-id>0</close-command-id>
+		</window>
+		<window id="16">
+			<close-on-screensaver>true</close-on-screensaver>
+			<kill-process>false</kill-process>
+			<secure>false</secure>
+			<langid>9</langid>
+			<name>Format *</name>
+			<class>*</class>
+			<action>0</action>
+			<enum-subwindows>0</enum-subwindows>
+			<close-type>0</close-type>
+			<close-command-id>0</close-command-id>
+		</window>
+		<window id="17">
+			<close-on-screensaver>true</close-on-screensaver>
+			<kill-process>false</kill-process>
+			<secure>false</secure>
+			<langid>9</langid>
+			<name>Save a Copy*</name>
+			<class>*</class>
+			<action>0</action>
+			<enum-subwindows>0</enum-subwindows>
+			<close-type>0</close-type>
+			<close-command-id>0</close-command-id>
+		</window>
+		<window id="19">
+			<close-on-screensaver>true</close-on-screensaver>
+			<kill-process>false</kill-process>
+			<secure>true</secure>
+			<langid>9</langid>
+			<name>Save*</name>
+			<class>*</class>
+			<action>0</action>
+			<enum-subwindows>0</enum-subwindows>
+			<close-type>0</close-type>
+			<close-command-id>0</close-command-id>
+		</window>
+		<window id="20">
+			<close-on-screensaver>true</close-on-screensaver>
+			<kill-process>false</kill-process>
+			<secure>true</secure>
+			<langid>9</langid>
+			<name>Open*</name>
+			<class>*</class>
+			<action>0</action>
+			<enum-subwindows>0</enum-subwindows>
+			<close-type>0</close-type>
+			<close-command-id>0</close-command-id>
+		</window>
+		<window id="21">
+			<close-on-screensaver>true</close-on-screensaver>
+			<kill-process>false</kill-process>
+			<secure>true</secure>
+			<langid>9</langid>
+			<name>Choose file*</name>
+			<class>*</class>
+			<action>0</action>
+			<enum-subwindows>0</enum-subwindows>
+			<close-type>0</close-type>
+			<close-command-id>0</close-command-id>
+		</window>
+		<window id="22">
+			<close-on-screensaver>true</close-on-screensaver>
+			<kill-process>false</kill-process>
+			<secure>true</secure>
+			<langid>9</langid>
+			<name>Browse For Folder</name>
+			<class>#32770</class>
+			<action>0</action>
+			<enum-subwindows>0</enum-subwindows>
+			<close-type>0</close-type>
+			<close-command-id>0</close-command-id>
+		</window>
+		<window id="23">
+			<close-on-screensaver>true</close-on-screensaver>
+			<kill-process>false</kill-process>
+			<secure>true</secure>
+			<langid>9</langid>
+			<name>Browse</name>
+			<class>#32770</class>
+			<action>0</action>
+			<enum-subwindows>0</enum-subwindows>
+			<close-type>0</close-type>
+			<close-command-id>0</close-command-id>
+		</window>
+		<window id="24">
+			<close-on-screensaver>true</close-on-screensaver>
+			<kill-process>false</kill-process>
+			<secure>true</secure>
+			<langid>9</langid>
+			<name>Confirm*file delete</name>
+			<class>*</class>
+			<action>0</action>
+			<enum-subwindows>0</enum-subwindows>
+			<close-type>0</close-type>
+			<close-command-id>0</close-command-id>
+		</window>
+		<window id="25">
+			<close-on-screensaver>true</close-on-screensaver>
+			<kill-process>false</kill-process>
+			<secure>false</secure>
+			<langid>9</langid>
+			<name>Open wit*</name>
+			<class>#32770</class>
+			<action>0</action>
+			<enum-subwindows>0</enum-subwindows>
+			<close-type>0</close-type>
+			<close-command-id>0</close-command-id>
+		</window>
+		<window id="26">
+			<close-on-screensaver>true</close-on-screensaver>
+			<kill-process>false</kill-process>
+			<secure>false</secure>
+			<langid>9</langid>
+			<name>*Properties</name>
+			<class>#32770</class>
+			<action>0</action>
+			<enum-subwindows>0</enum-subwindows>
+			<close-type>1</close-type>
+			<close-command-id>1</close-command-id>
+		</window>
+		<window id="33">
+			<close-on-screensaver>true</close-on-screensaver>
+			<kill-process>false</kill-process>
+			<secure>false</secure>
+			<langid>9</langid>
+			<name>Print</name>
+			<class>bosa_sdm_Microsoft*</class>
+			<action>0</action>
+			<enum-subwindows>0</enum-subwindows>
+			<close-type>0</close-type>
+			<close-command-id>0</close-command-id>
+		</window>
+		<window id="35">
+			<close-on-screensaver>true</close-on-screensaver>
+			<kill-process>false</kill-process>
+			<secure>true</secure>
+			<langid>9</langid>
+			<name>Save picture</name>
+			<class>*</class>
+			<action>0</action>
+			<enum-subwindows>0</enum-subwindows>
+			<close-type>0</close-type>
+			<close-command-id>0</close-command-id>
+		</window>
+		<window id="36">
+			<close-on-screensaver>true</close-on-screensaver>
+			<kill-process>false</kill-process>
+			<secure>false</secure>
+			<langid>9</langid>
+			<name>*Option*</name>
+			<class>*</class>
+			<action>0</action>
+			<enum-subwindows>0</enum-subwindows>
+			<close-type>0</close-type>
+			<close-command-id>0</close-command-id>
+		</window>
+		<window id="37">
+			<close-on-screensaver>true</close-on-screensaver>
+			<kill-process>false</kill-process>
+			<secure>false</secure>
+			<langid>9</langid>
+			<name>Add a Favorite</name>
+			<class>*</class>
+			<action>0</action>
+			<enum-subwindows>0</enum-subwindows>
+			<close-type>0</close-type>
+			<close-command-id>0</close-command-id>
+		</window>
+		<window id="38">
+			<close-on-screensaver>true</close-on-screensaver>
+			<kill-process>false</kill-process>
+			<secure>false</secure>
+			<langid>9</langid>
+			<name>Preferences</name>
+			<class>#32770</class>
+			<action>0</action>
+			<enum-subwindows>0</enum-subwindows>
+			<close-type>1</close-type>
+			<close-command-id>2</close-command-id>
+		</window>
+	</windowmanager>
+	<password>
+		<quit-button>false</quit-button>
+		<idle-deactivate>false</idle-deactivate>
+		<deactivate-time>60</deactivate-time>
+		<password>U200b500000010005300f30053001d0067</password>
+		<enable-general-password>true</enable-general-password>
+		<hotkey enabled="true" alt="true" ctrl="true" shift="true" ext="false">8</hotkey>
+		<secondary-password enabled="false">
+			<password />
+			<quit>false</quit>
+			<shutdown>true</shutdown>
+			<reboot>true</reboot>
+			<logout>false</logout>
+			<sitecashadmin>false</sitecashadmin>
+		</secondary-password>
+	</password>
+	<programs enabled="true" autostart-delay="10000">
+		<patcher enabled="true" updateurl="http://www.sitekiosk.com/programpatcher/programpatcher.xml" />
+	</programs>
+	<browserbar>
+		<style>2</style>
+		<show-address-box>true</show-address-box>
+		<anim-url>http://www.provisio.com/en-US/</anim-url>
+		<hidemode>0</hidemode>
+		<show-window-bar>false</show-window-bar>
+		<show-external-windows>false</show-external-windows>
+		<hide-window-bar-if-fullscreen>false</hide-window-bar-if-fullscreen>
+		<hide-scrollbars-in-fullscreen>false</hide-scrollbars-in-fullscreen>
+		<hide-taskbar-in-fullscreen>false</hide-taskbar-in-fullscreen>
+		<show-logout-button>true</show-logout-button>
+		<new-windows-maximized>true</new-windows-maximized>
+		<taskbar-notification-area enabled="false">
+			<restricted>false</restricted>
+		</taskbar-notification-area>
+		<logout-navigation enabled="false">
+			<url>file://$(SiteKioskPath)\HTML\Logout\Logout.html</url>
+			<delete-cookies>true</delete-cookies>
+			<clear-cache>true</clear-cache>
+			<delete-certificates>false</delete-certificates>
+		</logout-navigation>
+		<logout-on-last-browser>false</logout-on-last-browser>
+		<browserbar-urls />
+	</browserbar>
+	<dialupnetworking enabled="false">
+		<user />
+		<pass encrypted="true"></pass>
+		<idletime>300</idletime>
+		<connect-on-demand>false</connect-on-demand>
+		<connection />
+		<check-intranet>false</check-intranet>
+		<watch-ras-stats>false</watch-ras-stats>
+		<disable-net-logon>false</disable-net-logon>
+		<max-retries>3</max-retries>
+		<connect-on-script-url>true</connect-on-script-url>
+	</dialupnetworking>
+	<surfarea>
+		<mode>0</mode>
+		<no-frame-check>true</no-frame-check>
+		<show-warning>true</show-warning>
+		<authentication method="0">
+			<database-url>file://$(SiteKioskPath)\xml\sample-authentication.csv</database-url>
+			<database-separator>59</database-separator>
+			<device-guid>00000000-0000-0000-0000-000000000000</device-guid>
+		</authentication>
+		<url allowed="false">file://$(WinDir)\*.ht*</url>
+		<url allowed="false">file://$(UserProfile)\*.ht*</url>
+		<url allowed="false">file://$(AllUsersProfile)\*Microsoft*\*.ht*</url>
+		<url allowed="false">file://$(SiteKioskPath)\*</url>
+		<url allowed="true">file://$(SiteKioskPath)\html\*</url>
+		<url allowed="true">file://$(SiteKioskPath)\skins\public\*</url>
+		<url allowed="false" hidden="true">http://IKAT.ha.cked.net</url>
+		<url-list allowed="true">file://$(SiteKioskPath)\xml\sample-allowed.txt</url-list>
+		<url-list allowed="true">file://C:\kiosk\index.html</url-list>
+		<url-list allowed="true">http://localhost:8082*</url-list>
+		<url-list allowed="true">http://www.marinetraffic.com*</url-list>
+		<url-list allowed="true">http://www.historiclewes.org*</url-list>
+		<url-list allowed="true" hidden="true">file://$(SiteKioskPath)\xml\empty.txt</url-list>
+	</surfarea>
+	<siteskin>
+		<skin-browserwindows>true</skin-browserwindows>
+		<default-skin>Fullscreen Skin</default-skin>
+		<language>7</language>
+		<language>9</language>
+		<defaultlanguage>0</defaultlanguage>
+		<keyboard-layout-switching>false</keyboard-layout-switching>
+		<config-focused>true</config-focused>
+		<showpdftoolbar>false</showpdftoolbar>
+	</siteskin>
+	<multimonitor enabled="false">
+		<application>SKPlayer.scr</application>
+		<interval>30</interval>
+		<random>false</random>
+		<mainwindow-on-secondary>false</mainwindow-on-secondary>
+		<reset-counter>100</reset-counter>
+	</multimonitor>
+	<protocols>
+		<protocol>file://</protocol>
+		<protocol>http://</protocol>
+		<protocol>https://</protocol>
+		<protocol>ftp://</protocol>
+	</protocols>
+	<download-manager enabled="false">
+		<download-folder>C:\Users\Public\Documents\SiteKiosk</download-folder>
+		<delete-downloads>false</delete-downloads>
+		<delete-at-logout>true</delete-at-logout>
+		<delete-old-files>false</delete-old-files>
+		<max-download-age>7200</max-download-age>
+		<limit-download-size>false</limit-download-size>
+		<max-download-size>10485760</max-download-size>
+		<delete-directories />
+		<download-allowed-urls enabled="false" />
+		<msdownloaddlg-urls />
+	</download-manager>
+	<schemes defaultallowed="false">
+		<scheme name="http" desc="Hypertext Transfer Protocol" allowed="true" />
+		<scheme name="https" desc="Hypertext Transfer Protocol Secure" allowed="true" />
+		<scheme name="file" desc="Host-specific file names" allowed="true" />
+		<scheme name="ftp" desc="File Transfer Protocol" allowed="true" />
+		<scheme name="gopher" desc="The Gopher Protocol" allowed="true" />
+		<scheme name="mailto" desc="Electronic mail address" allowed="true" />
+		<scheme name="news" desc="USENET news" allowed="false" />
+		<scheme name="nntp" desc="USENET news using NNTP access" allowed="false" />
+		<scheme name="telnet" desc="Reference to interactive sessions" allowed="false" />
+		<scheme name="res" desc="Microsoft's Res Protocol: Specifies a resource that will be obtained from a module" allowed="true" />
+		<scheme name="ms-help" desc="Microsoft's ms-help Scheme" allowed="false" />
+		<scheme name="skcmd" desc="SiteKiosk commands" allowed="true" />
+		<scheme name="about" desc="" allowed="true" />
+		<scheme name="rtsp" desc="real time streaming protocol" allowed="true" />
+		<scheme name="ipp" desc="Internet Printing Protocol" allowed="false" />
+		<scheme name="mms" desc="" allowed="true" />
+		<scheme name="wais" desc="Wide Area Information Servers" allowed="false" />
+		<scheme name="prospero" desc="Prospero Directory Service" allowed="false" />
+		<scheme name="imap" desc="internet message access protocol" allowed="false" />
+		<scheme name="nfs" desc="network file system protocol" allowed="false" />
+		<scheme name="cid" desc="content identifier" allowed="false" />
+		<scheme name="mid" desc="message identifier" allowed="false" />
+		<scheme name="acap" desc="application configuration access protocol" allowed="false" />
+		<scheme name="tip" desc="Transaction Internet Protocol" allowed="false" />
+		<scheme name="pop" desc="Post Office Protocol v3" allowed="false" />
+		<scheme name="data" desc="data" allowed="false" />
+		<scheme name="dav" desc="dav" allowed="false" />
+		<scheme name="opaquelocktoken" desc="opaquelocktoken" allowed="false" />
+		<scheme name="sip" desc="session initiation protocol" allowed="false" />
+		<scheme name="tel" desc="telephone" allowed="false" />
+		<scheme name="fax" desc="fax" allowed="false" />
+		<scheme name="modem" desc="modem" allowed="false" />
+		<scheme name="ldap" desc="Lightweight Directory Access Protocol" allowed="false" />
+		<scheme name="go" desc="go" allowed="false" />
+		<scheme name="h323" desc="Conversational Multimedia H.323 URL" allowed="false" />
+		<scheme name="urn" desc="Uniform Resource Names" allowed="false" />
+		<scheme name="vemmi" desc="versatile multimedia interface" allowed="false" />
+		<scheme name="service" desc="service location" allowed="false" />
+		<scheme name="xmlrpc.beep" desc="xmlrpc.beep" allowed="false" />
+		<scheme name="xmlrpc.beeps" desc="xmlrpc.beeps" allowed="false" />
+		<scheme name="soap.beep" desc="soap.beep" allowed="false" />
+		<scheme name="soap.beeps" desc="soap.beeps" allowed="false" />
+		<scheme name="z39.50s" desc="Z39.50 Session" allowed="false" />
+		<scheme name="z39.50r" desc="Z39.50 Retrieval" allowed="false" />
+		<scheme name="callto" desc="Microsoft Netmeeting" allowed="true" />
+		<scheme name="skype" desc="Skype call protocol" allowed="true" />
+		<scheme name="ior" desc="CORBA interoperable object reference" allowed="false" />
+		<scheme name="addbook" desc="To add vCard entries to Communicator's Address Book" allowed="false" />
+		<scheme name="afp" desc="" allowed="false" />
+		<scheme name="afs" desc="Andrew File System global file names" allowed="false" />
+		<scheme name="aim" desc="AOL Instant Messanger" allowed="false" />
+		<scheme name="castanet" desc="Castanet Tuner URLs for Netcaster" allowed="false" />
+		<scheme name="chttp" desc="Authoring Content for RealPlayer 7" allowed="false" />
+		<scheme name="dict" desc="A Dictionary Server Protocol" allowed="false" />
+		<scheme name="dns" desc="DNS URL scheme" allowed="false" />
+		<scheme name="eid" desc="EID URL scheme" allowed="false" />
+		<scheme name="finger" desc="finger URL Specification" allowed="false" />
+		<scheme name="freener" desc="[Freenet-dev] Freenet URL`s" allowed="false" />
+		<scheme name="gsm-sms" desc="URLs for GSM Short Message Service" allowed="false" />
+		<scheme name="h324" desc="Conversational Multimedia H.324 URL" allowed="false" />
+		<scheme name="hdl" desc="CNRI handle system" allowed="false" />
+		<scheme name="hnews" desc="The hnews URL scheme" allowed="false" />
+		<scheme name="irc" desc="synchronous communication in the Web" allowed="false" />
+		<scheme name="jar" desc="A New Era for Java Protocol Handlers" allowed="false" />
+		<scheme name="javascript" desc="Client-Side JavaScript Reference" allowed="true" />
+		<scheme name="jdbc" desc="Java SQL API" allowed="false" />
+		<scheme name="lifn" desc="An Architecture for Bulk File Distribution" allowed="false" />
+		<scheme name="livescript" desc="Client-Side JavaScript Reference" allowed="false" />
+		<scheme name="irq" desc="Conversational Multimedia URLs" allowed="false" />
+		<scheme name="mailbox" desc="Mail folder access" allowed="false" />
+		<scheme name="md5" desc="Semantic md5" allowed="false" />
+		<scheme name="mocha" desc="has perhaps something todo with JaveScript" allowed="false" />
+		<scheme name="phone" desc="URLs for Telephony" allowed="true" />
+		<scheme name="pop3" desc="A POP3 URL Interface" allowed="false" />
+		<scheme name="printer" desc="Definition of printer: URLs for use with Service Location" allowed="false" />
+		<scheme name="rvp" desc="Rendezvous Protocol" allowed="false" />
+		<scheme name="rwhois" desc="The RWhois Uniform Resource Locator" allowed="false" />
+		<scheme name="rx" desc="Remote Execution" allowed="false" />
+		<scheme name="sdp" desc="SDP URL Scheme." allowed="false" />
+		<scheme name="smb" desc="URI syntax for smb library" allowed="false" />
+		<scheme name="snews" desc="Netscape DevEdge Online FAQ - Client Technical" allowed="false" />
+		<scheme name="t120" desc="Conversational Multimedia URLs" allowed="false" />
+		<scheme name="tcp" desc="rebol URL stuff" allowed="false" />
+		<scheme name="tn3270" desc="xxxx" allowed="false" />
+		<scheme name="tv" desc="URL for Television Broadcasts" allowed="false" />
+		<scheme name="uuid" desc="the UUID addressing scheme" allowed="false" />
+		<scheme name="videotex" desc="Videotex URL Specification" allowed="false" />
+		<scheme name="view-source" desc="xxxx" allowed="false" />
+		<scheme name="whodp" desc="Widely Hosted Object Data Protocol" allowed="false" />
+		<scheme name="whois++" desc="WHOIS++ URL Specification" allowed="false" />
+	</schemes>
+	<favorites enabled="false" addfavorites="false" savefavorites="false" filename="$(SiteKioskPath)\xml\favorites.xml" />
+	<contextmenu enabled="false" />
+	<logfile enabled="true">
+		<path>$(SiteKioskPath)\Logfiles\</path>
+		<debug-console>false</debug-console>
+		<no-session-id>false</no-session-id>
+		<delete-files>true</delete-files>
+		<delete-files-age>90</delete-files-age>
+		<min-level>20</min-level>
+	</logfile>
+	<startpageconfig>
+		<startpage>http://localhost:8082</startpage>
+		<altstartpage>file://$(SiteKioskPath)\HTML\startpage\start.htm</altstartpage>
+		<templateenabled>false</templateenabled>
+		<templatename />
+		<templatedeffilename />
+		<config-focused>false</config-focused>
+		<reset-browser-on-screensaver-start>true</reset-browser-on-screensaver-start>
+	</startpageconfig>
+	<filemanager enabled="false">
+		<allow-execute-files>false</allow-execute-files>
+		<allow-burn>false</allow-burn>
+		<show-copyright-notice>false</show-copyright-notice>
+		<visible-paths />
+		<mime-filters>
+			<filter enabled="true" player="rss" content="text/xml" action="2" />
+			<filter enabled="true" player="rss" content="text/xml;" action="2" />
+			<filter enabled="true" player="rss" content="text/xml; charset=utf-8" action="2" />
+			<filter enabled="true" player="rss" content="text/xml; charset=windows-1251" action="2" />
+			<filter enabled="true" player="rss" content="text/xml; charset=iso-8859-1" action="2" />
+			<filter enabled="true" player="rss" content="text/xml;charset=UTF-8" action="2" />
+			<filter enabled="true" player="rss" content="application/xml" action="2" />
+			<filter enabled="true" player="rss" content="application/xml; charset=windows-1251" action="2" />
+			<filter enabled="true" player="rss" content="application/xml; charset=ISO-8859-1" action="2" />
+			<filter enabled="true" player="rss" content="application/atom+xml; charset=utf-8" action="2" />
+			<filter enabled="true" player="rss" content="application/rss+xml; charset=UTF-8" action="2" />
+			<filter enabled="true" player="rss" content="application/rss+xml; charset=ISO-8859-1" action="2" />
+			<filter enabled="true" player="rss" content="application/rss+xml" action="2" />
+			<filter enabled="true" player="video" content="video/avi" action="2" />
+			<filter enabled="true" player="video" content="video/mpeg" action="2" />
+			<filter enabled="true" player="video" content="video/x-msvideo" action="2" />
+			<filter enabled="true" player="video" content="video/x-ms-wmv" action="2" />
+			<filter enabled="true" player="video" content="video/quicktime" action="2" />
+			<filter enabled="true" player="video" content="video/x-mpeg" action="2" />
+			<filter enabled="true" player="flash" content="application/x-shockwave-flash" action="2" />
+			<filter enabled="false" player="pdf" content="application/pdf" action="2" />
+			<filter enabled="true" player="audio" content="audio/mpeg" action="2" />
+			<filter enabled="true" player="audio" content="audio/x-mpeg" action="2" />
+			<filter enabled="true" player="audio" content="audio/x-mpegurl" action="2" />
+			<filter enabled="true" player="audio" content="audio/x-wav" action="2" />
+			<filter enabled="true" player="audio" content="audio/x-ms-wma" action="2" />
+			<filter enabled="true" player="audio" content="audio/midi" action="2" />
+			<filter enabled="true" player="audio" content="audio/x-aiff" action="2" />
+			<filter enabled="true" player="application" content="application/x-ms-application" action="1" />
+		</mime-filters>
+	</filemanager>
+	<proxy enabled="false" usehttpforall="false">
+		<http address="" port="80" />
+		<https address="" port="443" />
+		<ftp address="" port="21" />
+		<socks address="" port="0" />
+	</proxy>
+	<plugin name="SiteCam" enabled="false" clsid="5aadd108-c1ba-4fe7-8096-65cf19d58e14">
+		<allow-video-mail>false</allow-video-mail>
+		<allow-voice-mail>false</allow-voice-mail>
+		<allow-image-mail>false</allow-image-mail>
+		<video-source-set>false</video-source-set>
+		<audio-source-set>false</audio-source-set>
+		<scale-image-size>false</scale-image-size>
+		<image-width>320</image-width>
+		<image-height>200</image-height>
+		<max-video-length>10</max-video-length>
+		<max-audio-length>30</max-audio-length>
+		<enable-media-button>true</enable-media-button>
+		<profile-id>afe69b3a-403f-4a1b-8007-0e21cfb3df84</profile-id>
+		<video-device id="" dt:dt="bin.base64"></video-device>
+		<audio-device id="" dt:dt="bin.base64"></audio-device>
+		<delete-files-age>0</delete-files-age>
+	</plugin>
+	<plugin name="SiteCash" enabled="false" clsid="476d1841-6b58-424f-a9e5-f024f0384ab1">
+		<hourprice>5</hourprice>
+		<mediamailprice enabled="false">0.5</mediamailprice>
+		<applicationprice enabled="false">6</applicationprice>
+		<applicationmultiplier enabled="true">100</applicationmultiplier>
+		<downloadprice enabled="false">0.5</downloadprice>
+		<cdrecordingprice enabled="false">2</cdrecordingprice>
+		<printeronprice enabled="false" pds-uri="http://localhost:631" charge-coverpage="false" price2="0.5">0.5</printeronprice>
+		<stat-file>$(SiteKioskPath)\SiteCash\SiteCash_AccMoney.dat</stat-file>
+		<warning-seconds enabled="true">30</warning-seconds>
+		<currency>
+			<locale>1033</locale>
+			<symbol>$</symbol>
+			<isosymbol>USD</isosymbol>
+			<placement>0</placement>
+			<digits>2</digits>
+		</currency>
+		<statusformat>0</statusformat>
+		<timeformat>2</timeformat>
+		<show-zoneinfo>true</show-zoneinfo>
+		<progressbar display="true" block-mode="false" gradient="true" color1="6553600" color2="16777010" />
+		<admin-menu enabled="false">
+			<auto-notification>false</auto-notification>
+			<notification-threshold>0</notification-threshold>
+			<auto-notification-perdevice>false</auto-notification-perdevice>
+			<notification-threshold-perdevice>0</notification-threshold-perdevice>
+			<notification-Transactions>0</notification-Transactions>
+			<notification-Transactions-perdevice>0</notification-Transactions-perdevice>
+			<credit>true</credit>
+			<reset>true</reset>
+			<mail-on-reset>true</mail-on-reset>
+			<sales-report>true</sales-report>
+			<recipient />
+		</admin-menu>
+		<currency-images>
+			<image isocode="EUR" value="500" desc="5 Cent" isNote="false" filename="$(SiteKioskPath)\SiteCash\Html\Images\Coins\Euro\5cteur.png" />
+			<image isocode="EUR" value="1000" desc="10 Cent" isNote="false" filename="$(SiteKioskPath)\SiteCash\Html\Images\Coins\Euro\10cteur.png" />
+			<image isocode="EUR" value="2000" desc="20 Cent" isNote="false" filename="$(SiteKioskPath)\SiteCash\Html\Images\Coins\Euro\20cteur.png" />
+			<image isocode="EUR" value="5000" desc="50 Cent" isNote="false" filename="$(SiteKioskPath)\SiteCash\Html\Images\Coins\Euro\50cteur.png" />
+			<image isocode="EUR" value="10000" desc="1 Euro" isNote="false" filename="$(SiteKioskPath)\SiteCash\Html\Images\Coins\Euro\1eur.png" />
+			<image isocode="EUR" value="20000" desc="2 Euro" isNote="false" filename="$(SiteKioskPath)\SiteCash\Html\Images\Coins\Euro\2eur.png" />
+			<image isocode="EUR" value="50000" desc="5 Euro" isNote="true" filename="$(SiteKioskPath)\SiteCash\Html\Images\Notes\Euro\5eur.png" />
+			<image isocode="EUR" value="100000" desc="10 Euro" isNote="true" filename="$(SiteKioskPath)\SiteCash\Html\Images\Notes\Euro\10eur.png" />
+			<image isocode="EUR" value="200000" desc="20 Euro" isNote="true" filename="$(SiteKioskPath)\SiteCash\Html\Images\Notes\Euro\20eur.png" />
+			<image isocode="EUR" value="500000" desc="50 Euro" isNote="true" filename="$(SiteKioskPath)\SiteCash\Html\Images\Notes\Euro\50eur.png" />
+			<image isocode="EUR" value="1000000" desc="100 Euro" isNote="true" filename="$(SiteKioskPath)\SiteCash\Html\Images\Notes\Euro\100eur.png" />
+			<image isocode="EUR" value="2000000" desc="200 Euro" isNote="true" filename="$(SiteKioskPath)\SiteCash\Html\Images\Notes\Euro\200eur.png" />
+			<image isocode="EUR" value="5000000" desc="500 Euro" isNote="true" filename="$(SiteKioskPath)\SiteCash\Html\Images\Notes\Euro\500eur.png" />
+			<image isocode="CAD" value="500" desc="5 Cent" isNote="false" filename="$(SiteKioskPath)\SiteCash\Html\Images\Coins\Canada\5cents.png" />
+			<image isocode="CAD" value="1000" desc="10 Cent" isNote="false" filename="$(SiteKioskPath)\SiteCash\Html\Images\Coins\Canada\10cents.png" />
+			<image isocode="CAD" value="2500" desc="25 Cent" isNote="false" filename="$(SiteKioskPath)\SiteCash\Html\Images\Coins\Canada\25cents.png" />
+			<image isocode="CAD" value="10000" desc="1 Dollar" isNote="false" filename="$(SiteKioskPath)\SiteCash\Html\Images\Coins\Canada\1dollar.png" />
+			<image isocode="CAD" value="20000" desc="2 Dollar" isNote="false" filename="$(SiteKioskPath)\SiteCash\Html\Images\Coins\Canada\2dollar.png" />
+			<image isocode="CAD" value="50000" desc="5 Dollar" isNote="true" filename="$(SiteKioskPath)\SiteCash\Html\Images\Notes\Canada\5dollar.png" />
+			<image isocode="CAD" value="100000" desc="10 Dollar" isNote="true" filename="$(SiteKioskPath)\SiteCash\Html\Images\Notes\Canada\10dollar.png" />
+			<image isocode="CAD" value="200000" desc="20 Dollar" isNote="true" filename="$(SiteKioskPath)\SiteCash\Html\Images\Notes\Canada\20dollar.png" />
+			<image isocode="DKK" value="50000" desc="5 Kronen" isNote="false" filename="$(SiteKioskPath)\SiteCash\Html\Images\Coins\Denmark\5kronen.png" />
+			<image isocode="DKK" value="100000" desc="10 Kronen" isNote="false" filename="$(SiteKioskPath)\SiteCash\Html\Images\Coins\Denmark\10kronen.png" />
+			<image isocode="DKK" value="200000" desc="20 Kronen" isNote="false" filename="$(SiteKioskPath)\SiteCash\Html\Images\Coins\Denmark\20kronen.png" />
+			<image isocode="DKK" value="500000" desc="50 Kronen" isNote="true" filename="$(SiteKioskPath)\SiteCash\Html\Images\Notes\Denmark\50kronen.png" />
+			<image isocode="DKK" value="1000000" desc="100 Kronen" isNote="true" filename="$(SiteKioskPath)\SiteCash\Html\Images\Notes\Denmark\100kronen.png" />
+			<image isocode="GBP" value="500" desc="5 Pence" isNote="false" filename="$(SiteKioskPath)\SiteCash\Html\Images\Coins\England\5pence.png" />
+			<image isocode="GBP" value="1000" desc="10 Pence" isNote="false" filename="$(SiteKioskPath)\SiteCash\Html\Images\Coins\England\10pence.png" />
+			<image isocode="GBP" value="2000" desc="20 Pence" isNote="false" filename="$(SiteKioskPath)\SiteCash\Html\Images\Coins\England\20pence.png" />
+			<image isocode="GBP" value="5000" desc="50 Pence" isNote="false" filename="$(SiteKioskPath)\SiteCash\Html\Images\Coins\England\50pence.png" />
+			<image isocode="GBP" value="10000" desc="1 Pound" isNote="false" filename="$(SiteKioskPath)\SiteCash\Html\Images\Coins\England\1pound.png" />
+			<image isocode="GBP" value="20000" desc="2 Pounds" isNote="false" filename="$(SiteKioskPath)\SiteCash\Html\Images\Coins\England\2pounds.png" />
+			<image isocode="GBP" value="50000" desc="5 Pounds" isNote="true" filename="$(SiteKioskPath)\SiteCash\Html\Images\Notes\England\5pound.png" />
+			<image isocode="GBP" value="100000" desc="10 Pounds" isNote="true" filename="$(SiteKioskPath)\SiteCash\Html\Images\Notes\England\10pounds.png" />
+			<image isocode="CHF" value="10000" desc="1 Franken" isNote="false" filename="$(SiteKioskPath)\SiteCash\Html\Images\Coins\Switzerland\1franken.png" />
+			<image isocode="CHF" value="20000" desc="2 Franken" isNote="false" filename="$(SiteKioskPath)\SiteCash\Html\Images\Coins\Switzerland\2franken.png" />
+			<image isocode="CHF" value="50000" desc="5 Franken" isNote="false" filename="$(SiteKioskPath)\SiteCash\Html\Images\Coins\Switzerland\5franken.png" />
+			<image isocode="CHF" value="100000" desc="10 Franken" isNote="true" filename="$(SiteKioskPath)\SiteCash\Html\Images\Notes\Switzerland\10franken.png" />
+			<image isocode="CHF" value="200000" desc="20 Franken" isNote="true" filename="$(SiteKioskPath)\SiteCash\Html\Images\Notes\Switzerland\20franken.png" />
+			<image isocode="CHF" value="500000" desc="50 Franken" isNote="true" filename="$(SiteKioskPath)\SiteCash\Html\Images\Notes\Switzerland\50franken.png" />
+			<image isocode="USD" value="500" desc="5 Cents" isNote="false" filename="$(SiteKioskPath)\SiteCash\Html\Images\Coins\Usa\5cents.png" />
+			<image isocode="USD" value="1000" desc="10 Cents" isNote="false" filename="$(SiteKioskPath)\SiteCash\Html\Images\Coins\Usa\onedime.png" />
+			<image isocode="USD" value="2500" desc="25 Cents" isNote="false" filename="$(SiteKioskPath)\SiteCash\Html\Images\Coins\Usa\quarterdollar.png" />
+			<image isocode="USD" value="10000" desc="1 Dollar" isNote="true" filename="$(SiteKioskPath)\SiteCash\Html\Images\Notes\Usa\1dollar.png" />
+			<image isocode="USD" value="50000" desc="5 Dollar" isNote="true" filename="$(SiteKioskPath)\SiteCash\Html\Images\Notes\Usa\5dollar.png" />
+			<image isocode="USD" value="100000" desc="10 Dollar" isNote="true" filename="$(SiteKioskPath)\SiteCash\Html\Images\Notes\Usa\10dollar.png" />
+			<image isocode="USD" value="200000" desc="20 Dollar" isNote="true" filename="$(SiteKioskPath)\SiteCash\Html\Images\Notes\Usa\20dollar.png" />
+			<image isocode="USD" value="500000" desc="50 Dollar" isNote="true" filename="$(SiteKioskPath)\SiteCash\Html\Images\Notes\Usa\50dollar.png" />
+			<image isocode="TK" value="10000" desc="Token" isNote="false" filename="$(SiteKioskPath)\SiteCash\Html\Images\jeton.png" />
+			<image isocode="TK" value="20000" desc="Token" isNote="false" filename="$(SiteKioskPath)\SiteCash\Html\Images\jeton.png" />
+			<image isocode="TK" value="30000" desc="Token" isNote="false" filename="$(SiteKioskPath)\SiteCash\Html\Images\jeton.png" />
+			<image isocode="TK" value="40000" desc="Token" isNote="false" filename="$(SiteKioskPath)\SiteCash\Html\Images\jeton.png" />
+			<image isocode="TK" value="50000" desc="Token" isNote="false" filename="$(SiteKioskPath)\SiteCash\Html\Images\jeton.png" />
+		</currency-images>
+		<payment-receipt enabled="false">
+			<receipt-type>0</receipt-type>
+			<receipt-condition>0</receipt-condition>
+			<printer-name>NPI959E1A (HP LaserJet 400 color M451dw)</printer-name>
+			<traider-name />
+			<traider-phone />
+			<traider-taxnumber />
+			<printer-restricted>false</printer-restricted>
+		</payment-receipt>
+	</plugin>
+	<plugin name="SiteCoach" enabled="false" clsid="224a0aa6-0d86-48d5-874f-a308029209d0">
+		<internal-list>true</internal-list>
+		<deny-by-default>false</deny-by-default>
+		<update>true</update>
+		<update-url>http://www.sitekiosk.com/sitecoach4/coachinfo.xml</update-url>
+		<clear-cache>false</clear-cache>
+		<internal-patterns>true</internal-patterns>
+		<no-deactivate>false</no-deactivate>
+		<enable-socks>false</enable-socks>
+		<socks-auth>false</socks-auth>
+		<socks-port>1080</socks-port>
+		<socks-server />
+		<socks-user />
+		<socks-pass encrypted="true"></socks-pass>
+		<disabled-time enabled="false">
+			<start-hour>22</start-hour>
+			<start-minute>0</start-minute>
+			<start-second>0</start-second>
+			<end-hour>4</end-hour>
+			<end-minute>0</end-minute>
+			<end-second>0</end-second>
+		</disabled-time>
+		<proxy-authentication enabled="false">
+			<username />
+			<password encrypted="true"></password>
+		</proxy-authentication>
+		<exclude>http://localhost:8082*</exclude>
+		<exclude>http://www.historiclewes.org*</exclude>
+		<block>
+			<generalforbidden>true</generalforbidden>
+			<erotic>false</erotic>
+			<extremism>true</extremism>
+			<gambling>false</gambling>
+			<bpjs>true</bpjs>
+			<chat>false</chat>
+			<drugs>true</drugs>
+			<anonymous>true</anonymous>
+			<email>false</email>
+			<translation-redirect>true</translation-redirect>
+			<kids>false</kids>
+		</block>
+	</plugin>
+	<plugin name="SiteDog" enabled="false" clsid="f0c667df-b700-11d3-a785-00400547c51f">
+		<device-type>1</device-type>
+		<com-port>1</com-port>
+	</plugin>
+	<plugin name="SitePhone" enabled="false" clsid="0a340eb7-1bf6-450c-b6cf-a578d55839be">
+		<active-provider>SkypeKit</active-provider>
+		<providers>
+			<provider name="SIP">
+				<gateway />
+				<realm />
+				<user />
+				<hash />
+				<auth-name />
+				<display-dame />
+				<outbound-proxy />
+				<stun-server />
+				<port>5060</port>
+				<transport>1</transport>
+				<incoming-address />
+				<conn-tested>false</conn-tested>
+				<echo-tail>0</echo-tail>
+				<agc-enabled>false</agc-enabled>
+				<denoiser-enabled>false</denoiser-enabled>
+				<dereverber-enabled>false</dereverber-enabled>
+			</provider>
+			<provider name="SkypeKit">
+				<gateway>http://www.skype.com</gateway>
+				<user />
+				<hash />
+				<auth-name />
+				<display-dame />
+				<outbound-proxy />
+				<stun-server />
+				<port>0</port>
+				<transport>1</transport>
+				<conn-tested>false</conn-tested>
+				<echo-tail>0</echo-tail>
+				<agc-enabled>false</agc-enabled>
+				<denoiser-enabled>false</denoiser-enabled>
+				<dereverber-enabled>false</dereverber-enabled>
+			</provider>
+		</providers>
+		<s2s-enabled>false</s2s-enabled>
+		<phone-enabled>false</phone-enabled>
+		<sms-enabled>false</sms-enabled>
+		<internal-enabled>false</internal-enabled>
+		<video-enabled>false</video-enabled>
+		<zones>
+			<zone category="0" usage-type="0" rate-type="2" has-fee="true" fee="500" rate="5000" name-id="-1">
+				<address>*</address>
+			</zone>
+			<zone category="0" usage-type="1" rate-type="2" has-fee="true" fee="500" rate="5000" name-id="-1">
+				<address>*</address>
+			</zone>
+			<zone category="0" usage-type="2" rate-type="2" has-fee="true" fee="500" rate="5000" name-id="-1">
+				<address>*</address>
+			</zone>
+		</zones>
+		<visualization skin="true" startmenu="true" application="false" dialpad="true" servicepad="false">
+			<title>Phone</title>
+			<local-user />
+			<remote-user />
+		</visualization>
+	</plugin>
+	<plugin name="SiteRemote" enabled="true" clsid="2F5B83E1-88BC-44D2-9E5D-B3D621C4A292">
+		<heatmap enabled="false">
+			<scriptfile>%SiteKioskPath%\SiteRemote\HeatMap.js</scriptfile>
+		</heatmap>
+	</plugin>
+	<sitecasterwindow enabled="false" topmost="true">
+		<docking-side />
+		<top>0</top>
+		<bottom>0</bottom>
+		<left>0</left>
+		<right>0</right>
+		<url>file://$(SiteKioskPath)\HTML\SiteCaster\SplitScreen.html</url>
+	</sitecasterwindow>
+</sitekiosk-configuration>
