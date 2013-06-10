@@ -214,6 +214,14 @@ function program1(depth0,data) {
   buffer += "\n  </ul>\n</section>";
   return buffer;
   });
+templates['newsletter.hbs'] = template(function (Handlebars,depth0,helpers,partials,data) {
+  this.compilerInfo = [2,'>= 1.0.0-rc.3'];
+helpers = helpers || Handlebars.helpers; data = data || {};
+  
+
+
+  return "<div class=\"small-10 columns\">\n  <input type=\"email\" id=\"newsletter-email-address\" placeholder=\"Enter e-mail address here\">\n</div>\n<div class=\"small-2 columns\">\n  <a href=\"#\" class=\"button radius\" onclick=\"Kiosk.newsletterSignup(); return false;\">Signup!</a>\n</div>";
+  });
 templates['node.hbs'] = template(function (Handlebars,depth0,helpers,partials,data) {
   this.compilerInfo = [2,'>= 1.0.0-rc.3'];
 helpers = helpers || Handlebars.helpers; data = data || {};

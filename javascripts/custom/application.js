@@ -11,6 +11,9 @@ var Kiosk = (function($, window, document, undefined) {
       var template = Handlebars.getTemplate('footer');
       $("#footer").html(template());
 
+      var template = Handlebars.getTemplate('newsletter');
+      Kiosk.util.updateScreen('#newsletter-signup', template());
+
       $('#kiosk-search').bind('keyup', function(e) {
         if (e.keyCode == 13) {
           Kiosk.getSearchResults();
@@ -174,13 +177,17 @@ var Kiosk = (function($, window, document, undefined) {
     },
 
     newsletterSignup: function() {
-      var email_address = $('#newsletter-signup input#newsletter-email-address').attr('value');
+      var email_address = $('#newsletter-signup input#newsletter-email-address').val();
 
       DrupalRequest.newsletterSignup(email_address, function(response) {
         $('#newsletter-signup').html('<div class="small-12 columns"><p>Thank you! A confirmation has been sent to ' + email_address + '. Please follow the instructions in that email to complete the signup for our newsletter.</p></div>');
 
         setTimeout(function() {
           $('#newsletter-signup').foundation('reveal', 'close');
+
+          // restart newsletter modal, render the form
+          var template = Handlebars.getTemplate('newsletter');
+          Kiosk.util.updateScreen('#newsletter-signup', template());
         }, 5000);
       });
     },
