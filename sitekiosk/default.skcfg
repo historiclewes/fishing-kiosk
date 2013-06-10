@@ -18,7 +18,7 @@
 		<ie9-gpu-rendering enabled="true" />
 		<antisabotage enabled="true" />
 		<prevent-foreground enabled="false" />
-		<max-browserwindows>2</max-browserwindows>
+		<max-browserwindows>1</max-browserwindows>
 		<shutdown-list>
 			<shutdown-entry>
 				<action>0</action>
@@ -39,8 +39,8 @@
 		<activex>true</activex>
 		<clear-cache-shutdown>false</clear-cache-shutdown>
 		<clear-cache-midnight>true</clear-cache-midnight>
-		<no-script-errors>false</no-script-errors>
-		<no-http-uploads>false</no-http-uploads>
+		<no-script-errors>true</no-script-errors>
+		<no-http-uploads>true</no-http-uploads>
 	</netaccess>
 	<email enabled="false">
 		<action>0</action>
@@ -103,7 +103,7 @@
 		</printtemplates>
 	</printing>
 	<screensaver enabled="true">
-		<application></application>
+		<application />
 		<app-mode>0</app-mode>
 		<idletime>120</idletime>
 		<interval>30</interval>
@@ -163,7 +163,7 @@
 		</activator>
 	</screensaver-activators>
 	<security>
-		<cd-lock>false</cd-lock>
+		<cd-lock>true</cd-lock>
 		<block-removable-storage>false</block-removable-storage>
 		<block-copy-move>true</block-copy-move>
 		<watchdog>true</watchdog>
@@ -222,7 +222,7 @@
 	<touchscreen enable="true">
 		<layout>Natural Black</layout>
 		<language>0</language>
-		<key-repeat>true</key-repeat>
+		<key-repeat>false</key-repeat>
 		<delay-time>500</delay-time>
 		<repeat-rate>4</repeat-rate>
 		<loom-time>250</loom-time>
@@ -233,8 +233,9 @@
 		<position-top>0</position-top>
 		<transparence>5</transparence>
 		<autopopup>true</autopopup>
-		<autohide>false</autohide>
+		<autohide>true</autohide>
 		<floating>false</floating>
+		<url allowed="true">http://localhost:8082*</url>
 		<sound-effect>false</sound-effect>
 	</touchscreen>
 	<windowmanager>
@@ -1079,14 +1080,14 @@
 		<style>2</style>
 		<show-address-box>true</show-address-box>
 		<anim-url>http://www.provisio.com/en-US/</anim-url>
-		<hidemode>0</hidemode>
+		<hidemode>1</hidemode>
 		<show-window-bar>false</show-window-bar>
 		<show-external-windows>false</show-external-windows>
 		<hide-window-bar-if-fullscreen>false</hide-window-bar-if-fullscreen>
 		<hide-scrollbars-in-fullscreen>false</hide-scrollbars-in-fullscreen>
 		<hide-taskbar-in-fullscreen>false</hide-taskbar-in-fullscreen>
 		<show-logout-button>true</show-logout-button>
-		<new-windows-maximized>false</new-windows-maximized>
+		<new-windows-maximized>true</new-windows-maximized>
 		<taskbar-notification-area enabled="false">
 			<restricted>false</restricted>
 		</taskbar-notification-area>
@@ -1104,7 +1105,7 @@
 		<pass encrypted="true"></pass>
 		<idletime>300</idletime>
 		<connect-on-demand>false</connect-on-demand>
-		<connection></connection>
+		<connection />
 		<check-intranet>false</check-intranet>
 		<watch-ras-stats>false</watch-ras-stats>
 		<disable-net-logon>false</disable-net-logon>
