@@ -8,27 +8,24 @@
   </div>
   <div class="large-5 columns">
     <div class="large-6 columns" id="videos-cta">
-      <div class="large-6 right"><h2 class="red-header">Videos</h2>
+      <div class="large-6 right"><h2 class="red-header"><a href="#" onclick="Kiosk.getVideos(); return false;">Videos</a></h2>
 
         <p>This gentleman was surely not equipped to watch videos but you certainly are.</p>
       </div>
-      <a class="meddon" href="#"
-         onclick="Kiosk.getVideos(); return false;">Watch</a></div>
+      <a class="meddon" href="#" onclick="Kiosk.getVideos(); return false;">Watch</a></div>
     <div class="large-6 columns" id="history-cta">
-      <h2 class="red-header">History</h2>
+      <h2 class="red-header"><a href="#" onclick="Kiosk.getNode('node', 323); return false;">History</a></h2>
 
       <p>Explore the ebb and flow of a fishing industry once central to our local economy.</p>
-      <a class="meddon" href="#"
-         onclick="Kiosk.getNode('node', 323); return false;">Learn</a>
+      <a class="meddon" href="#" onclick="Kiosk.getNode('node', 323); return false;">Learn</a>
     </div>
     <div class="large-12 columns" id="whale-divider">
     </div>
     <div class="large-9 columns block-radius" id="homepage-cta">
-      <h2 class="text-center red-header">The Bay</h2>
-      <h4>Live Bay Reporting</h4>
+      <h2 class="text-center red-header"><a href="#" onclick="Kiosk.getBay(); return false;">The Bay</a></h2>
+      <h4><a href="#" onclick="Kiosk.getBay(); return false;">Live Bay Reporting</a></h4>
 
-      <p>View our interactive map which shows not only the buoys currently in the Delaware Bay, but displays useful
-        inforamtion about the weather and tides!</p>
+      <p>View our interactive map which shows not only the buoys currently in the Delaware Bay, but displays useful inforamtion about the weather and tides!</p>
       <a href="#" class="right collections meddon pointer-left" onclick="Kiosk.getBay(); return false;">View The Bay</a>
     </div>
   </div>

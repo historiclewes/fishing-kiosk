@@ -62,7 +62,7 @@ h3, h4, h5, h6 {
   color: $blue;
 }
 
-.red-header {
+.red-header, .red-header a {
   color: $red;
   font-size: 24px;
 }
@@ -349,7 +349,7 @@ h2.block-title {
 #videos-cta, #history-cta {
   height: 200px;
 
-  a {
+  a.meddon {
     position: absolute;
     bottom: 0;
     right: 0;
@@ -360,7 +360,7 @@ h2.block-title {
 
 #videos-cta {
   background: url('../images/videos.png') left 20px no-repeat;
-  a {
+  a.meddon {
     background: url('../images/pointer-right.png') center left no-repeat;
     padding-left: 40px;
     right: 35px;
@@ -369,7 +369,7 @@ h2.block-title {
 
 #history-cta {
   background: url('../images/history.png') left 85px no-repeat;
-  a {
+  a.meddon {
     padding-right: 40px;
 
     background: url('../images/pointer-left.png') center right no-repeat;
