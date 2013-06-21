@@ -19,6 +19,14 @@ var Kiosk = (function($, window, document, undefined) {
           Kiosk.getSearchResults();
         }
       });
+
+      $('#footer-navigation li').not(':first').addClass('inactive');
+      $('#footer-navigation li').first().addClass('active');
+
+      $('#footer-navigation li').bind('click', function() {
+        $(this).toggleClass('active inactive');
+        $('#footer-navigation li').not(this).addClass('inactive').removeClass('active');
+      });
     },
 
     // generic function to call and load local HTML files with optional Handlebars components
@@ -41,6 +49,14 @@ var Kiosk = (function($, window, document, undefined) {
 
       Kiosk.util.updateScreen('#main-content', template(context));
       Kiosk.getWeatherData(context.buoys[0].id);
+
+      $('#buoy-stations li').not(':first').addClass('inactive');
+      $('#buoy-stations li').first().addClass('active');
+
+      $('#buoy-stations div.navigation li').bind('click', function() {
+        $(this).toggleClass('active inactive');
+        $('#buoy-stations div.navigation li').not(this).addClass('inactive').removeClass('active');
+      });
     },
 
     // fetch a node
