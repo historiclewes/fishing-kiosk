@@ -23,9 +23,9 @@ var Kiosk = (function($, window, document, undefined) {
       $('#footer-navigation li').not(':first').addClass('inactive');
       $('#footer-navigation li').first().addClass('active');
 
-      $('#footer-navigation li').bind('click', function() {
-        $(this).toggleClass('active inactive');
-        $('#footer-navigation li').not(this).addClass('inactive').removeClass('active');
+      $('#footer-navigation li a').bind('click', function() {
+        $(this).parent('li').addClass('active').removeClass('inactive');
+        $('#footer-navigation li a').not(this).parent('li').addClass('inactive').removeClass('active');
       });
     },
 
@@ -245,8 +245,8 @@ var Kiosk = (function($, window, document, undefined) {
 
 
 $(".news-teaser").click(function(){
-  window.location=$(this).find("a").attr("href");
-  return false;
+  //window.location=$(this).find("a").attr("href");
+  //return false;
 });
 
 
