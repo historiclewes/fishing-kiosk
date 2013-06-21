@@ -481,6 +481,10 @@ h2.block-title {
     .button {
       margin: 5px 0;
     }
+
+    li.active .button {
+      background-color: $blue;
+    }
   }
 
 }
