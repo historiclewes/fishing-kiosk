@@ -1,0 +1,3 @@
+Generate certificates using http://www.selfsignedcertificate.com/.
+
+Update vhost.conf.erb with generated file names.
