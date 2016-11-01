@@ -29,6 +29,9 @@ Handlebars.getTemplate = function(name) {
         }
         Handlebars.templates[name] = Handlebars.compile(data);
       },
+      error : function(data) {
+        console.log(data);
+      },
       async : false
     });
   }
