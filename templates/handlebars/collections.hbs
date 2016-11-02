@@ -2,7 +2,7 @@
   <script type="text/javascript">Kiosk.getSlideshow('slideshow', 'collections_slideshow');</script>
   <div class="large-5 columns slideshow">
     <div class="large-12 collection-slideshow">
-      <div id="slideshow" style="width: 419px;"></div>
+      <div id="slideshow"  class="node-slideshow" style="width: 419px;"></div>
     </div>
     <div class="large-12 block-radius collections-cta">
       <h5 class="meddon">Learn About Artifacts</h5>
@@ -18,7 +18,7 @@
           <a href="#" onclick="Kiosk.getNode('collection', '{{ nid }}'); return false;">
             <div class="large-12 columns artifact-teaser">
               <div class="large-3 columns">
-                <img src="{{ image_src }}"/>
+                <img src="{{ image_src }}" style="max-height: 120px;"/>
               </div>
               <div class="large-9 columns">
                 <h4>{{{ title }}}</h4>
